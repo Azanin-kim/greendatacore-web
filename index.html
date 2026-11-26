@@ -7,7 +7,7 @@
 <meta name="description" content="GreenDataCore convierte la operación de los servicios urbanos en decisiones basadas en datos: datos, GIS y control de calidad para limpieza viaria, zonas verdes, residuos y equipamientos municipales. Madrid.">
 <link rel="canonical" href="https://greendatacore.com/">
 <link rel="icon" type="image/svg+xml" href="assets/logo/gdc-simbolo-reducido.svg">
-<meta name="theme-color" content="#1C6434">
+<meta name="theme-color" content="#1F1F1F">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="GreenDataCore">
@@ -28,9 +28,7 @@
 @font-face{font-family:"Instrument Sans";src:url(assets/fonts/InstrumentSans-600.woff2) format("woff2");font-weight:600;font-display:swap}
 @font-face{font-family:"Instrument Sans";src:url(assets/fonts/InstrumentSans-700.woff2) format("woff2");font-weight:700;font-display:swap}
 @font-face{font-family:"JetBrains Mono";src:url(assets/fonts/JetBrainsMono-400.woff2) format("woff2");font-weight:400;font-display:swap}
-:root{color-scheme:light dark;--bg:light-dark(#F6F8F4,#1F1F1F);--ink:light-dark(#17241C,#F4F6F3);--mut:light-dark(#4F5D54,#BFC7C1);--core:light-dark(#1C6434,#80CC28);--line:light-dark(#D4DDD6,#3E3E3E);--card:light-dark(#FFFFFF,#292929);--tint:light-dark(#E6F2DA,#26331F);--gr:light-dark(#1F1F1F,#2A2A2A);--foot:light-dark(#17241C,#141414);--forest:#1C6434;--leaf:#80CC28;--signal:#F5F547;--off:#F4F6F3;--sans:"Instrument Sans","Open Sans",Arial,system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace}
-:root[data-theme=light]{color-scheme:light}
-:root[data-theme=dark]{color-scheme:dark}
+:root{color-scheme:dark;--bg:#1F1F1F;--ink:#F4F6F3;--mut:#BFC7C1;--core:#80CC28;--line:#3E3E3E;--card:#292929;--tint:#26331F;--gr:#2A2A2A;--foot:#141414;--forest:#1C6434;--leaf:#80CC28;--signal:#F5F547;--off:#F4F6F3;--sans:"Instrument Sans","Open Sans",Arial,system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:96px;scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased}
@@ -138,11 +136,8 @@ td:not(:first-child){color:var(--mut)}
 .values dd{margin:0;color:var(--mut);font-size:15px}
 
 /* UDOO */
-.udoo{background:var(--card);border-block:1px solid var(--line)}
-.udoo-d{display:none}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .udoo-l{display:none}:root:not([data-theme=light]) .udoo-d{display:block}}
-:root[data-theme=dark] .udoo-l{display:none}
-:root[data-theme=dark] .udoo-d{display:block}
+.udoo{background:#1F1F1F;border-block:1px solid var(--line)}
+
 .udoo-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px 72px;align-items:center}
 .udoo-mark img{width:100%;max-width:476px;height:auto}
 .udoo .lead{color:var(--mut);margin-top:16px}
@@ -338,8 +333,7 @@ table.stack td::before{content:attr(data-l);color:var(--mut);font-weight:400;fon
 <section class="udoo band" id="udoo">
   <div class="wrap udoo-grid">
     <div class="udoo-mark">
-      <img class="udoo-l" src="assets/logo/udoo-rama-gdc.svg" alt="UDOO, una rama de GreenDataCore" width="476" height="220">
-      <img class="udoo-d" src="assets/logo/udoo-rama-gdc-negativo.svg" alt="UDOO, una rama de GreenDataCore" width="476" height="220">
+      <img src="assets/logo/udoo-rama-gdc-negativo.svg" alt="UDOO, una rama de GreenDataCore" width="476" height="220">
     </div>
     <div>
       <h2>UDOO, <span>la primera rama</span> de GreenDataCore</h2>
