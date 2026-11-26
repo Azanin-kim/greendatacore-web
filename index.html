@@ -52,7 +52,7 @@ p{margin:0}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:8px 32px;flex-wrap:wrap;padding:12px max(5vw,16px)}
 .logo{display:block;flex:none}
 .logo img{height:58px;width:auto}
-nav{display:flex;gap:0 22px;flex-wrap:wrap}
+nav{display:flex;gap:0 22px;flex-wrap:wrap;align-items:center}
 nav a{color:#F4F6F3;text-decoration:none;font-weight:500;font-size:15px;padding:10px 0;border-bottom:2px solid transparent}
 nav a:hover{border-bottom-color:var(--leaf)}
 
@@ -85,6 +85,17 @@ nav a:hover{border-bottom-color:var(--leaf)}
 /* cabeceras de sección */
 .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 64px;align-items:end;margin-bottom:clamp(32px,4vw,48px)}
 .sec-head .lead{color:var(--mut)}
+
+/* ventajas */
+.adv{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.adv li{position:relative;background:var(--tint);border-radius:16px;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.adv svg{width:72px;height:72px;flex:none}
+.adv h3{font-size:clamp(22px,2.2vw,28px);line-height:1.15;color:#FFFFFF}
+.adv p{color:#CFE0C9;font-size:16px;margin-top:10px}
+.cta-in{margin-top:clamp(28px,3vw,40px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.cta-in span{color:var(--mut)}
+.btn-n{min-height:40px;padding:0 16px;font-size:15px;background:var(--leaf);color:#17241C}
+.btn-n:hover{background:#93D945}
 
 /* qué hacemos */
 .lines{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
@@ -149,7 +160,7 @@ td:not(:first-child){color:var(--mut)}
 .next-t{grid-column:1/-1;color:var(--mut);font-size:15px;margin-top:8px}
 
 /* contacto */
-.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 64px;align-items:center}
+.contact{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px 64px;align-items:start}
 .contact .lead{color:var(--mut);margin-top:16px}
 .mail{display:block;font-size:clamp(22px,3vw,32px);font-weight:600;letter-spacing:-.01em;color:var(--core);text-decoration:none;overflow-wrap:anywhere}
 .mail:hover{text-decoration:underline;text-underline-offset:6px}
@@ -159,6 +170,23 @@ td:not(:first-child){color:var(--mut)}
 .facts dd{margin:0;font-weight:500}
 .mono{font-family:var(--mono);font-size:15px}
 
+/* formulario */
+.form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.form .full{grid-column:1/-1}
+.form label{display:grid;gap:6px;font-size:14.5px;font-weight:500}
+.form input,.form select,.form textarea{font:16px/1.4 var(--sans);color:var(--ink);background:var(--card);border:1px solid #4A4A4A;border-radius:8px;padding:12px 14px;width:100%}
+.form textarea{min-height:140px;resize:vertical}
+.form input:focus,.form select:focus,.form textarea:focus{outline:3px solid var(--leaf);outline-offset:1px;border-color:var(--leaf)}
+.form .check{display:flex;align-items:flex-start;gap:10px;font-weight:400;color:var(--mut);font-size:14.5px}
+.form .check input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--leaf)}
+.form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form .send{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.form button{cursor:pointer}
+.form button[disabled]{opacity:.6;cursor:progress}
+.status{font-size:15px}
+.status.ok{color:var(--leaf)}
+.status.err{color:#FFB4A8}
+
 /* pie */
 .foot{background:var(--foot);color:#BFC7C1;font-size:14px}
 .foot .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:32px max(5vw,16px)}
@@ -166,6 +194,9 @@ td:not(:first-child){color:var(--mut)}
 .foot p{max-width:62ch}
 
 @media (max-width:1000px){
+.adv{grid-template-columns:minmax(0,1fr)}
+.adv li{flex-direction:row;align-items:flex-start;gap:20px}
+.adv svg{width:56px;height:56px}
 .values{grid-template-columns:repeat(2,minmax(0,1fr))}
 .lines{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
@@ -187,6 +218,8 @@ nav a{font-size:14.5px;flex:none}
 .lines,.values{grid-template-columns:minmax(0,1fr)}
 .facts div{grid-template-columns:minmax(0,1fr);gap:2px}
 .btn{flex:1 1 auto;justify-content:center}
+.form{grid-template-columns:minmax(0,1fr)}
+.top .btn-n{display:none}
 table.stack thead{display:none}
 table.stack tr{display:grid;padding-block:12px;border-bottom:1px solid var(--line)}
 table.stack td{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:10px;border:0;padding:3px 0;width:auto}
@@ -210,6 +243,7 @@ table.stack td::before{content:attr(data-l);color:var(--mut);font-weight:400;fon
       <a href="#clientes">Para quién</a>
       <a href="#udoo">UDOO</a>
       <a href="#contacto">Contacto</a>
+      <a class="btn btn-n" href="#contacto">Solicitar reunión</a>
     </nav>
   </div>
 </header>
@@ -246,7 +280,31 @@ table.stack td::before{content:attr(data-l);color:var(--mut);font-weight:400;fon
   </div>
 </section>
 
-<section class="band" id="servicios">
+<section class="band" id="ventajas">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Tres ventajas de gestionar el servicio con datos</h2>
+      <p class="lead">Lo que obtiene la Administración o la empresa prestataria cuando el control del servicio se apoya en una plataforma de datos.</p>
+    </div>
+    <ul class="adv">
+      <li>
+        <svg viewBox="0 0 72 72" aria-hidden="true"><rect x="1" y="1" width="70" height="70" rx="16" fill="#1C6434"/><path d="M16 22 H30 L38 30 H46 L56 40" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M48 40 H56 V32" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 56 H56" stroke="#80CC28" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="22" r="4" fill="#80CC28" stroke="#F4F6F3" stroke-width="2"/></svg>
+        <div><h3>Ahorro de costes</h3><p>Los datos se capturan una sola vez en campo y se reutilizan en informes, inspecciones y certificaciones: menos trabajo administrativo y menos inspecciones repetidas.</p></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 72 72" aria-hidden="true"><rect x="1" y="1" width="70" height="70" rx="16" fill="#1C6434"/><path d="M36 54 V36 M36 36 L22 22 M36 36 L50 22 M36 44 L24 44" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="22" r="5" fill="#80CC28" stroke="#F4F6F3" stroke-width="2"/><circle cx="50" cy="22" r="5" fill="#80CC28" stroke="#F4F6F3" stroke-width="2"/><circle cx="24" cy="44" r="4" fill="#80CC28" stroke="#F4F6F3" stroke-width="2"/><rect x="30" y="54" width="12" height="5" rx="2" fill="#80CC28"/></svg>
+        <div><h3>Gestión eficiente de recursos</h3><p>Personal, vehículos y frecuencias se asignan según indicadores por zona y distrito, con una visión unificada de todos los contratos.</p></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 72 72" aria-hidden="true"><rect x="1" y="1" width="70" height="70" rx="16" fill="#1C6434"/><path d="M22 30 A15 15 0 0 1 49 26" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round"/><path d="M50 42 A15 15 0 0 1 23 46" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round"/><path d="M43 26 H50 V19" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M29 46 H22 V53" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36" cy="36" r="6" fill="#80CC28" stroke="#F4F6F3" stroke-width="2"/></svg>
+        <div><h3>Automatización de procesos</h3><p>Informes, alertas y tareas repetitivas se generan de forma automática, con trazabilidad de cada actuación y sin depender de hojas de cálculo manuales.</p></div>
+      </li>
+    </ul>
+    <p class="cta-in"><a class="btn btn-p" href="#contacto">Solicitar una reunión</a><span>Le mostramos cómo se aplicaría a su contrato.</span></p>
+  </div>
+</section>
+
+<section class="band alt" id="servicios">
   <div class="wrap">
     <div class="sec-head">
       <h2>Una Oficina Técnica de Datos para los servicios de la ciudad</h2>
@@ -261,10 +319,11 @@ table.stack td::before{content:attr(data-l);color:var(--mut);font-weight:400;fon
       <li><h3><span class="leaf" aria-hidden="true"></span>Oficina Técnica y gobernanza</h3><p>Coordinación del contrato, comités de seguimiento, gestión de mejoras, documentación y formación.</p></li>
     </ul>
     <p class="scope"><b>Ámbitos</b><span class="chip">Limpieza viaria</span><span class="chip">Zonas verdes y parques</span><span class="chip">Residuos</span><span class="chip">Equipamientos municipales</span></p>
+    <p class="cta-in"><a class="btn btn-p" href="#contacto">Hablemos de su servicio</a></p>
   </div>
 </section>
 
-<section class="band alt" id="clientes">
+<section class="band" id="clientes">
   <div class="wrap">
     <div class="sec-head">
       <h2>Para quién trabajamos</h2>
@@ -284,7 +343,7 @@ table.stack td::before{content:attr(data-l);color:var(--mut);font-weight:400;fon
   </div>
 </section>
 
-<section class="band" id="diferencia">
+<section class="band alt" id="diferencia">
   <div class="wrap">
     <div class="sec-head">
       <h2>Qué nos diferencia</h2>
@@ -293,7 +352,7 @@ table.stack td::before{content:attr(data-l);color:var(--mut);font-weight:400;fon
     <div class="diff">
       <ul class="args">
         <li><span class="leaf" aria-hidden="true" style="margin-top:4px"></span><div><h3>Traductor operación‑tecnología</h3><p>Entendemos el lenguaje de capataces, inspectores y responsables de contrato, y lo convertimos en requisitos para soluciones útiles.</p></div></li>
-        <li><span class="leaf" aria-hidden="true" style="margin-top:4px"></span><div><h3>Experiencia real en Madrid</h3><p>Conocimiento directo de pliegos, contratos municipales, Servicios Técnicos e integración con sistemas corporativos (MINT, cumplimiento ENS nivel medio).</p></div></li>
+        <li><span class="leaf" aria-hidden="true" style="margin-top:4px"></span><div><h3>Más de una década gestionando servicios urbanos</h3><p>Experiencia directa en la dirección de contratos municipales: pliegos, coordinación con los Servicios Técnicos e integración con sistemas corporativos (MINT, cumplimiento ENS nivel medio).</p></div></li>
         <li><span class="leaf" aria-hidden="true" style="margin-top:4px"></span><div><h3>Tecnología y ciberseguridad de nivel empresarial</h3><p>Socios con décadas de experiencia en consultoría tecnológica, cloud, ciberseguridad, infraestructura e inteligencia artificial.</p></div></li>
         <li><span class="leaf" aria-hidden="true" style="margin-top:4px"></span><div><h3>Modelo replicable</h3><p>Lo que se construye para un contrato sirve para limpieza viaria, residuos y zonas verdes de otros contratos y de otras ciudades.</p></div></li>
       </ul>
@@ -310,6 +369,7 @@ table.stack td::before{content:attr(data-l);color:var(--mut);font-weight:400;fon
         </table>
       </div>
     </div>
+    <p class="cta-in"><a class="btn btn-p" href="#contacto">Solicitar una reunión</a><span>Analizamos con usted los datos de su contrato.</span></p>
   </div>
 </section>
 
@@ -338,6 +398,7 @@ table.stack td::before{content:attr(data-l);color:var(--mut);font-weight:400;fon
     <div>
       <h2>UDOO, <span>la primera rama</span> de GreenDataCore</h2>
       <p class="lead">UDOO — Urban Data Operations Office es la Oficina Técnica de Datos y Control de Calidad para servicios urbanos, y el proyecto con el que GreenDataCore entra en el mercado, empezando por las zonas verdes de Madrid.</p>
+      <p class="cta-in"><a class="btn btn-p" href="#contacto">Quiero conocer UDOO</a></p>
     </div>
     <p class="next-t">Las siguientes ramas reutilizan el mismo núcleo de datos, método y herramientas:</p>
     <dl class="next">
@@ -351,16 +412,26 @@ table.stack td::before{content:attr(data-l);color:var(--mut);font-weight:400;fon
 <section class="band" id="contacto">
   <div class="wrap contact">
     <div>
-      <h2>Contacto</h2>
-      <p class="lead">Para propuestas, colaboración o información sobre UDOO, escríbanos y le responderemos a la mayor brevedad.</p>
+      <h2>Hablemos</h2>
+      <p class="lead">Cuéntenos qué servicio gestiona y qué necesita. Le responderemos a la mayor brevedad para concertar una reunión.</p>
     </div>
-    <div>
-      <a class="mail" href="mailto:contacto@greendatacore.com">contacto@greendatacore.com</a>
-      <dl class="facts">
-        <div><dt>Sede</dt><dd>Madrid</dd></div>
-        <div><dt>Web</dt><dd class="mono">greendatacore.com</dd></div>
-      </dl>
-    </div>
+    <form class="form" id="cf" novalidate>
+      <label>Nombre y apellidos<input id="f-nombre" name="nombre" autocomplete="name" required></label>
+      <label>Organización<input id="f-org" name="organizacion" autocomplete="organization" required></label>
+      <label>Correo electrónico<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+      <label>Teléfono (opcional)<input id="f-tel" name="telefono" type="tel" autocomplete="tel"></label>
+      <label class="full">Tipo de entidad<select id="f-tipo" name="tipo" required>
+        <option value="">Seleccione una opción</option>
+        <option>Ayuntamiento o Administración pública</option>
+        <option>Empresa prestataria de servicios urbanos</option>
+        <option>Socio tecnológico</option>
+        <option>Otro</option>
+      </select></label>
+      <label class="full">Mensaje<textarea id="f-msg" name="mensaje" required></textarea></label>
+      <label class="hp" aria-hidden="true">No rellenar<input id="f-hp" name="_honey" tabindex="-1" autocomplete="off"></label>
+      <label class="check full"><input id="f-ok" type="checkbox" required>Acepto que GreenDataCore utilice estos datos únicamente para responder a mi consulta.</label>
+      <div class="send full"><button class="btn btn-p" id="f-send" type="submit">Enviar mensaje</button><p class="status" id="f-status" role="status" aria-live="polite"></p></div>
+    </form>
   </div>
 </section>
 </main>
@@ -403,6 +474,27 @@ table.stack td::before{content:attr(data-l);color:var(--mut);font-weight:400;fon
     const heads = [...t.tHead.rows[0].cells].map(c => c.textContent);
     for (const r of t.tBodies[0].rows) [...r.cells].forEach((c, i) => c.dataset.l = heads[i] || '');
   }
+  const form = document.getElementById('cf');
+  const status = document.getElementById('f-status');
+  const sendBtn = document.getElementById('f-send');
+  const ENDPOINT = 'https://formsubmit.co/ajax/a.kim@tagasa.com';
+  const say = (t, cls) => { status.textContent = t; status.className = 'status ' + (cls || ''); };
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!form.checkValidity()) { say('Revise los campos obligatorios y acepte el uso de sus datos.', 'err'); form.reportValidity(); return; }
+    if (document.getElementById('f-hp').value) return;
+    const v = id => document.getElementById(id).value.trim();
+    const data = { nombre: v('f-nombre'), organizacion: v('f-org'), email: v('f-email'), telefono: v('f-tel'), tipo: v('f-tipo'), mensaje: v('f-msg'), _subject: 'Contacto web GreenDataCore: ' + v('f-org'), _replyto: v('f-email'), _template: 'table', _captcha: 'false' };
+    sendBtn.disabled = true; say('Enviando…');
+    try {
+      const r = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || String(j.success) === 'false') throw new Error('envío');
+      form.reset(); say('Mensaje enviado. Le responderemos a la mayor brevedad.', 'ok');
+    } catch (err) {
+      say('No se ha podido enviar el mensaje. Inténtelo de nuevo en unos minutos.', 'err');
+    } finally { sendBtn.disabled = false; }
+  });
   document.getElementById('y').textContent = new Date().getFullYear();
 }
 </script>
