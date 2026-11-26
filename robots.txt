@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /extras/
 Sitemap: https://greendatacore.com/sitemap.xml
