@@ -1,0 +1,40 @@
+# GreenDataCore
+
+> GreenDataCore combina tecnología y experiencia en servicios urbanos para ayudar a las empresas prestatarias a dirigir su operación y a los ayuntamientos a supervisarla con datos. UDOO (Urban Data Operations Office) es su plataforma de gestión de limpieza urbana: conecta contratos, equipos, flota, mapas en tiempo real, avisos y mantenimiento, con el acompañamiento de una Oficina Técnica de Datos.
+
+GreenDataCore diseña, implanta y acompaña sistemas de control operativo para limpieza viaria, recogida de residuos y mantenimiento de zonas verdes. Reúne conocimiento de la gestión diaria de contratos municipales y experiencia en tecnología, integración de datos y ciberseguridad. Su actividad consiste en proporcionar las herramientas y el método para gestionar y supervisar el servicio.
+
+**Qué resuelve UDOO.** La gestión de un servicio urbano exige coordinar lo que el contrato requiere, los recursos disponibles, lo que ocurre en la calle y lo que necesita conocer el ayuntamiento. UDOO reúne esa información en un mismo entorno de trabajo. Permite identificar dónde falta cobertura, qué medios están disponibles, qué avisos requieren atención y qué actuaciones se han realizado. Su valor está en conectar esos datos para facilitar decisiones operativas y conservar la trazabilidad del servicio.
+
+**Para quién.** Las empresas de servicios urbanos y las empresas municipales utilizan UDOO para gestionar sus contratos y equipos. La dirección dispone de una visión de varios contratos; el encargado coordina la operación de su contrato; el capataz atiende los avisos y recursos de su cantón; el responsable de taller organiza el mantenimiento. El ayuntamiento consulta el estado de sus servicios, los avisos visibles y la cobertura agregada mediante un acceso específico de supervisión.
+
+**Procesos que permite gestionar actualmente:**
+
+- **Preparar cada contrato para operar.** Organizar servicios, zonas, sectores, cantones —bases operativas—, turnos, personal y medios; incorporar datos mediante plantillas Excel con validación previa; configurar tipos de aviso, reglas de reparto y plazos. La activación del contrato comprueba que cuenta con sectores, cantones y plantilla. La gestión contempla vigencias, prórrogas y conservación en consulta de contratos finalizados.
+- **Cubrir el servicio con los recursos disponibles.** Comparar la dotación necesaria con el personal y los medios disponibles por cantón y turno, teniendo en cuenta categorías y habilitaciones. Ante un déficit, solicitar propuestas explicadas de apoyo desde otros cantones, revisar su efecto y validar o ajustar los traslados. La reasignación se basa en reglas y mantiene la decisión en manos del responsable.
+- **Dirigir la operación sobre el mapa.** Consultar límites del contrato, zonas, sectores, cantones, avisos y posiciones de los medios con actualización en vivo. Identificar vehículos y equipos fuera de su sector o zona mediante alertas con tolerancias configurables. Consultar recorridos por turno o día, distancias y representaciones de superficie estimada a partir del trazado y del ancho del medio. La posición GPS indica presencia y recorrido; por sí sola no acredita trabajo realizado.
+- **Llevar cada aviso hasta su resolución.** Registrar incidencias propias o recibir avisos externos, ubicarlos, fijar su prioridad y plazo y repartirlos por equipo y turno. El capataz puede aceptar, iniciar, pausar, reanudar y resolver, con notas y fotografías. Las propuestas de reparto sin confirmar y los avisos que requieren atención se escalan al encargado. El historial conserva las transiciones y los tiempos para comprobar cómo se atendió cada caso.
+- **Conectar el taller con la disponibilidad de la flota.** Gestionar vehículos, carritos, maquinaria y herramientas, sus estados, ITV y contadores de uso. Una avería o un mantenimiento preventivo da lugar a una orden de trabajo; el taller organiza su carga semanal y el estado del medio se vincula a la intervención. Esto permite planificar con los medios realmente operativos y atender las revisiones pendientes.
+- **Controlar materiales y necesidades de atención.** Consultar existencias, entradas, consumos, ajustes y traspasos de consumibles por cantón. Los mínimos de stock, las necesidades de cobertura, las habilitaciones, las ITV y las revisiones pendientes alimentan las vistas de atención de los responsables, con acceso al detalle para actuar.
+- **Dar visibilidad al ayuntamiento.** Consultar el mapa del servicio, los medios agregados, la cobertura de jornadas cerradas y los avisos municipales, además de las incidencias propias que la empresa haya marcado como visibles. Los avisos muestran plazos, evolución y fotografías de apertura y cierre. La vista municipal protege los datos personales de la plantilla y las notas internas de la empresa.
+- **Incorporar datos de otros sistemas.** Recibir posiciones de medios y avisos mediante API, con conexiones y credenciales administradas por contrato. La integración de cada fuente se configura según su formato y alcance; los datos recibidos alimentan el mapa y el circuito de atención de avisos.
+
+**Qué aporta a la gestión.** Para la empresa, UDOO facilita priorizar incidencias, coordinar apoyos entre equipos y relacionar el mantenimiento con la capacidad disponible. Para los mandos de campo, reúne los avisos y recursos de su ámbito en una interfaz adaptada al móvil. Para la Administración, proporciona seguimiento del servicio y evidencias de atención desde la misma información operativa, con una vista propia y permisos diferenciados.
+
+**Plataforma y Oficina Técnica de Datos.** La propuesta de GreenDataCore combina el software con diagnóstico de la operativa, configuración, incorporación de las fuentes acordadas, formación y puesta en marcha. El acompañamiento recurrente incluye revisión de la calidad de los datos, seguimiento de pendientes y desviaciones y propuestas de mejora. La contratación se organiza por contrato de servicio; el ayuntamiento dispone de acceso de supervisión sin una suscripción municipal de pago. El alcance de la implantación y del acompañamiento se concreta en cada propuesta.
+
+**Confianza y trazabilidad.** UDOO aplica separación de datos entre organizaciones, permisos según funciones y asignaciones, auditoría de actuaciones y protección de las evidencias. La información se presenta según la responsabilidad de cada usuario, desde la dirección de la empresa hasta el equipo de campo y la supervisión municipal.
+
+## Empresa y método
+
+- [GreenDataCore](https://greendatacore.com/): Sitio oficial. Inteligencia de datos y control operativo para servicios urbanos.
+- [Experiencia y enfoque de GreenDataCore](https://greendatacore.com/#nosotros): Conocimiento de contratos de servicios urbanos y tecnología aplicada a su gestión.
+- [Método de trabajo](https://greendatacore.com/#metodo): Procesos, captura de información, plataforma de datos, cartografía y Oficina Técnica.
+
+## UDOO
+
+- [UDOO — Urban Data Operations Office](https://greendatacore.com/#udoo): Presentación del producto, destinatarios, implantación y acompañamiento. La demostración pública utiliza datos ficticios sobre la cartografía del parque del Retiro; no representa un cliente ni un contrato real.
+
+## Contacto
+
+- [Solicitar una reunión o una demostración](https://greendatacore.com/#contacto): Consultas de empresas prestatarias, ayuntamientos, administraciones públicas y socios tecnológicos.
