@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/InstrumentSans-600.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js")</script>
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
 <link rel="stylesheet" href="assets/udoo/udoo-mapa.css?v=4">
 </head>
@@ -155,50 +155,52 @@
       <figcaption>Demostración interactiva con datos ficticios sobre la cartografía real del parque del Retiro. Las zonas, los vehículos y los avisos no corresponden a ningún contrato.</figcaption>
     </figure>
 
-    <div class="ud-block">
-      <h3>Qué gestiona</h3>
-      <ul class="ud-grid">
-        <li><h4>Avisos e incidencias</h4><p>Recepción, localización por zona, asignación y seguimiento hasta el cierre, con los tiempos de respuesta medidos.</p></li>
-        <li><h4>Flota y equipos</h4><p>Posición de los vehículos, sectores delimitados por geocerca, presencia programada frente a presencia real y recorridos realizados.</p></li>
-        <li><h4>Zonas y elementos</h4><p>Zonas, sectores y elementos del servicio sobre cartografía, con su estado y el historial de actuaciones.</p></li>
-        <li><h4>Indicadores e informes</h4><p>Cobertura, cumplimiento y rendimiento por zona, con informes diarios y mensuales generados de forma automática.</p></li>
-      </ul>
-    </div>
-
-    <div class="ud-block">
-      <h3>Qué procesos mejora</h3>
-      <ol class="ud-list">
-        <li><b>Del aviso a la resolución.</b> Cada aviso llega ubicado y asignado a su zona y a su equipo, y ninguno queda sin responsable.</li>
-        <li><b>Planificación y cobertura.</b> Lo planificado se compara cada día con lo ejecutado, zona por zona.</li>
-        <li><b>Presencia en zona.</b> La geolocalización acredita que los equipos están donde el servicio los necesita.</li>
-        <li><b>Informes y justificación.</b> Los informes al cliente se generan a partir de los datos, sin hojas de cálculo manuales.</li>
-        <li><b>Anticipación.</b> Las desviaciones se detectan antes de que lleguen en forma de reclamación.</li>
-      </ol>
-    </div>
-
-    <div class="ud-block">
-      <h3>Qué aporta a cada parte</h3>
-      <table class="branches ud-for">
-        <thead><tr><th>Para</th><th>Qué aporta</th></tr></thead>
-        <tbody>
-          <tr><td>Otros contratos de servicios urbanos</td><td>El modelo se adapta a limpieza viaria, residuos, zonas verdes y mantenimiento: las mismas capas, con las zonas, los elementos y los indicadores de cada pliego.</td></tr>
-          <tr><td>Empresas prestatarias</td><td>Control de la propia ejecución, menor carga administrativa y una base documental sólida para acreditar el cumplimiento ante la Administración.</td></tr>
-          <tr><td>Ayuntamientos y Administración pública</td><td>Supervisión objetiva del cumplimiento, indicadores homogéneos entre contratos y distritos, trazabilidad de los avisos ciudadanos y datos fiables para preparar los próximos pliegos.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="ud-block">
-      <h3>Cómo se implanta</h3>
-      <div>
-        <ol class="ud-grid ud-steps">
-          <li><h4>Diagnóstico</h4><p>Análisis del pliego, de los procesos y de los sistemas existentes, y definición de los indicadores.</p></li>
-          <li><h4>Implantación</h4><p>Integración segura con los sistemas acordados con cada cliente, cartografía de zonas, cuadros de mando y formación.</p></li>
-          <li><h4>Oficina Técnica de Datos</h4><p>Servicio continuo: supervisión diaria, informes periódicos y mejora de los procesos.</p></li>
-        </ol>
-        <p class="ud-next"><b>Próximas ramas:</b> el modelo UDOO en otros servicios urbanos, la Oficina Técnica de Datos para otras ciudades y productos reutilizables, como cuadros de mando, plantillas y automatizaciones.</p>
-        <p class="acts"><a class="btn btn-p" href="#contacto" data-demo>Solicitar una demo de UDOO</a></p>
+    <div class="mm" id="mm">
+      <svg class="mm-lines" aria-hidden="true"></svg>
+      <div class="mm-q mm-a" data-side="l">
+        <h3 class="mm-hub">Qué gestiona</h3>
+        <ul>
+          <li><button type="button" aria-pressed="false">Avisos e incidencias</button><p class="mm-txt">Recepción, localización por zona, asignación y seguimiento hasta el cierre, con los tiempos de respuesta medidos.</p></li>
+          <li><button type="button" aria-pressed="false">Flota y equipos</button><p class="mm-txt">Posición de los vehículos, sectores delimitados por geocerca, presencia programada frente a presencia real y recorridos realizados.</p></li>
+          <li><button type="button" aria-pressed="false">Zonas y elementos</button><p class="mm-txt">Zonas, sectores y elementos del servicio sobre cartografía, con su estado y el historial de actuaciones.</p></li>
+          <li><button type="button" aria-pressed="false">Indicadores e informes</button><p class="mm-txt">Cobertura, cumplimiento y rendimiento por zona, con informes diarios y mensuales generados de forma automática.</p></li>
+        </ul>
       </div>
+      <div class="mm-q mm-b" data-side="r">
+        <h3 class="mm-hub">Qué procesos mejora</h3>
+        <ul>
+          <li><button type="button" aria-pressed="false">Del aviso a la resolución</button><p class="mm-txt">Cada aviso llega ubicado y asignado a su zona y a su equipo, y ninguno queda sin responsable.</p></li>
+          <li><button type="button" aria-pressed="false">Planificación y cobertura</button><p class="mm-txt">Lo planificado se compara cada día con lo ejecutado, zona por zona.</p></li>
+          <li><button type="button" aria-pressed="false">Presencia en zona</button><p class="mm-txt">La geolocalización acredita que los equipos están donde el servicio los necesita.</p></li>
+          <li><button type="button" aria-pressed="false">Informes y justificación</button><p class="mm-txt">Los informes al cliente se generan a partir de los datos, sin hojas de cálculo manuales.</p></li>
+          <li><button type="button" aria-pressed="false">Anticipación</button><p class="mm-txt">Las desviaciones se detectan antes de que lleguen en forma de reclamación.</p></li>
+        </ul>
+      </div>
+      <div class="mm-core">
+        <div class="mm-node"><span class="mm-name">UDOO</span><span class="mm-sub">Urban Data Operations Office</span></div>
+        <div class="mm-card" aria-live="polite"><p class="mm-ct"></p><p class="mm-cd"></p></div>
+      </div>
+      <div class="mm-q mm-c" data-side="l">
+        <h3 class="mm-hub">A quién aporta valor</h3>
+        <ul>
+          <li><button type="button" aria-pressed="false">Otros contratos de servicios urbanos</button><p class="mm-txt">El modelo se adapta a limpieza viaria, residuos, zonas verdes y mantenimiento: las mismas capas, con las zonas, los elementos y los indicadores de cada pliego.</p></li>
+          <li><button type="button" aria-pressed="false">Empresas prestatarias</button><p class="mm-txt">Control de la propia ejecución, menor carga administrativa y una base documental sólida para acreditar el cumplimiento ante la Administración.</p></li>
+          <li><button type="button" aria-pressed="false">Ayuntamientos y Administración pública</button><p class="mm-txt">Supervisión objetiva del cumplimiento, indicadores homogéneos entre contratos y distritos, trazabilidad de los avisos ciudadanos y datos fiables para preparar los próximos pliegos.</p></li>
+        </ul>
+      </div>
+      <div class="mm-q mm-d" data-side="r">
+        <h3 class="mm-hub">Cómo se implanta</h3>
+        <ul>
+          <li><button type="button" aria-pressed="false">1 · Diagnóstico</button><p class="mm-txt">Análisis del pliego, de los procesos y de los sistemas existentes, y definición de los indicadores.</p></li>
+          <li><button type="button" aria-pressed="false">2 · Implantación</button><p class="mm-txt">Integración segura con los sistemas acordados con cada cliente, cartografía de zonas, cuadros de mando y formación.</p></li>
+          <li><button type="button" aria-pressed="false">3 · Oficina Técnica de Datos</button><p class="mm-txt">Servicio continuo: supervisión diaria, informes periódicos y mejora de los procesos.</p></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ud-end">
+      <p class="ud-next"><b>Próximas ramas:</b> el modelo UDOO en otros servicios urbanos, la Oficina Técnica de Datos para otras ciudades y productos reutilizables, como cuadros de mando, plantillas y automatizaciones.</p>
+      <p class="acts"><a class="btn btn-p" href="#contacto" data-demo>Solicitar una demo de UDOO</a></p>
     </div>
   </div>
 </section>
@@ -467,6 +469,55 @@ if (!reduce) {
     const m = document.getElementById('f-msg');
     if (m && !m.value.trim()) m.value = 'Nos gustaría solicitar una demostración de UDOO.';
   }));
+}
+</script>
+<script>
+{
+  const mm = document.getElementById('mm');
+  if (mm) {
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = mm.querySelector('.mm-lines'), node = mm.querySelector('.mm-node');
+    const ct = mm.querySelector('.mm-ct'), cd = mm.querySelector('.mm-cd');
+    const wide = matchMedia('(min-width: 60.01rem)');
+    const btns = [...mm.querySelectorAll('.mm-q button')];
+    let ticks = new Map();
+    const el = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); svg.append(e); return e; };
+    const draw = () => {
+      svg.replaceChildren(); ticks = new Map();
+      if (!wide.matches) return;
+      const R = mm.getBoundingClientRect(), r = e => { const b = e.getBoundingClientRect(); return { l: b.left - R.left, r: b.right - R.left, t: b.top - R.top, b: b.bottom - R.top, y: (b.top + b.bottom) / 2 - R.top }; };
+      svg.setAttribute('viewBox', `0 0 ${R.width} ${R.height}`);
+      const n = r(node);
+      mm.querySelectorAll('.mm-q').forEach(qd => {
+        const left = qd.dataset.side === 'l', Q = r(qd), hub = r(qd.querySelector('.mm-hub'));
+        const tx = left ? Q.r + 24 : Q.l - 24;
+        const items = [...qd.querySelectorAll('button')].map(b => [b, r(b)]);
+        const last = items[items.length - 1][1].y;
+        const nx = left ? n.l : n.r, mx = (tx + nx) / 2;
+        const trunk = `M${tx} ${hub.y} H${mx} V${n.y} H${nx}`;
+        el('path', { d: trunk, class: 'mm-t' });
+        el('path', { d: trunk, class: 'mm-p' });
+        el('path', { d: `M${left ? hub.r + 12 : hub.l - 12} ${hub.y} H${tx} V${last}`, class: 'mm-t' });
+        el('circle', { cx: tx, cy: hub.y, r: 4, class: 'mm-j' });
+        items.forEach(([b, bb]) => { ticks.set(b, el('path', { d: `M${tx} ${bb.y} H${left ? bb.r + 6 : bb.l - 6}`, class: 'mm-t' })); el('circle', { cx: tx, cy: bb.y, r: 3, class: 'mm-j' }); });
+      });
+      el('circle', { cx: n.l, cy: n.y, r: 5, class: 'mm-j on' }); el('circle', { cx: n.r, cy: n.y, r: 5, class: 'mm-j on' });
+      const cur = btns.find(b => b.getAttribute('aria-pressed') === 'true'); if (cur && ticks.get(cur)) ticks.get(cur).classList.add('on');
+    };
+    const select = b => {
+      btns.forEach(x => { x.setAttribute('aria-pressed', String(x === b)); ticks.get(x)?.classList.toggle('on', x === b); });
+      ct.textContent = b.textContent; cd.textContent = b.nextElementSibling.textContent;
+    };
+    btns.forEach(b => b.addEventListener('click', () => {
+      if (!wide.matches) { const li = b.parentElement, open = !li.classList.contains('open'); li.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open)); return; }
+      select(b);
+    }));
+    btns.forEach(b => b.addEventListener('mouseenter', () => { if (wide.matches) select(b); }));
+    select(btns[0]);
+    new ResizeObserver(draw).observe(mm);
+    wide.addEventListener('change', draw);
+    if (document.fonts) document.fonts.ready.then(draw);
+  }
 }
 </script>
 </body>
