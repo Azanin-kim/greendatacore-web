@@ -21,7 +21,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/InstrumentSans-600.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js")</script>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="assets/udoo/udoo-mapa.css?v=4">
 </head>
 <body>
 <div class="intro" id="intro" hidden>
@@ -112,18 +114,92 @@
     <div class="mark"><img src="assets/logo/udoo-rama-gdc-negativo.svg" alt="UDOO, una rama de GreenDataCore" width="476" height="220"></div>
     <div>
       <h2>UDOO, la primera rama</h2>
-      <p class="lead">Urban Data Operations Office: la Oficina Técnica de Datos y Control de Calidad para servicios urbanos, empezando por las zonas verdes de Madrid.</p>
-      <p class="acts"><a class="link" href="#contacto">Hablemos de UDOO</a></p>
+      <p class="lead">Urban Data Operations Office: una plataforma y una Oficina Técnica de Datos que reúnen en un solo mapa los avisos, la flota, las zonas y los indicadores de un servicio urbano, y los convierten en control de calidad diario.</p>
+      <p class="acts"><a class="btn btn-p" href="#contacto" data-demo>Solicitar una demo de UDOO</a></p>
     </div>
-    <table class="branches">
-      <thead><tr><th>Rama</th><th>Qué es</th><th>Estado</th></tr></thead>
-      <tbody>
-        <tr class="on"><td>UDOO</td><td>Oficina Técnica de Datos y Control de Calidad.</td><td>En marcha</td></tr>
-        <tr><td>Otros servicios</td><td>El modelo UDOO en limpieza viaria, residuos y otros contratos.</td><td>En crecimiento</td></tr>
-        <tr><td>Oficina como servicio</td><td>La Oficina Técnica de Datos para otras ciudades.</td><td>En crecimiento</td></tr>
-        <tr><td>Productos</td><td>Cuadros de mando, scripts y plantillas reutilizables.</td><td>En crecimiento</td></tr>
-      </tbody>
-    </table>
+
+    <figure class="ud-fig">
+      <div class="ud" id="ud" data-start="mapa">
+        <div class="ud-top">
+          <div class="ud-title">UDOO · Panel de operaciones</div>
+          <div class="ud-tabs" role="tablist" aria-label="Vistas de UDOO">
+            <button type="button" role="tab" data-v="mapa" aria-selected="true">Mapa</button>
+            <button type="button" role="tab" data-v="flota" aria-selected="false">Flota</button>
+            <button type="button" role="tab" data-v="ind" aria-selected="false">Indicadores</button>
+          </div>
+          <span class="ud-demo">Datos de demostración</span>
+        </div>
+        <div class="ud-body">
+          <div class="ud-map"><div id="ud-map" role="region" aria-label="Mapa de demostración sobre el parque del Retiro, con zonas, avisos y vehículos ficticios"></div></div>
+          <aside class="ud-side">
+            <div class="ud-kpis">
+              <div class="ud-kpi new"><b data-k="open">0</b><span>Avisos abiertos</span></div>
+              <div class="ud-kpi ok"><b data-k="solved">0</b><span>Resueltos hoy</span></div>
+              <div class="ud-kpi"><b data-k="fleet">0</b><span>Vehículos en su sector</span></div>
+              <div class="ud-kpi"><b data-k="cov">0</b><span>Cobertura del servicio</span></div>
+            </div>
+            <p class="ud-feed-h">Actividad reciente</p>
+            <ul class="ud-feed" aria-live="off"></ul>
+            <div class="ud-layers">
+              <label><input type="checkbox" value="zones" checked>Zonas</label>
+              <label><input type="checkbox" value="pins" checked>Avisos</label>
+              <label><input type="checkbox" value="veh" checked>Vehículos</label>
+            </div>
+          </aside>
+        </div>
+        <div class="ud-panel" hidden>
+          <div><p class="ud-ph">Avisos por zona</p><div class="ud-bars"></div></div>
+          <div><p class="ud-ph">Cobertura del servicio por sector</p><div class="ud-bars ud-cov"></div></div>
+        </div>
+      </div>
+      <figcaption>Demostración interactiva con datos ficticios sobre la cartografía real del parque del Retiro. Las zonas, los vehículos y los avisos no corresponden a ningún contrato.</figcaption>
+    </figure>
+
+    <div class="ud-block">
+      <h3>Qué gestiona</h3>
+      <ul class="ud-grid">
+        <li><h4>Avisos e incidencias</h4><p>Recepción, localización por zona, asignación y seguimiento hasta el cierre, con los tiempos de respuesta medidos.</p></li>
+        <li><h4>Flota y equipos</h4><p>Posición de los vehículos, sectores delimitados por geocerca, presencia programada frente a presencia real y recorridos realizados.</p></li>
+        <li><h4>Zonas y elementos</h4><p>Zonas, sectores y elementos del servicio sobre cartografía, con su estado y el historial de actuaciones.</p></li>
+        <li><h4>Indicadores e informes</h4><p>Cobertura, cumplimiento y rendimiento por zona, con informes diarios y mensuales generados de forma automática.</p></li>
+      </ul>
+    </div>
+
+    <div class="ud-block">
+      <h3>Qué procesos mejora</h3>
+      <ol class="ud-list">
+        <li><b>Del aviso a la resolución.</b> Cada aviso llega ubicado y asignado a su zona y a su equipo, y ninguno queda sin responsable.</li>
+        <li><b>Planificación y cobertura.</b> Lo planificado se compara cada día con lo ejecutado, zona por zona.</li>
+        <li><b>Presencia en zona.</b> La geolocalización acredita que los equipos están donde el servicio los necesita.</li>
+        <li><b>Informes y justificación.</b> Los informes al cliente se generan a partir de los datos, sin hojas de cálculo manuales.</li>
+        <li><b>Anticipación.</b> Las desviaciones se detectan antes de que lleguen en forma de reclamación.</li>
+      </ol>
+    </div>
+
+    <div class="ud-block">
+      <h3>Qué aporta a cada parte</h3>
+      <table class="branches ud-for">
+        <thead><tr><th>Para</th><th>Qué aporta</th></tr></thead>
+        <tbody>
+          <tr><td>Otros contratos de servicios urbanos</td><td>El modelo se adapta a limpieza viaria, residuos, zonas verdes y mantenimiento: las mismas capas, con las zonas, los elementos y los indicadores de cada pliego.</td></tr>
+          <tr><td>Empresas prestatarias</td><td>Control de la propia ejecución, menor carga administrativa y una base documental sólida para acreditar el cumplimiento ante la Administración.</td></tr>
+          <tr><td>Ayuntamientos y Administración pública</td><td>Supervisión objetiva del cumplimiento, indicadores homogéneos entre contratos y distritos, trazabilidad de los avisos ciudadanos y datos fiables para preparar los próximos pliegos.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="ud-block">
+      <h3>Cómo se implanta</h3>
+      <div>
+        <ol class="ud-grid ud-steps">
+          <li><h4>Diagnóstico</h4><p>Análisis del pliego, de los procesos y de los sistemas existentes, y definición de los indicadores.</p></li>
+          <li><h4>Implantación</h4><p>Integración segura con los sistemas acordados con cada cliente, cartografía de zonas, cuadros de mando y formación.</p></li>
+          <li><h4>Oficina Técnica de Datos</h4><p>Servicio continuo: supervisión diaria, informes periódicos y mejora de los procesos.</p></li>
+        </ol>
+        <p class="ud-next"><b>Próximas ramas:</b> el modelo UDOO en otros servicios urbanos, la Oficina Técnica de Datos para otras ciudades y productos reutilizables, como cuadros de mando, plantillas y automatizaciones.</p>
+        <p class="acts"><a class="btn btn-p" href="#contacto" data-demo>Solicitar una demo de UDOO</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -374,6 +450,23 @@ if (!reduce) {
   if (seen) { ambient(); stream(); }
   else intro();
 } else { const ov = document.getElementById('intro'); if (ov) ov.remove(); }
+}
+</script>
+<script>
+{
+  const ud = document.getElementById('ud');
+  if (ud) {
+    const add = src => new Promise((ok, ko) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = ko; document.body.append(s); });
+    new IntersectionObserver((es, o) => {
+      if (!es[0].isIntersecting) return;
+      o.disconnect();
+      add('assets/vendor/leaflet/leaflet.js').then(() => add('assets/udoo/udoo-mapa-datos.js')).then(() => add('assets/udoo/udoo-mapa.js?v=4')).catch(() => {});
+    }, { rootMargin: '600px 0px' }).observe(ud);
+  }
+  document.querySelectorAll('[data-demo]').forEach(a => a.addEventListener('click', () => {
+    const m = document.getElementById('f-msg');
+    if (m && !m.value.trim()) m.value = 'Nos gustaría solicitar una demostración de UDOO.';
+  }));
 }
 </script>
 </body>
