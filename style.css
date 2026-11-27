@@ -123,7 +123,6 @@ body { font-size: 1.0625rem; }
 .intro { position: fixed; inset: 0; z-index: var(--z-modal); background: var(--color-paper); display: grid; place-items: center; cursor: pointer; padding: var(--space-lg); }
 .intro-stage { display: flex; justify-content: center; }
 .intro .logo { width: min(680px, 88vw, 100vh); height: auto; }
-.intro-stage #tree { translate: 0 11.5%; }
 html.js .intro-go:not(.on) { opacity: 0; }
 .intro-go { position: absolute; left: 50%; bottom: max(32px, env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); font: 500 var(--text-sm)/1 var(--font-body); color: var(--color-muted); background: transparent; border: 1px solid var(--color-edge); border-radius: var(--radius-pill); padding: var(--space-sm) var(--space-lg); min-height: 44px; transition: opacity var(--dur-long) var(--ease-out), border-color var(--dur-short) var(--ease-out); cursor: pointer; }
 .intro-go:hover { border-color: var(--color-accent); color: var(--color-ink); }

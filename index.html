@@ -341,7 +341,7 @@ function intro(){
   const go = ov.querySelector('.intro-go');
   ov.hidden = false;
   ov.querySelector('.intro-stage').prepend(host);
-  const end = grow(null, false);
+  const end = grow(null, true);
   later(() => { go.classList.add('on'); stream(); }, end);
   let done = false;
   const enter = () => {
@@ -354,7 +354,7 @@ function intro(){
     const dx = (first.left + first.width/2) - (last.left + last.width/2), dy = (first.top + first.height/2) - (last.top + last.height/2);
     host.getAnimations().forEach(a => a.cancel());
     host.animate([{transform: `translate(${dx}px, ${dy}px) scale(${sc})`}, {transform: 'none'}], {duration: 950, easing: 'cubic-bezier(.65,0,.25,1)'});
-    host.querySelectorAll(':scope > svg > path').forEach((p, i) => { p.style.opacity = ''; p.animate([{opacity: 0}, {opacity: 1}], {duration: 600, delay: 450 + i*15, fill: 'backwards'}); });
+    host.querySelectorAll(':scope > svg > path').forEach(p => { p.getAnimations().forEach(a => a.finish()); p.style.opacity = ''; });
     go.style.visibility = 'hidden';
     ov.animate([{opacity: 1}, {opacity: 0}], {duration: 750, easing: 'ease-out'}).onfinish = () => { ov.remove(); };
     lema.animate([{opacity: 0}, {opacity: 1}], {duration: 600, delay: 500, fill: 'backwards'});
