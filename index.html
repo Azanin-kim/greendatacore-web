@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GreenDataCore</title>
-<meta name="description" content="GreenDataCore convierte la operación de los servicios urbanos en decisiones basadas en datos: datos, GIS y control de calidad para limpieza viaria, zonas verdes, residuos y equipamientos municipales. Madrid.">
+<meta name="description" content="GreenDataCore convierte la operación de los servicios urbanos en decisiones basadas en datos. Madrid.">
 <link rel="canonical" href="https://greendatacore.com/">
 <link rel="icon" type="image/svg+xml" href="assets/logo/gdc-simbolo-reducido.svg">
 <meta name="theme-color" content="#1F1F1F">
@@ -12,7 +12,7 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="GreenDataCore">
 <meta property="og:title" content="GreenDataCore · Inteligencia de datos para servicios urbanos">
-<meta property="og:description" content="Oficina Técnica de Datos para servicios urbanos: control de calidad, captura en campo, plataforma de datos, GIS y cuadros de mando. Madrid.">
+<meta property="og:description" content="Oficina Técnica de Datos para servicios urbanos. Madrid.">
 <meta property="og:url" content="https://greendatacore.com/">
 <meta property="og:image" content="https://greendatacore.com/assets/og/greendatacore-1200x630.png">
 <meta property="og:image:width" content="1200">
@@ -20,431 +20,118 @@
 <meta property="og:image:alt" content="Logotipo de GreenDataCore sobre fondo grafito con el lema Inteligencia de datos para servicios urbanos">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/InstrumentSans-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/InstrumentSans-400.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-/* VOICE  formal, institucional, técnico y verificable (manual de identidad v2 y plataforma de marca)
-   IDEA   la placa de circuito de una oficina técnica: el dato recorre cinco capas desde el campo hasta la decisión
-   PICTURE la ruta de las cinco capas a todo el ancho del bloque verde bosque, con la plataforma de datos como núcleo y un pulso amarillo señal
-   COLOUR fondo #F6F8F4, tinta #17241C, verde bosque #1C6434, verde hoja #80CC28, grafito #1F1F1F; amarillo señal solo en el pulso
-   TYPE   Instrument Sans 600 en titulares y 400 en texto; JetBrains Mono solo para el dominio
-   LAYOUT portátil: título y entradilla arriba, ruta debajo a todo el ancho; móvil: título, ruta vertical, botones */
-@font-face{font-family:"Instrument Sans";src:url(assets/fonts/InstrumentSans-400.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Instrument Sans";src:url(assets/fonts/InstrumentSans-500.woff2) format("woff2");font-weight:500;font-display:swap}
-@font-face{font-family:"Instrument Sans";src:url(assets/fonts/InstrumentSans-600.woff2) format("woff2");font-weight:600;font-display:swap}
-@font-face{font-family:"Instrument Sans";src:url(assets/fonts/InstrumentSans-700.woff2) format("woff2");font-weight:700;font-display:swap}
-@font-face{font-family:"JetBrains Mono";src:url(assets/fonts/JetBrainsMono-400.woff2) format("woff2");font-weight:400;font-display:swap}
-:root{color-scheme:dark;--bg:#1F1F1F;--ink:#F4F6F3;--mut:#BFC7C1;--core:#80CC28;--line:#3E3E3E;--card:#292929;--tint:#26331F;--gr:#2A2A2A;--foot:#141414;--forest:#1C6434;--leaf:#80CC28;--signal:#F5F547;--off:#F4F6F3;--sans:"Instrument Sans","Open Sans",Arial,system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace}
-*{box-sizing:border-box;min-width:0}
-html{scroll-padding-top:96px;scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:var(--core)}
-:focus-visible{outline:3px solid var(--core);outline-offset:3px;border-radius:4px}
-.wrap{max-width:1240px;margin:0 auto}
-.band{padding-block:clamp(48px,7vw,96px);padding-left:max(5vw,16px,env(safe-area-inset-left,0px));padding-right:max(5vw,16px,env(safe-area-inset-right,0px))}
-.alt{background:var(--card);border-block:1px solid var(--line)}
-h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.08;text-wrap:balance;margin:0}
-h1{font-size:clamp(36px,5.2vw,60px)}
-h2{font-size:clamp(28px,3.4vw,40px)}
-h3{font-size:19px;line-height:1.3;letter-spacing:-.01em}
-p{margin:0}
-.lead{font-size:clamp(17px,1.6vw,19px);line-height:1.6;max-width:62ch}
-.muted{color:var(--mut)}
-
-/* cabecera */
-.top{position:sticky;top:0;z-index:10;background:#1F1F1F;border-bottom:1px solid #333333}
-.top :focus-visible{outline-color:var(--signal)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:8px 32px;flex-wrap:wrap;padding:12px max(5vw,16px)}
-.logo{display:block;flex:none}
-.logo img{height:58px;width:auto}
-nav{display:flex;gap:0 22px;flex-wrap:wrap;align-items:center}
-nav a{color:#F4F6F3;text-decoration:none;font-weight:500;font-size:15px;padding:10px 0;border-bottom:2px solid transparent}
-nav a:hover{border-bottom-color:var(--leaf)}
-
-/* portada de entrada */
-.intro{position:fixed;inset:0;z-index:50;background:#1F1F1F;display:grid;place-items:center;cursor:pointer;padding:24px}
-.intro[hidden]{display:none}
-.intro-stage{display:flex;flex-direction:column;align-items:center;gap:20px}
-.intro .logo{width:min(600px,84vw,62vh);height:auto}
-.intro-lema{font-size:clamp(18px,2.4vw,28px);color:#F4F6F3;margin:0;text-align:center}
-.intro-go{position:absolute;left:50%;bottom:max(32px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);font:500 15px/1 var(--sans);color:#BFC7C1;background:transparent;border:1px solid #4A4A4A;border-radius:999px;padding:12px 22px;min-height:44px;opacity:0;transition:opacity .8s;cursor:pointer}
-.intro-go.on{opacity:1;animation:hint 2.4s ease-in-out infinite}
-.intro-go:focus-visible{outline:3px solid #F5F547;outline-offset:3px}
-@keyframes hint{0%,100%{border-color:#4A4A4A;color:#BFC7C1}50%{border-color:#80CC28;color:#F4F6F3}}
-html.locked,html.locked body{overflow:hidden}
-
-/* bloque principal y método */
-.hero{background:#1F1F1F;color:var(--off);position:relative;overflow:hidden}
-.hero>.wrap{position:relative;z-index:1}
-#hero-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.brand .logo{width:clamp(260px,33vw,460px);height:auto;overflow:visible;display:block}
-#tree{transition:transform .6s ease-out}
-.sway{transform-box:view-box;animation:sway var(--d,5s) ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
-@keyframes sway{from{transform:rotate(calc(var(--a,3deg) * -1))}to{transform:rotate(var(--a,3deg))}}
-.breathe{animation:breathe 3.6s ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
-@keyframes breathe{from{opacity:.78}to{opacity:1}}
-.hero :focus-visible{outline-color:var(--signal)}
-.hero-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 64px;align-items:center}
-.brand{display:flex;flex-direction:column;align-items:center;text-align:center}
-.brand img{width:clamp(240px,30vw,400px);height:auto}
-.brand h1{margin-top:20px;font-size:clamp(20px,2.2vw,28px);font-weight:400;letter-spacing:-.005em;line-height:1.3;color:#F4F6F3}
-.claim{font-size:clamp(26px,3vw,38px);font-weight:600;line-height:1.15;letter-spacing:-.02em;color:#FFFFFF;text-wrap:balance}
-.claim + .lead{margin-top:18px}
-.hero .lead{color:#DCE9DF}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:8px;font:600 16px/1 var(--sans);text-decoration:none;border:2px solid transparent}
-.btn-p{background:var(--leaf);color:#17241C}
-.btn-p:hover{background:#93D945}
-.btn-s{color:var(--off);border-color:rgba(244,246,243,.6)}
-.btn-s:hover{border-color:var(--off);background:rgba(244,246,243,.08)}
-.route{margin-top:clamp(44px,5vw,72px)}
-.route-t{font-size:15px;color:#DCE9DF;margin-bottom:8px}
-.route .fig{position:relative;height:112px}
-.route .fig svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.stations{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
-.stations li{padding-top:6px}
-.stations h3{color:#FFFFFF;font-size:17px}
-.stations p{color:#DCE9DF;font-size:14.5px;line-height:1.5;margin-top:6px}
-.stations .core h3{color:var(--leaf)}
-
-/* cabeceras de sección */
-.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 64px;align-items:end;margin-bottom:clamp(32px,4vw,48px)}
-.sec-head .lead{color:var(--mut)}
-
-/* ventajas */
-.adv{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.adv li{position:relative;background:var(--tint);border-radius:16px;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px;overflow:hidden}
-.adv svg{width:72px;height:72px;flex:none}
-.adv h3{font-size:clamp(22px,2.2vw,28px);line-height:1.15;color:#FFFFFF}
-.adv p{color:#CFE0C9;font-size:16px;margin-top:10px}
-.cta-in{margin-top:clamp(28px,3vw,40px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
-.cta-in span{color:var(--mut)}
-.btn-n{min-height:40px;padding:0 16px;font-size:15px;background:var(--leaf);color:#17241C}
-.btn-n:hover{background:#93D945}
-
-/* qué hacemos */
-.lines{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.lines li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
-.lines h3{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.lines p{color:var(--mut);font-size:15.5px}
-.leaf{flex:none;width:16px;height:16px;background:var(--leaf);border-radius:0 8px 0 8px}
-.scope{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
-.scope b{font-weight:600;margin-right:4px}
-.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--tint);font-weight:500;font-size:15px;white-space:nowrap}
-
-/* para quién */
-.tbl{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:15.5px}
-th{text-align:left;font-weight:600;font-size:14px;color:var(--mut);padding:0 16px 12px 0;border-bottom:2px solid var(--ink)}
-td{padding:16px 16px 16px 0;border-bottom:1px solid var(--line);vertical-align:top}
-td:first-child{font-weight:600;width:28%}
-td:not(:first-child){color:var(--mut)}
-
-/* diferencia */
-.diff{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;align-items:start}
-.args{list-style:none;margin:0;padding:0;display:grid;gap:0}
-.args li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;padding:18px 0;border-top:1px solid var(--line)}
-.args li:first-child{border-top:0;padding-top:0}
-.args h3{margin-bottom:6px}
-.args p{color:var(--mut)}
-.cmp{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 24px}
-.cmp table{font-size:15px}
-.cmp th{padding-top:16px}
-.cmp td{width:50%}
-.cmp td:first-child{font-weight:400;color:var(--mut)}
-.cmp td:last-child{color:var(--ink);font-weight:500}
-.cmp tr:last-child td{border-bottom:0}
-
-/* propósito */
-.forest{background:var(--forest);color:var(--off)}
-.forest :focus-visible{outline-color:var(--signal)}
-.forest .purpose{color:#FFFFFF}
-.forest .purpose span{color:var(--leaf)}
-.forest .mv p,.forest .values dd{color:#DCE9DF}
-.purpose{font-size:clamp(26px,3.4vw,40px);font-weight:600;line-height:1.15;letter-spacing:-.02em;max-width:24ch;text-wrap:balance}
-.purpose span{color:var(--core)}
-.mv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;margin-top:32px}
-.mv h3{margin-bottom:8px}
-.mv p{color:var(--mut)}
-.values{margin-top:40px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
-.values div{border-top:3px solid var(--leaf);padding-top:14px}
-.values dt{font-weight:600;margin-bottom:6px}
-.values dd{margin:0;color:var(--mut);font-size:15px}
-
-/* UDOO */
-.udoo{background:#1F1F1F;border-block:1px solid var(--line)}
-
-.udoo-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px 72px;align-items:center}
-.udoo-mark img{width:100%;max-width:476px;height:auto}
-.udoo .lead{color:var(--mut);margin-top:16px}
-.udoo h2 span{color:var(--core)}
-.next{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;border-top:1px solid var(--line);margin-top:8px}
-.next div{padding-top:20px}
-.next dt{font-weight:600;margin-bottom:6px}
-.next dd{margin:0;color:var(--mut);font-size:15px}
-.next-t{grid-column:1/-1;color:var(--mut);font-size:15px;margin-top:8px}
-
-/* contacto */
-.contact{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px 64px;align-items:start}
-.contact .lead{color:var(--mut);margin-top:16px}
-.mail{display:block;font-size:clamp(22px,3vw,32px);font-weight:600;letter-spacing:-.01em;color:var(--core);text-decoration:none;overflow-wrap:anywhere}
-.mail:hover{text-decoration:underline;text-underline-offset:6px}
-.facts{margin:24px 0 0;display:grid}
-.facts div{display:grid;grid-template-columns:8em minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--line)}
-.facts dt{color:var(--mut)}
-.facts dd{margin:0;font-weight:500}
-.mono{font-family:var(--mono);font-size:15px}
-
-/* formulario */
-.form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
-.form .full{grid-column:1/-1}
-.form label{display:grid;gap:6px;font-size:14.5px;font-weight:500}
-.form input,.form select,.form textarea{font:16px/1.4 var(--sans);color:var(--ink);background:var(--card);border:1px solid #4A4A4A;border-radius:8px;padding:12px 14px;width:100%}
-.form textarea{min-height:140px;resize:vertical}
-.form input:focus,.form select:focus,.form textarea:focus{outline:3px solid var(--leaf);outline-offset:1px;border-color:var(--leaf)}
-.form .check{display:flex;align-items:flex-start;gap:10px;font-weight:400;color:var(--mut);font-size:14.5px}
-.form .check input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--leaf)}
-.form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.form .send{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
-.form button{cursor:pointer}
-.form button[disabled]{opacity:.6;cursor:progress}
-.status{font-size:15px}
-.status.ok{color:var(--leaf)}
-.status.err{color:#FFB4A8}
-
-/* pie */
-.foot{background:var(--foot);color:#BFC7C1;font-size:14px}
-.foot .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:32px max(5vw,16px)}
-.foot img{height:56px;width:auto}
-.foot p{max-width:62ch}
-
-@media (max-width:1000px){
-.adv{grid-template-columns:minmax(0,1fr)}
-.adv li{flex-direction:row;align-items:flex-start;gap:20px}
-.adv svg{width:56px;height:56px}
-.values{grid-template-columns:repeat(2,minmax(0,1fr))}
-.lines{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media (max-width:900px){
-.hero-head,.sec-head,.contact,.udoo-grid,.diff,.mv{grid-template-columns:minmax(0,1fr)}
-.route .fig{display:none}
-.stations{grid-template-columns:minmax(0,1fr);gap:0;border-left:3px solid rgba(244,246,243,.55);margin-left:9px}
-.stations li{position:relative;padding:0 0 26px 28px}
-.stations li:last-child{padding-bottom:0}
-.stations li::before{content:"";position:absolute;left:-12px;top:4px;width:15px;height:15px;border-radius:50%;background:var(--leaf);border:3px solid var(--off)}
-.stations .core::before{background:var(--signal)}
-.next{grid-template-columns:minmax(0,1fr)}
-.next div{padding:16px 0;border-bottom:1px solid var(--line)}
-}
-@media (max-width:600px){
-.logo img{height:56px}
-nav{gap:0 16px;flex-wrap:nowrap;overflow-x:auto;width:100%;scrollbar-width:none}
-nav a{font-size:14.5px;flex:none}
-.lines,.values{grid-template-columns:minmax(0,1fr)}
-.facts div{grid-template-columns:minmax(0,1fr);gap:2px}
-.btn{flex:1 1 auto;justify-content:center}
-.form{grid-template-columns:minmax(0,1fr)}
-.top .btn-n{display:none}
-table.stack thead{display:none}
-table.stack tr{display:grid;padding-block:12px;border-bottom:1px solid var(--line)}
-table.stack td{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:10px;border:0;padding:3px 0;width:auto}
-table.stack td::before{content:attr(data-l);color:var(--mut);font-weight:400;font-size:13.5px}
-.cmp{padding:8px 16px}
-}
-@media (max-width:430px){.nm{display:none}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pulse{display:none}.sway,.breathe{animation:none}}
-</style>
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="intro" id="intro" hidden>
-  <div class="intro-stage"><p class="intro-lema">Inteligencia de datos para servicios urbanos.</p></div>
-  <button class="intro-go" type="button">Entrar <span aria-hidden="true">↓</span></button>
+  <div class="intro-stage"></div>
+  <button class="intro-go" type="button">Entrar</button>
 </div>
 
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="#inicio" aria-label="GreenDataCore, inicio">
-      <img src="assets/logo/gdc-logo-horizontal-negativo.svg" alt="GreenDataCore" width="227" height="58">
-    </a>
-    <nav aria-label="Secciones">
-      <a href="#servicios">Qué hacemos</a>
-      <a class="nm" href="#metodo">Método</a>
-      <a href="#clientes">Para quién</a>
-      <a href="#udoo">UDOO</a>
-      <a href="#contacto">Contacto</a>
-      <a class="btn btn-n" href="#contacto">Solicitar reunión</a>
-    </nav>
+<header class="nav">
+  <div class="container">
+    <a href="#inicio" aria-label="GreenDataCore, inicio"><img src="assets/logo/gdc-logo-horizontal-negativo.svg" alt="GreenDataCore" width="188" height="48"></a>
+    <ul>
+      <li><a href="#metodo">Método</a></li>
+      <li><a href="#udoo">UDOO</a></li>
+      <li><a class="btn btn-p" href="#contacto">Hablemos</a></li>
+    </ul>
   </div>
 </header>
 
 <main>
-<section class="hero band" id="inicio">
+<section class="hero" id="inicio">
   <canvas id="hero-bg" aria-hidden="true"></canvas>
-  <div class="wrap">
-    <div class="hero-head">
-      <div class="brand">
-        <div id="tree"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 383.2 285.4" class="logo" role="img" aria-label="GreenDataCore"><title>GreenDataCore — logotipo vertical (fondos oscuros)</title><svg x="91.4" y="0.0" width="200.3" height="220.0" viewBox="86 48 428 470"><path transform="translate(114.7 250.9) rotate(-72)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(148.8 340.5) rotate(-95)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(155.7 187.4) rotate(-42)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(134.2 222.8) rotate(-60)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(164.0 318.5) rotate(-80)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(200.2 143.0) rotate(-30)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(180.3 197.5) rotate(-52)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(215.5 265.3) rotate(35)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(249.1 108.6) rotate(-15)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(231.0 170.7) rotate(-48)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(266.4 248.3) rotate(40)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(227.5 291.1) rotate(-55)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(300.0 88.5) rotate(0)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(279.6 202.0) rotate(-48)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(320.4 202.0) rotate(48)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(277.5 329.7) rotate(-55)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(322.5 329.7) rotate(55)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(350.9 108.6) rotate(15)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(369.0 170.7) rotate(48)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(333.6 248.3) rotate(-40)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(372.5 291.1) rotate(55)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(399.8 143.0) rotate(30)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(419.7 197.5) rotate(52)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(384.5 265.3) rotate(-35)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(444.3 187.4) rotate(42)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(465.8 222.8) rotate(60)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(436.0 318.5) rotate(80)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(485.3 250.9) rotate(72)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(451.2 340.5) rotate(95)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path d="M266.0 492.0 L266.0 430.0 L118.0 282.0 L118.0 252.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M174.2 338.2 L152.3 340.2" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M274.5 492.0 L274.5 410.0 L158.0 293.5 L158.0 190.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M158.0 236.6 L137.2 224.6" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M187.1 322.6 L167.4 319.2" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M283.0 492.0 L283.0 390.0 L202.0 309.0 L202.0 146.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M202.0 214.5 L183.1 199.7" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M202.0 284.5 L213.5 268.2" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M291.5 492.0 L291.5 370.0 L250.0 328.5 L250.0 112.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M250.0 187.8 L233.7 173.1" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M250.0 267.9 L264.1 251.0" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M250.0 306.9 L230.3 293.1" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M300.0 492.0 L300.0 430.0 L300.0 92.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M300.0 220.4 L282.2 204.4" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M300.0 220.4 L317.8 204.4" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M300.0 345.5 L280.3 331.7" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M300.0 345.5 L319.7 331.7" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M308.5 492.0 L308.5 370.0 L350.0 328.5 L350.0 112.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M350.0 187.8 L366.3 173.1" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M350.0 267.9 L335.9 251.0" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M350.0 306.9 L369.7 293.1" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M317.0 492.0 L317.0 390.0 L398.0 309.0 L398.0 146.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M398.0 214.5 L416.9 199.7" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M398.0 284.5 L386.5 268.2" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M325.5 492.0 L325.5 410.0 L442.0 293.5 L442.0 190.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M442.0 236.6 L462.8 224.6" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M412.9 322.6 L432.6 319.2" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M334.0 492.0 L334.0 430.0 L482.0 282.0 L482.0 252.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M425.8 338.2 L447.7 340.2" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><circle cx="118.0" cy="252.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="152.3" cy="340.2" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="158.0" cy="190.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="137.2" cy="224.6" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="167.4" cy="319.2" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="202.0" cy="146.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="183.1" cy="199.7" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="213.5" cy="268.2" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="250.0" cy="112.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="233.7" cy="173.1" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="264.1" cy="251.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="230.3" cy="293.1" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="300.0" cy="92.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="282.2" cy="204.4" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="317.8" cy="204.4" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="280.3" cy="331.7" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="319.7" cy="331.7" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="350.0" cy="112.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="366.3" cy="173.1" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="335.9" cy="251.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="369.7" cy="293.1" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="398.0" cy="146.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="416.9" cy="199.7" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="386.5" cy="268.2" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="442.0" cy="190.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="462.8" cy="224.6" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="432.6" cy="319.2" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="482.0" cy="252.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="447.7" cy="340.2" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><rect x="248" y="492" width="104" height="26" rx="7" fill="#2E7D46"/></svg><path fill="#80CC28" transform="translate(0.0 283.4)" d="M21.163999999999998 0.52Q15.235999999999999 0.52 10.92 -1.8459999999999999Q6.604 -4.212 4.264 -8.501999999999999Q1.924 -12.792 1.924 -18.564Q1.924 -24.336 4.264 -28.677999999999997Q6.604 -33.019999999999996 10.764 -35.489999999999995Q14.924 -37.96 20.436 -37.96Q24.907999999999998 -37.96 28.47 -36.322Q32.032 -34.684 34.242 -31.849999999999998Q36.452 -29.016 36.92 -25.272H30.16Q29.639999999999997 -28.599999999999998 27.04 -30.524Q24.439999999999998 -32.448 20.54 -32.448Q17.003999999999998 -32.448 14.351999999999999 -30.784Q11.7 -29.119999999999997 10.244 -26.052Q8.788 -22.983999999999998 8.788 -18.72Q8.788 -14.351999999999999 10.27 -11.258Q11.751999999999999 -8.164 14.585999999999999 -6.552Q17.419999999999998 -4.9399999999999995 21.528 -4.9399999999999995Q24.7 -4.9399999999999995 26.988 -5.7459999999999996Q29.276 -6.552 30.68 -8.164L37.18 -5.616Q34.216 -2.6 30.316000000000003 -1.04Q26.416 0.52 21.163999999999998 0.52ZM30.419999999999998 -5.616V-16.535999999999998L32.032 -14.924H21.476V-20.227999999999998H37.18V-5.616ZM42.692 0.0V-26.52H49.087999999999994V-20.124H49.244V0.0ZM49.244 -13.831999999999999 48.568 -20.124Q49.504 -23.503999999999998 51.739999999999995 -25.272Q53.976 -27.04 57.096 -27.04Q58.188 -27.04 58.656 -26.831999999999997V-20.644Q58.396 -20.747999999999998 57.928 -20.774Q57.459999999999994 -20.8 56.784 -20.8Q52.988 -20.8 51.116 -19.136Q49.244 -17.471999999999998 49.244 -13.831999999999999ZM74.36 0.52Q70.148 0.52 67.002 -1.248Q63.855999999999995 -3.016 62.114 -6.136Q60.372 -9.256 60.372 -13.312Q60.372 -17.368 62.114 -20.461999999999996Q63.855999999999995 -23.555999999999997 66.976 -25.298Q70.096 -27.04 74.256 -27.04Q78.208 -27.04 81.12 -25.402Q84.032 -23.764 85.644 -20.799999999999997Q87.256 -17.836 87.256 -13.883999999999999Q87.256 -13.155999999999999 87.204 -12.532Q87.15199999999999 -11.908 87.048 -11.283999999999999H64.428V-15.86H82.00399999999999L80.65199999999999 -14.612Q80.65199999999999 -18.355999999999998 78.93599999999999 -20.227999999999998Q77.22 -22.099999999999998 74.152 -22.099999999999998Q70.824 -22.099999999999998 68.874 -19.811999999999998Q66.92399999999999 -17.524 66.92399999999999 -13.208Q66.92399999999999 -8.943999999999999 68.874 -6.6819999999999995Q70.824 -4.42 74.41199999999999 -4.42Q76.49199999999999 -4.42 78.05199999999999 -5.199999999999999Q79.612 -5.9799999999999995 80.34 -7.592H86.52799999999999Q85.228 -3.848 82.13399999999999 -1.664Q79.03999999999999 0.52 74.36 0.52ZM103.532 0.52Q99.32 0.52 96.174 -1.248Q93.028 -3.016 91.286 -6.136Q89.544 -9.256 89.544 -13.312Q89.544 -17.368 91.286 -20.461999999999996Q93.028 -23.555999999999997 96.148 -25.298Q99.268 -27.04 103.428 -27.04Q107.38 -27.04 110.292 -25.402Q113.20400000000001 -23.764 114.816 -20.799999999999997Q116.428 -17.836 116.428 -13.883999999999999Q116.428 -13.155999999999999 116.376 -12.532Q116.324 -11.908 116.22 -11.283999999999999H93.6V-15.86H111.176L109.824 -14.612Q109.824 -18.355999999999998 108.108 -20.227999999999998Q106.392 -22.099999999999998 103.324 -22.099999999999998Q99.996 -22.099999999999998 98.04599999999999 -19.811999999999998Q96.096 -17.524 96.096 -13.208Q96.096 -8.943999999999999 98.04599999999999 -6.6819999999999995Q99.996 -4.42 103.584 -4.42Q105.664 -4.42 107.22399999999999 -5.199999999999999Q108.78399999999999 -5.9799999999999995 109.512 -7.592H115.7Q114.4 -3.848 111.30600000000001 -1.664Q108.212 0.52 103.532 0.52ZM120.79599999999999 0.0V-26.52H127.192V-20.279999999999998H127.348V0.0ZM139.412 0.0V-16.744Q139.412 -19.188 138.164 -20.436Q136.916 -21.683999999999997 134.524 -21.683999999999997Q132.444 -21.683999999999997 130.80599999999998 -20.747999999999998Q129.168 -19.811999999999998 128.258 -18.147999999999996Q127.348 -16.483999999999998 127.348 -14.299999999999999L126.672 -20.644Q128.024 -23.555999999999997 130.624 -25.298Q133.224 -27.04 136.864 -27.04Q141.18 -27.04 143.598 -24.595999999999997Q146.016 -22.151999999999997 146.016 -18.096V0.0Z"/><path fill="#FFFFFF" transform="translate(0.0 283.4)" d="M155.94799999999998 0.0V-5.4079999999999995H165.61999999999998Q169.884 -5.4079999999999995 172.89999999999998 -7.124Q175.916 -8.84 177.502 -11.908Q179.088 -14.975999999999999 179.088 -18.928Q179.088 -22.828 177.502 -25.792Q175.916 -28.756 172.926 -30.394Q169.93599999999998 -32.032 165.61999999999998 -32.032H156.052V-37.44H165.61999999999998Q171.75599999999997 -37.44 176.332 -35.152Q180.908 -32.864 183.43 -28.677999999999997Q185.952 -24.491999999999997 185.952 -18.823999999999998Q185.952 -13.155999999999999 183.404 -8.918Q180.856 -4.68 176.30599999999998 -2.34Q171.75599999999997 0.0 165.672 0.0ZM151.83999999999997 0.0V-37.44H158.6V0.0ZM207.376 0.0Q207.11599999999999 -1.04 206.986 -2.2880000000000003Q206.856 -3.536 206.856 -5.303999999999999H206.648V-17.887999999999998Q206.648 -19.968 205.478 -21.034Q204.308 -22.099999999999998 201.916 -22.099999999999998Q199.576 -22.099999999999998 198.19799999999998 -21.241999999999997Q196.82 -20.384 196.50799999999998 -18.772H190.216Q190.632 -22.464 193.752 -24.752Q196.87199999999999 -27.04 202.124 -27.04Q207.584 -27.04 210.392 -24.57Q213.2 -22.099999999999998 213.2 -17.316V-5.303999999999999Q213.2 -4.056 213.382 -2.7560000000000002Q213.564 -1.456 213.928 0.0ZM198.172 0.52Q194.168 0.52 191.80200000000002 -1.482Q189.436 -3.484 189.436 -6.864Q189.436 -10.504 192.088 -12.636Q194.73999999999998 -14.767999999999999 199.576 -15.495999999999999L207.844 -16.744V-12.584L200.668 -11.491999999999999Q198.328 -11.128 197.15800000000002 -10.192Q195.988 -9.256 195.988 -7.592Q195.988 -6.084 197.07999999999998 -5.278Q198.172 -4.4719999999999995 200.096 -4.4719999999999995Q202.904 -4.4719999999999995 204.776 -5.8759999999999994Q206.648 -7.279999999999999 206.648 -9.308L207.376 -5.303999999999999Q206.33599999999998 -2.444 203.96999999999997 -0.962Q201.60399999999998 0.52 198.172 0.52ZM231.244 0.52Q226.356 0.52 224.042 -1.7939999999999998Q221.728 -4.108 221.728 -8.735999999999999V-32.552L228.332 -34.995999999999995V-8.58Q228.332 -6.656 229.372 -5.72Q230.412 -4.784 232.648 -4.784Q233.532 -4.784 234.234 -4.914Q234.936 -5.044 235.56 -5.252V-0.156Q234.936 0.156 233.792 0.338Q232.648 0.52 231.244 0.52ZM216.632 -21.372V-26.52H235.56V-21.372ZM256.464 0.0Q256.204 -1.04 256.074 -2.2880000000000003Q255.94400000000002 -3.536 255.94400000000002 -5.303999999999999H255.73600000000002V-17.887999999999998Q255.73600000000002 -19.968 254.56600000000003 -21.034Q253.39600000000002 -22.099999999999998 251.00400000000002 -22.099999999999998Q248.66400000000002 -22.099999999999998 247.286 -21.241999999999997Q245.90800000000002 -20.384 245.596 -18.772H239.30400000000003Q239.72000000000003 -22.464 242.84000000000003 -24.752Q245.96 -27.04 251.21200000000002 -27.04Q256.672 -27.04 259.48 -24.57Q262.288 -22.099999999999998 262.288 -17.316V-5.303999999999999Q262.288 -4.056 262.47 -2.7560000000000002Q262.65200000000004 -1.456 263.016 0.0ZM247.26000000000002 0.52Q243.25600000000003 0.52 240.89000000000004 -1.482Q238.52400000000003 -3.484 238.52400000000003 -6.864Q238.52400000000003 -10.504 241.17600000000002 -12.636Q243.828 -14.767999999999999 248.66400000000002 -15.495999999999999L256.932 -16.744V-12.584L249.75600000000003 -11.491999999999999Q247.41600000000003 -11.128 246.24600000000004 -10.192Q245.07600000000002 -9.256 245.07600000000002 -7.592Q245.07600000000002 -6.084 246.168 -5.278Q247.26000000000002 -4.4719999999999995 249.18400000000003 -4.4719999999999995Q251.99200000000002 -4.4719999999999995 253.86400000000003 -5.8759999999999994Q255.73600000000002 -7.279999999999999 255.73600000000002 -9.308L256.464 -5.303999999999999Q255.424 -2.444 253.058 -0.962Q250.692 0.52 247.26000000000002 0.52ZM285.272 0.52Q281.268 0.52 277.914 -0.9099999999999999Q274.56 -2.34 272.06399999999996 -4.9399999999999995Q269.568 -7.54 268.216 -11.076Q266.864 -14.612 266.864 -18.823999999999998Q266.864 -23.035999999999998 268.216 -26.519999999999996Q269.568 -30.003999999999998 272.038 -32.578Q274.508 -35.152 277.86199999999997 -36.556Q281.216 -37.96 285.272 -37.96Q289.74399999999997 -37.96 293.332 -36.192Q296.92 -34.424 299.23400000000004 -31.226Q301.548 -28.028 302.068 -23.712H295.412Q294.788 -27.924 292.03200000000004 -30.186Q289.276 -32.448 285.324 -32.448Q281.84 -32.448 279.24 -30.784Q276.64 -29.119999999999997 275.18399999999997 -26.077999999999996Q273.728 -23.035999999999998 273.728 -18.875999999999998Q273.728 -14.612 275.18399999999997 -11.518Q276.64 -8.424 279.29200000000003 -6.708Q281.944 -4.992 285.376 -4.992Q289.224 -4.992 291.98 -7.254Q294.736 -9.516 295.464 -13.676H302.172Q301.548 -9.411999999999999 299.23400000000004 -6.188Q296.92 -2.964 293.332 -1.222Q289.74399999999997 0.52 285.272 0.52ZM318.812 0.52Q314.6 0.52 311.40200000000004 -1.248Q308.204 -3.016 306.43600000000004 -6.162Q304.668 -9.308 304.668 -13.363999999999999Q304.668 -17.419999999999998 306.43600000000004 -20.488Q308.204 -23.555999999999997 311.40200000000004 -25.298Q314.6 -27.04 318.812 -27.04Q323.076 -27.04 326.24800000000005 -25.298Q329.42 -23.555999999999997 331.188 -20.488Q332.956 -17.419999999999998 332.956 -13.363999999999999Q332.956 -9.308 331.16200000000003 -6.162Q329.368 -3.016 326.196 -1.248Q323.024 0.52 318.812 0.52ZM318.812 -4.732Q320.892 -4.732 322.55600000000004 -5.798Q324.22 -6.864 325.156 -8.814Q326.092 -10.764 326.092 -13.415999999999999Q326.092 -17.316 324.038 -19.552Q321.98400000000004 -21.788 318.812 -21.788Q315.64 -21.788 313.56 -19.552Q311.48 -17.316 311.48 -13.415999999999999Q311.48 -10.764 312.442 -8.814Q313.404 -6.864 315.04200000000003 -5.798Q316.68 -4.732 318.812 -4.732ZM337.272 0.0V-26.52H343.668V-20.124H343.824V0.0ZM343.824 -13.831999999999999 343.148 -20.124Q344.084 -23.503999999999998 346.32 -25.272Q348.556 -27.04 351.676 -27.04Q352.76800000000003 -27.04 353.236 -26.831999999999997V-20.644Q352.976 -20.747999999999998 352.50800000000004 -20.774Q352.04 -20.8 351.36400000000003 -20.8Q347.568 -20.8 345.696 -19.136Q343.824 -17.471999999999998 343.824 -13.831999999999999ZM368.94 0.52Q364.728 0.52 361.582 -1.248Q358.436 -3.016 356.69399999999996 -6.136Q354.952 -9.256 354.952 -13.312Q354.952 -17.368 356.69399999999996 -20.461999999999996Q358.436 -23.555999999999997 361.556 -25.298Q364.676 -27.04 368.836 -27.04Q372.788 -27.04 375.70000000000005 -25.402Q378.612 -23.764 380.22400000000005 -20.799999999999997Q381.836 -17.836 381.836 -13.883999999999999Q381.836 -13.155999999999999 381.784 -12.532Q381.73199999999997 -11.908 381.628 -11.283999999999999H359.008V-15.86H376.584L375.23199999999997 -14.612Q375.23199999999997 -18.355999999999998 373.51599999999996 -20.227999999999998Q371.8 -22.099999999999998 368.732 -22.099999999999998Q365.404 -22.099999999999998 363.454 -19.811999999999998Q361.504 -17.524 361.504 -13.208Q361.504 -8.943999999999999 363.454 -6.6819999999999995Q365.404 -4.42 368.992 -4.42Q371.072 -4.42 372.632 -5.199999999999999Q374.192 -5.9799999999999995 374.92 -7.592H381.108Q379.808 -3.848 376.714 -1.664Q373.62 0.52 368.94 0.52Z"/></svg>
-</div>
-        <h1>Inteligencia de datos para servicios urbanos.</h1>
-      </div>
-      <div>
-        <p class="claim">GreenDataCore convierte la operación de los servicios urbanos en decisiones basadas en datos.</p>
-        <p class="lead">Empresa madrileña especializada en datos, GIS y control de calidad para limpieza viaria, zonas verdes, residuos y equipamientos municipales.</p>
-        <div class="cta">
-          <a class="btn btn-p" href="#contacto">Contactar</a>
-          <a class="btn btn-s" href="#udoo">Conocer UDOO</a>
-        </div>
+  <div class="container">
+    <div>
+      <h1>Inteligencia de datos para servicios urbanos</h1>
+      <p class="lead">Convertimos la operación de la ciudad en decisiones basadas en datos.</p>
+      <div class="acts">
+        <a class="btn btn-p" href="#contacto">Hablemos</a>
+        <a class="link" href="#udoo">Conocer UDOO</a>
       </div>
     </div>
+    <div id="tree"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 383.2 285.4" class="logo" role="img" aria-label="GreenDataCore"><title>GreenDataCore</title><svg x="91.4" y="0.0" width="200.3" height="220.0" viewBox="86 48 428 470"><path transform="translate(114.7 250.9) rotate(-72)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(148.8 340.5) rotate(-95)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(155.7 187.4) rotate(-42)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(134.2 222.8) rotate(-60)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(164.0 318.5) rotate(-80)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(200.2 143.0) rotate(-30)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(180.3 197.5) rotate(-52)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(215.5 265.3) rotate(35)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(249.1 108.6) rotate(-15)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(231.0 170.7) rotate(-48)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(266.4 248.3) rotate(40)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(227.5 291.1) rotate(-55)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(300.0 88.5) rotate(0)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(279.6 202.0) rotate(-48)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(320.4 202.0) rotate(48)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(277.5 329.7) rotate(-55)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(322.5 329.7) rotate(55)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(350.9 108.6) rotate(15)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(369.0 170.7) rotate(48)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(333.6 248.3) rotate(-40)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(372.5 291.1) rotate(55)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(399.8 143.0) rotate(30)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(419.7 197.5) rotate(52)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(384.5 265.3) rotate(-35)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(444.3 187.4) rotate(42)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(465.8 222.8) rotate(60)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(436.0 318.5) rotate(80)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(485.3 250.9) rotate(72)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path transform="translate(451.2 340.5) rotate(95)" d="M0 -34 C8.5 -22.5 13 -12 13 -2 A13 13 0 0 1 -13 -2 C-13 -12 -8.5 -22.5 0 -34 Z" fill="#80CC28"/><path d="M266.0 492.0 L266.0 430.0 L118.0 282.0 L118.0 252.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M174.2 338.2 L152.3 340.2" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M274.5 492.0 L274.5 410.0 L158.0 293.5 L158.0 190.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M158.0 236.6 L137.2 224.6" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M187.1 322.6 L167.4 319.2" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M283.0 492.0 L283.0 390.0 L202.0 309.0 L202.0 146.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M202.0 214.5 L183.1 199.7" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M202.0 284.5 L213.5 268.2" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M291.5 492.0 L291.5 370.0 L250.0 328.5 L250.0 112.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M250.0 187.8 L233.7 173.1" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M250.0 267.9 L264.1 251.0" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M250.0 306.9 L230.3 293.1" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M300.0 492.0 L300.0 430.0 L300.0 92.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M300.0 220.4 L282.2 204.4" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M300.0 220.4 L317.8 204.4" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M300.0 345.5 L280.3 331.7" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M300.0 345.5 L319.7 331.7" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M308.5 492.0 L308.5 370.0 L350.0 328.5 L350.0 112.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M350.0 187.8 L366.3 173.1" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M350.0 267.9 L335.9 251.0" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M350.0 306.9 L369.7 293.1" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M317.0 492.0 L317.0 390.0 L398.0 309.0 L398.0 146.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M398.0 214.5 L416.9 199.7" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M398.0 284.5 L386.5 268.2" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M325.5 492.0 L325.5 410.0 L442.0 293.5 L442.0 190.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M442.0 236.6 L462.8 224.6" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M412.9 322.6 L432.6 319.2" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><path d="M334.0 492.0 L334.0 430.0 L482.0 282.0 L482.0 252.0" stroke="#3DA35D" stroke-width="3.2" fill="none" stroke-linejoin="round"/><path d="M425.8 338.2 L447.7 340.2" stroke="#3DA35D" stroke-width="3.2" stroke-linecap="round"/><circle cx="118.0" cy="252.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="152.3" cy="340.2" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="158.0" cy="190.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="137.2" cy="224.6" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="167.4" cy="319.2" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="202.0" cy="146.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="183.1" cy="199.7" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="213.5" cy="268.2" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="250.0" cy="112.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="233.7" cy="173.1" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="264.1" cy="251.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="230.3" cy="293.1" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="300.0" cy="92.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="282.2" cy="204.4" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="317.8" cy="204.4" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="280.3" cy="331.7" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="319.7" cy="331.7" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="350.0" cy="112.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="366.3" cy="173.1" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="335.9" cy="251.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="369.7" cy="293.1" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="398.0" cy="146.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="416.9" cy="199.7" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="386.5" cy="268.2" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="442.0" cy="190.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="462.8" cy="224.6" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="432.6" cy="319.2" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="482.0" cy="252.0" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><circle cx="447.7" cy="340.2" r="4.6" fill="#80CC28" stroke="#3DA35D" stroke-width="2.6"/><rect x="248" y="492" width="104" height="26" rx="7" fill="#2E7D46"/></svg><path fill="#80CC28" transform="translate(0.0 283.4)" d="M21.163999999999998 0.52Q15.235999999999999 0.52 10.92 -1.8459999999999999Q6.604 -4.212 4.264 -8.501999999999999Q1.924 -12.792 1.924 -18.564Q1.924 -24.336 4.264 -28.677999999999997Q6.604 -33.019999999999996 10.764 -35.489999999999995Q14.924 -37.96 20.436 -37.96Q24.907999999999998 -37.96 28.47 -36.322Q32.032 -34.684 34.242 -31.849999999999998Q36.452 -29.016 36.92 -25.272H30.16Q29.639999999999997 -28.599999999999998 27.04 -30.524Q24.439999999999998 -32.448 20.54 -32.448Q17.003999999999998 -32.448 14.351999999999999 -30.784Q11.7 -29.119999999999997 10.244 -26.052Q8.788 -22.983999999999998 8.788 -18.72Q8.788 -14.351999999999999 10.27 -11.258Q11.751999999999999 -8.164 14.585999999999999 -6.552Q17.419999999999998 -4.9399999999999995 21.528 -4.9399999999999995Q24.7 -4.9399999999999995 26.988 -5.7459999999999996Q29.276 -6.552 30.68 -8.164L37.18 -5.616Q34.216 -2.6 30.316000000000003 -1.04Q26.416 0.52 21.163999999999998 0.52ZM30.419999999999998 -5.616V-16.535999999999998L32.032 -14.924H21.476V-20.227999999999998H37.18V-5.616ZM42.692 0.0V-26.52H49.087999999999994V-20.124H49.244V0.0ZM49.244 -13.831999999999999 48.568 -20.124Q49.504 -23.503999999999998 51.739999999999995 -25.272Q53.976 -27.04 57.096 -27.04Q58.188 -27.04 58.656 -26.831999999999997V-20.644Q58.396 -20.747999999999998 57.928 -20.774Q57.459999999999994 -20.8 56.784 -20.8Q52.988 -20.8 51.116 -19.136Q49.244 -17.471999999999998 49.244 -13.831999999999999ZM74.36 0.52Q70.148 0.52 67.002 -1.248Q63.855999999999995 -3.016 62.114 -6.136Q60.372 -9.256 60.372 -13.312Q60.372 -17.368 62.114 -20.461999999999996Q63.855999999999995 -23.555999999999997 66.976 -25.298Q70.096 -27.04 74.256 -27.04Q78.208 -27.04 81.12 -25.402Q84.032 -23.764 85.644 -20.799999999999997Q87.256 -17.836 87.256 -13.883999999999999Q87.256 -13.155999999999999 87.204 -12.532Q87.15199999999999 -11.908 87.048 -11.283999999999999H64.428V-15.86H82.00399999999999L80.65199999999999 -14.612Q80.65199999999999 -18.355999999999998 78.93599999999999 -20.227999999999998Q77.22 -22.099999999999998 74.152 -22.099999999999998Q70.824 -22.099999999999998 68.874 -19.811999999999998Q66.92399999999999 -17.524 66.92399999999999 -13.208Q66.92399999999999 -8.943999999999999 68.874 -6.6819999999999995Q70.824 -4.42 74.41199999999999 -4.42Q76.49199999999999 -4.42 78.05199999999999 -5.199999999999999Q79.612 -5.9799999999999995 80.34 -7.592H86.52799999999999Q85.228 -3.848 82.13399999999999 -1.664Q79.03999999999999 0.52 74.36 0.52ZM103.532 0.52Q99.32 0.52 96.174 -1.248Q93.028 -3.016 91.286 -6.136Q89.544 -9.256 89.544 -13.312Q89.544 -17.368 91.286 -20.461999999999996Q93.028 -23.555999999999997 96.148 -25.298Q99.268 -27.04 103.428 -27.04Q107.38 -27.04 110.292 -25.402Q113.20400000000001 -23.764 114.816 -20.799999999999997Q116.428 -17.836 116.428 -13.883999999999999Q116.428 -13.155999999999999 116.376 -12.532Q116.324 -11.908 116.22 -11.283999999999999H93.6V-15.86H111.176L109.824 -14.612Q109.824 -18.355999999999998 108.108 -20.227999999999998Q106.392 -22.099999999999998 103.324 -22.099999999999998Q99.996 -22.099999999999998 98.04599999999999 -19.811999999999998Q96.096 -17.524 96.096 -13.208Q96.096 -8.943999999999999 98.04599999999999 -6.6819999999999995Q99.996 -4.42 103.584 -4.42Q105.664 -4.42 107.22399999999999 -5.199999999999999Q108.78399999999999 -5.9799999999999995 109.512 -7.592H115.7Q114.4 -3.848 111.30600000000001 -1.664Q108.212 0.52 103.532 0.52ZM120.79599999999999 0.0V-26.52H127.192V-20.279999999999998H127.348V0.0ZM139.412 0.0V-16.744Q139.412 -19.188 138.164 -20.436Q136.916 -21.683999999999997 134.524 -21.683999999999997Q132.444 -21.683999999999997 130.80599999999998 -20.747999999999998Q129.168 -19.811999999999998 128.258 -18.147999999999996Q127.348 -16.483999999999998 127.348 -14.299999999999999L126.672 -20.644Q128.024 -23.555999999999997 130.624 -25.298Q133.224 -27.04 136.864 -27.04Q141.18 -27.04 143.598 -24.595999999999997Q146.016 -22.151999999999997 146.016 -18.096V0.0Z"/><path fill="#FFFFFF" transform="translate(0.0 283.4)" d="M155.94799999999998 0.0V-5.4079999999999995H165.61999999999998Q169.884 -5.4079999999999995 172.89999999999998 -7.124Q175.916 -8.84 177.502 -11.908Q179.088 -14.975999999999999 179.088 -18.928Q179.088 -22.828 177.502 -25.792Q175.916 -28.756 172.926 -30.394Q169.93599999999998 -32.032 165.61999999999998 -32.032H156.052V-37.44H165.61999999999998Q171.75599999999997 -37.44 176.332 -35.152Q180.908 -32.864 183.43 -28.677999999999997Q185.952 -24.491999999999997 185.952 -18.823999999999998Q185.952 -13.155999999999999 183.404 -8.918Q180.856 -4.68 176.30599999999998 -2.34Q171.75599999999997 0.0 165.672 0.0ZM151.83999999999997 0.0V-37.44H158.6V0.0ZM207.376 0.0Q207.11599999999999 -1.04 206.986 -2.2880000000000003Q206.856 -3.536 206.856 -5.303999999999999H206.648V-17.887999999999998Q206.648 -19.968 205.478 -21.034Q204.308 -22.099999999999998 201.916 -22.099999999999998Q199.576 -22.099999999999998 198.19799999999998 -21.241999999999997Q196.82 -20.384 196.50799999999998 -18.772H190.216Q190.632 -22.464 193.752 -24.752Q196.87199999999999 -27.04 202.124 -27.04Q207.584 -27.04 210.392 -24.57Q213.2 -22.099999999999998 213.2 -17.316V-5.303999999999999Q213.2 -4.056 213.382 -2.7560000000000002Q213.564 -1.456 213.928 0.0ZM198.172 0.52Q194.168 0.52 191.80200000000002 -1.482Q189.436 -3.484 189.436 -6.864Q189.436 -10.504 192.088 -12.636Q194.73999999999998 -14.767999999999999 199.576 -15.495999999999999L207.844 -16.744V-12.584L200.668 -11.491999999999999Q198.328 -11.128 197.15800000000002 -10.192Q195.988 -9.256 195.988 -7.592Q195.988 -6.084 197.07999999999998 -5.278Q198.172 -4.4719999999999995 200.096 -4.4719999999999995Q202.904 -4.4719999999999995 204.776 -5.8759999999999994Q206.648 -7.279999999999999 206.648 -9.308L207.376 -5.303999999999999Q206.33599999999998 -2.444 203.96999999999997 -0.962Q201.60399999999998 0.52 198.172 0.52ZM231.244 0.52Q226.356 0.52 224.042 -1.7939999999999998Q221.728 -4.108 221.728 -8.735999999999999V-32.552L228.332 -34.995999999999995V-8.58Q228.332 -6.656 229.372 -5.72Q230.412 -4.784 232.648 -4.784Q233.532 -4.784 234.234 -4.914Q234.936 -5.044 235.56 -5.252V-0.156Q234.936 0.156 233.792 0.338Q232.648 0.52 231.244 0.52ZM216.632 -21.372V-26.52H235.56V-21.372ZM256.464 0.0Q256.204 -1.04 256.074 -2.2880000000000003Q255.94400000000002 -3.536 255.94400000000002 -5.303999999999999H255.73600000000002V-17.887999999999998Q255.73600000000002 -19.968 254.56600000000003 -21.034Q253.39600000000002 -22.099999999999998 251.00400000000002 -22.099999999999998Q248.66400000000002 -22.099999999999998 247.286 -21.241999999999997Q245.90800000000002 -20.384 245.596 -18.772H239.30400000000003Q239.72000000000003 -22.464 242.84000000000003 -24.752Q245.96 -27.04 251.21200000000002 -27.04Q256.672 -27.04 259.48 -24.57Q262.288 -22.099999999999998 262.288 -17.316V-5.303999999999999Q262.288 -4.056 262.47 -2.7560000000000002Q262.65200000000004 -1.456 263.016 0.0ZM247.26000000000002 0.52Q243.25600000000003 0.52 240.89000000000004 -1.482Q238.52400000000003 -3.484 238.52400000000003 -6.864Q238.52400000000003 -10.504 241.17600000000002 -12.636Q243.828 -14.767999999999999 248.66400000000002 -15.495999999999999L256.932 -16.744V-12.584L249.75600000000003 -11.491999999999999Q247.41600000000003 -11.128 246.24600000000004 -10.192Q245.07600000000002 -9.256 245.07600000000002 -7.592Q245.07600000000002 -6.084 246.168 -5.278Q247.26000000000002 -4.4719999999999995 249.18400000000003 -4.4719999999999995Q251.99200000000002 -4.4719999999999995 253.86400000000003 -5.8759999999999994Q255.73600000000002 -7.279999999999999 255.73600000000002 -9.308L256.464 -5.303999999999999Q255.424 -2.444 253.058 -0.962Q250.692 0.52 247.26000000000002 0.52ZM285.272 0.52Q281.268 0.52 277.914 -0.9099999999999999Q274.56 -2.34 272.06399999999996 -4.9399999999999995Q269.568 -7.54 268.216 -11.076Q266.864 -14.612 266.864 -18.823999999999998Q266.864 -23.035999999999998 268.216 -26.519999999999996Q269.568 -30.003999999999998 272.038 -32.578Q274.508 -35.152 277.86199999999997 -36.556Q281.216 -37.96 285.272 -37.96Q289.74399999999997 -37.96 293.332 -36.192Q296.92 -34.424 299.23400000000004 -31.226Q301.548 -28.028 302.068 -23.712H295.412Q294.788 -27.924 292.03200000000004 -30.186Q289.276 -32.448 285.324 -32.448Q281.84 -32.448 279.24 -30.784Q276.64 -29.119999999999997 275.18399999999997 -26.077999999999996Q273.728 -23.035999999999998 273.728 -18.875999999999998Q273.728 -14.612 275.18399999999997 -11.518Q276.64 -8.424 279.29200000000003 -6.708Q281.944 -4.992 285.376 -4.992Q289.224 -4.992 291.98 -7.254Q294.736 -9.516 295.464 -13.676H302.172Q301.548 -9.411999999999999 299.23400000000004 -6.188Q296.92 -2.964 293.332 -1.222Q289.74399999999997 0.52 285.272 0.52ZM318.812 0.52Q314.6 0.52 311.40200000000004 -1.248Q308.204 -3.016 306.43600000000004 -6.162Q304.668 -9.308 304.668 -13.363999999999999Q304.668 -17.419999999999998 306.43600000000004 -20.488Q308.204 -23.555999999999997 311.40200000000004 -25.298Q314.6 -27.04 318.812 -27.04Q323.076 -27.04 326.24800000000005 -25.298Q329.42 -23.555999999999997 331.188 -20.488Q332.956 -17.419999999999998 332.956 -13.363999999999999Q332.956 -9.308 331.16200000000003 -6.162Q329.368 -3.016 326.196 -1.248Q323.024 0.52 318.812 0.52ZM318.812 -4.732Q320.892 -4.732 322.55600000000004 -5.798Q324.22 -6.864 325.156 -8.814Q326.092 -10.764 326.092 -13.415999999999999Q326.092 -17.316 324.038 -19.552Q321.98400000000004 -21.788 318.812 -21.788Q315.64 -21.788 313.56 -19.552Q311.48 -17.316 311.48 -13.415999999999999Q311.48 -10.764 312.442 -8.814Q313.404 -6.864 315.04200000000003 -5.798Q316.68 -4.732 318.812 -4.732ZM337.272 0.0V-26.52H343.668V-20.124H343.824V0.0ZM343.824 -13.831999999999999 343.148 -20.124Q344.084 -23.503999999999998 346.32 -25.272Q348.556 -27.04 351.676 -27.04Q352.76800000000003 -27.04 353.236 -26.831999999999997V-20.644Q352.976 -20.747999999999998 352.50800000000004 -20.774Q352.04 -20.8 351.36400000000003 -20.8Q347.568 -20.8 345.696 -19.136Q343.824 -17.471999999999998 343.824 -13.831999999999999ZM368.94 0.52Q364.728 0.52 361.582 -1.248Q358.436 -3.016 356.69399999999996 -6.136Q354.952 -9.256 354.952 -13.312Q354.952 -17.368 356.69399999999996 -20.461999999999996Q358.436 -23.555999999999997 361.556 -25.298Q364.676 -27.04 368.836 -27.04Q372.788 -27.04 375.70000000000005 -25.402Q378.612 -23.764 380.22400000000005 -20.799999999999997Q381.836 -17.836 381.836 -13.883999999999999Q381.836 -13.155999999999999 381.784 -12.532Q381.73199999999997 -11.908 381.628 -11.283999999999999H359.008V-15.86H376.584L375.23199999999997 -14.612Q375.23199999999997 -18.355999999999998 373.51599999999996 -20.227999999999998Q371.8 -22.099999999999998 368.732 -22.099999999999998Q365.404 -22.099999999999998 363.454 -19.811999999999998Q361.504 -17.524 361.504 -13.208Q361.504 -8.943999999999999 363.454 -6.6819999999999995Q365.404 -4.42 368.992 -4.42Q371.072 -4.42 372.632 -5.199999999999999Q374.192 -5.9799999999999995 374.92 -7.592H381.108Q379.808 -3.848 376.714 -1.664Q373.62 0.52 368.94 0.52Z"/></svg>
+</div>
+  </div>
+</section>
 
-    <div class="route" id="metodo">
-      <p class="route-t">Del campo a la decisión en cinco capas, con la plataforma de datos como núcleo</p>
+<section class="story" id="nosotros">
+  <div class="container">
+    <article class="prose">
+      <p class="lede">GreenDataCore diseña y opera los sistemas que permiten controlar, medir y mejorar cómo se presta cada servicio en la ciudad.</p>
+      <div class="para"><h2 class="inline">El núcleo.</h2> <p>Nace de unir dos experiencias: la consultoría tecnológica, con ciberseguridad, cloud e inteligencia artificial, y la dirección diaria de contratos de servicios urbanos.</p></div>
+      <div class="para"><h2 class="inline">Las ramas.</h2> <p>La empresa crece como un árbol. El núcleo concentra los datos, el conocimiento y el método; cada servicio es una rama. La primera es <a class="link" href="#udoo">UDOO</a>, y vendrán más.</p></div>
+      <div class="para"><h2 class="inline">La diferencia.</h2> <p>Conocemos el terreno, el contrato y el sistema municipal, y traducimos la operación del servicio a tecnología.</p></div>
+    </article>
+    <ul class="gains" aria-label="Qué gana el servicio">
+      <li><h3>Ahorro de costes</h3><p>El dato se captura una vez y sirve para todo.</p></li>
+      <li><h3>Gestión eficiente de recursos</h3><p>Personal, vehículos y frecuencias según indicadores por zona.</p></li>
+      <li><h3>Automatización de procesos</h3><p>Informes y alertas sin hojas de cálculo manuales.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="method" id="metodo">
+  <div class="container">
+    <h2>Del campo a la decisión, en cinco capas</h2>
+    <div class="route">
       <div class="fig" aria-hidden="true"><svg id="bus"></svg></div>
-      <ol class="stations" aria-label="Método GreenDataCore en cinco capas">
-        <li><h3>Procesos y control de calidad</h3><p>Tipos de inspección, frecuencias, checklists e indicadores.</p></li>
-        <li><h3>Captura de datos en campo</h3><p>Aplicaciones y formularios online y offline, georreferenciados.</p></li>
-        <li class="core"><h3>Plataforma de datos</h3><p>Modelo unificado, ETL e integración segura con MINT.</p></li>
-        <li><h3>GIS y cuadros de mando</h3><p>Visores, mapas temáticos, KPIs por distrito y alertas.</p></li>
-        <li><h3>Gobernanza y Oficina Técnica</h3><p>Comités de seguimiento, mejoras, documentación y formación.</p></li>
+      <ol class="stations" aria-label="Método en cinco capas">
+        <li><h3>Procesos y calidad</h3><p>Inspecciones, frecuencias e indicadores.</p></li>
+        <li><h3>Captura en campo</h3><p>Formularios georreferenciados, con o sin conexión.</p></li>
+        <li class="core"><h3>Plataforma de datos</h3><p>Un modelo único, integrado con MINT.</p></li>
+        <li><h3>GIS y cuadros de mando</h3><p>Mapas, KPIs por distrito y alertas.</p></li>
+        <li><h3>Oficina Técnica</h3><p>Seguimiento, mejoras y formación.</p></li>
       </ol>
     </div>
   </div>
 </section>
 
-<section class="band" id="ventajas">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Tres ventajas de gestionar el servicio con datos</h2>
-      <p class="lead">Lo que obtiene la Administración o la empresa prestataria cuando el control del servicio se apoya en una plataforma de datos.</p>
-    </div>
-    <ul class="adv">
-      <li>
-        <svg viewBox="0 0 72 72" aria-hidden="true"><rect x="1" y="1" width="70" height="70" rx="16" fill="#1C6434"/><path d="M16 22 H30 L38 30 H46 L56 40" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M48 40 H56 V32" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 56 H56" stroke="#80CC28" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="22" r="4" fill="#80CC28" stroke="#F4F6F3" stroke-width="2"/></svg>
-        <div><h3>Ahorro de costes</h3><p>Los datos se capturan una sola vez en campo y se reutilizan en informes, inspecciones y certificaciones: menos trabajo administrativo y menos inspecciones repetidas.</p></div>
-      </li>
-      <li>
-        <svg viewBox="0 0 72 72" aria-hidden="true"><rect x="1" y="1" width="70" height="70" rx="16" fill="#1C6434"/><path d="M36 54 V36 M36 36 L22 22 M36 36 L50 22 M36 44 L24 44" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="22" r="5" fill="#80CC28" stroke="#F4F6F3" stroke-width="2"/><circle cx="50" cy="22" r="5" fill="#80CC28" stroke="#F4F6F3" stroke-width="2"/><circle cx="24" cy="44" r="4" fill="#80CC28" stroke="#F4F6F3" stroke-width="2"/><rect x="30" y="54" width="12" height="5" rx="2" fill="#80CC28"/></svg>
-        <div><h3>Gestión eficiente de recursos</h3><p>Personal, vehículos y frecuencias se asignan según indicadores por zona y distrito, con una visión unificada de todos los contratos.</p></div>
-      </li>
-      <li>
-        <svg viewBox="0 0 72 72" aria-hidden="true"><rect x="1" y="1" width="70" height="70" rx="16" fill="#1C6434"/><path d="M22 30 A15 15 0 0 1 49 26" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round"/><path d="M50 42 A15 15 0 0 1 23 46" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round"/><path d="M43 26 H50 V19" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M29 46 H22 V53" fill="none" stroke="#F4F6F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36" cy="36" r="6" fill="#80CC28" stroke="#F4F6F3" stroke-width="2"/></svg>
-        <div><h3>Automatización de procesos</h3><p>Informes, alertas y tareas repetitivas se generan de forma automática, con trazabilidad de cada actuación y sin depender de hojas de cálculo manuales.</p></div>
-      </li>
-    </ul>
-    <p class="cta-in"><a class="btn btn-p" href="#contacto">Solicitar una reunión</a><span>Le mostramos cómo se aplicaría a su contrato.</span></p>
-  </div>
-</section>
-
-<section class="band alt" id="servicios">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Una Oficina Técnica de Datos para los servicios de la ciudad</h2>
-      <p class="lead">GreenDataCore no ejecuta el servicio: diseña y opera el sistema que controla cómo se ejecuta.</p>
+<section class="services" id="servicios">
+  <div class="container">
+    <div>
+      <h2>Qué hacemos</h2>
+      <p class="lead">No ejecutamos el servicio: diseñamos y operamos el sistema que controla cómo se ejecuta.</p>
     </div>
     <ul class="lines">
-      <li><h3><span class="leaf" aria-hidden="true"></span>Modelo de control de calidad</h3><p>Tipos de inspección, frecuencias, checklists, niveles de calidad, indicadores y procedimientos homogéneos.</p></li>
-      <li><h3><span class="leaf" aria-hidden="true"></span>Captura de datos en campo</h3><p>Aplicaciones móviles y formularios digitales, online y offline, con georreferenciación y evidencias fotográficas.</p></li>
-      <li><h3><span class="leaf" aria-hidden="true"></span>Plataforma de datos e integración</h3><p>Modelo de datos unificado que consolida inventarios, incidencias, inspecciones, sensores y avisos ciudadanos, integrado con los sistemas municipales.</p></li>
-      <li><h3><span class="leaf" aria-hidden="true"></span>GIS y cuadros de mando</h3><p>Visores de mapas, mapas temáticos y de calor, KPIs por contrato y distrito, tendencias y alertas.</p></li>
-      <li><h3><span class="leaf" aria-hidden="true"></span>Automatización e inteligencia artificial</h3><p>Automatización de informes y tareas repetitivas y analítica avanzada aplicada al servicio.</p></li>
-      <li><h3><span class="leaf" aria-hidden="true"></span>Oficina Técnica y gobernanza</h3><p>Coordinación del contrato, comités de seguimiento, gestión de mejoras, documentación y formación.</p></li>
+      <li>Modelo de control de calidad</li>
+      <li>Captura de datos en campo</li>
+      <li>Plataforma de datos e integración</li>
+      <li>GIS y cuadros de mando</li>
+      <li>Automatización e inteligencia artificial</li>
+      <li>Oficina Técnica y gobernanza</li>
     </ul>
-    <p class="scope"><b>Ámbitos</b><span class="chip">Limpieza viaria</span><span class="chip">Zonas verdes y parques</span><span class="chip">Residuos</span><span class="chip">Equipamientos municipales</span></p>
-    <p class="cta-in"><a class="btn btn-p" href="#contacto">Hablemos de su servicio</a></p>
+    <p class="scope"><b>Ámbitos:</b> limpieza viaria, zonas verdes y parques, residuos y equipamientos municipales.</p>
   </div>
 </section>
 
-<section class="band" id="clientes">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Para quién trabajamos</h2>
-      <p class="lead">El cliente principal es la Administración local que contrata y supervisa servicios urbanos; las empresas prestatarias y los socios tecnológicos completan el ecosistema.</p>
-    </div>
-    <div class="tbl">
-      <table class="stack">
-        <thead><tr><th>Destinatario</th><th>Qué necesita</th><th>Qué le aportamos</th></tr></thead>
-        <tbody>
-          <tr><td>Ayuntamientos y sus direcciones generales</td><td>Control riguroso de los contratos, transparencia y modernización del modelo de gestión.</td><td>Un modelo homogéneo de control de calidad, trazabilidad de cada actuación y decisiones basadas en datos.</td></tr>
-          <tr><td>Servicios Técnicos Municipales</td><td>Información fiable y a tiempo para supervisar y priorizar.</td><td>Mapas, indicadores y cuadros de mando por contrato y distrito.</td></tr>
-          <tr><td>Empresas prestatarias de servicios urbanos</td><td>Demostrar la calidad del servicio y anticiparse a las incidencias.</td><td>Datos de su propia operación, comparables y verificables.</td></tr>
-          <tr><td>Socios tecnológicos</td><td>Proyectos con cliente público, requisitos claros y relación institucional.</td><td>Conocimiento del cliente, traducción de pliegos a requisitos y coordinación diaria con la Administración.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section class="band alt" id="diferencia">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Qué nos diferencia</h2>
-      <p class="lead">GreenDataCore traduce la operación del servicio a tecnología: conoce el terreno, el contrato y el sistema municipal, y construye sobre ello una plataforma de datos propia.</p>
-    </div>
-    <div class="diff">
-      <ul class="args">
-        <li><span class="leaf" aria-hidden="true" style="margin-top:4px"></span><div><h3>Traductor operación‑tecnología</h3><p>Entendemos el lenguaje de capataces, inspectores y responsables de contrato, y lo convertimos en requisitos para soluciones útiles.</p></div></li>
-        <li><span class="leaf" aria-hidden="true" style="margin-top:4px"></span><div><h3>Más de una década gestionando servicios urbanos</h3><p>Experiencia directa en la dirección de contratos municipales: pliegos, coordinación con los Servicios Técnicos e integración con sistemas corporativos (MINT, cumplimiento ENS nivel medio).</p></div></li>
-        <li><span class="leaf" aria-hidden="true" style="margin-top:4px"></span><div><h3>Tecnología y ciberseguridad de nivel empresarial</h3><p>Socios con décadas de experiencia en consultoría tecnológica, cloud, ciberseguridad, infraestructura e inteligencia artificial.</p></div></li>
-        <li><span class="leaf" aria-hidden="true" style="margin-top:4px"></span><div><h3>Modelo replicable</h3><p>Lo que se construye para un contrato sirve para limpieza viaria, residuos y zonas verdes de otros contratos y de otras ciudades.</p></div></li>
-      </ul>
-      <div class="cmp tbl">
-        <table class="stack">
-          <thead><tr><th>Práctica habitual en el sector</th><th>Enfoque de GreenDataCore</th></tr></thead>
-          <tbody>
-            <tr><td>Reporting en Excel y documentos PDF estáticos</td><td>Plataforma de datos propia, integrada con MINT y con sistemas GIS</td></tr>
-            <tr><td>Visión fragmentada: cada contrato se gestiona por separado</td><td>Visión global y unificada de todos los contratos y zonas</td></tr>
-            <tr><td>GIS limitado, sin IA ni automatización</td><td>Capacidad interna en BI, GIS, IA y automatización aplicada a servicios urbanos</td></tr>
-            <tr><td>Dependencia de terceros para integraciones y desarrollos</td><td>Autonomía técnica y alianzas con socios tecnológicos bajo una misma dirección</td></tr>
-            <tr><td>Enfoque reactivo ante los problemas</td><td>Indicadores, tendencias y alertas para anticiparse</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <p class="cta-in"><a class="btn btn-p" href="#contacto">Solicitar una reunión</a><span>Analizamos con usted los datos de su contrato.</span></p>
-  </div>
-</section>
-
-<section class="band forest" id="proposito">
-  <div class="wrap">
-    <p class="purpose">Que los servicios de la ciudad se gestionen <span>con datos, no solo con intuición.</span></p>
-    <div class="mv">
-      <div><h3>Misión</h3><p>Integrar, interpretar y transformar los datos de los servicios urbanos en decisiones operativas, con modelos de control de calidad homogéneos, trazabilidad de cada actuación y herramientas que la Administración y las empresas prestatarias usan a diario.</p></div>
-      <div><h3>Visión</h3><p>Ser el socio tecnológico de referencia en datos para servicios urbanos: un modelo nacido en Madrid y replicable en otras ciudades y administraciones.</p></div>
-    </div>
-    <dl class="values">
-      <div><dt>Rigor del dato</dt><dd>Cada afirmación se apoya en un dato con unidad y fuente; los indicadores y las reglas de calidad se definen antes de medir.</dd></div>
-      <div><dt>Conocimiento del terreno</dt><dd>Hablamos el lenguaje de capataces, inspectores y responsables de contrato, y lo convertimos en requisitos claros.</dd></div>
-      <div><dt>Transparencia y trazabilidad</dt><dd>Cada intervención queda registrada, documentada y verificable.</dd></div>
-      <div><dt>Replicabilidad</dt><dd>Procesos, cuadros de mando y plantillas se diseñan para servir a más de un contrato y de una ciudad.</dd></div>
-      <div><dt>Colaboración</dt><dd>Trabajamos con socios tecnológicos y con la Administración; no pretendemos hacerlo todo solos.</dd></div>
-    </dl>
-  </div>
-</section>
-
-<section class="udoo band" id="udoo">
-  <div class="wrap udoo-grid">
-    <div class="udoo-mark">
-      <img src="assets/logo/udoo-rama-gdc-negativo.svg" alt="UDOO, una rama de GreenDataCore" width="476" height="220">
-    </div>
+<section class="udoo" id="udoo">
+  <div class="container">
+    <div class="mark"><img src="assets/logo/udoo-rama-gdc-negativo.svg" alt="UDOO, una rama de GreenDataCore" width="476" height="220"></div>
     <div>
-      <h2>UDOO, <span>la primera rama</span> de GreenDataCore</h2>
-      <p class="lead">UDOO — Urban Data Operations Office es la Oficina Técnica de Datos y Control de Calidad para servicios urbanos, y el proyecto con el que GreenDataCore entra en el mercado, empezando por las zonas verdes de Madrid.</p>
-      <p class="cta-in"><a class="btn btn-p" href="#contacto">Quiero conocer UDOO</a></p>
+      <h2>UDOO, la primera rama</h2>
+      <p class="lead">Urban Data Operations Office: la Oficina Técnica de Datos y Control de Calidad para servicios urbanos, empezando por las zonas verdes de Madrid.</p>
+      <p class="acts"><a class="link" href="#contacto">Hablemos de UDOO</a></p>
     </div>
-    <p class="next-t">Las siguientes ramas reutilizan el mismo núcleo de datos, método y herramientas:</p>
-    <dl class="next">
-      <div><dt>Replicación en otros servicios</dt><dd>El modelo UDOO aplicado a limpieza viaria, residuos y zonas verdes de otros contratos.</dd></div>
-      <div><dt>Oficina Técnica de Datos como servicio</dt><dd>La Oficina Técnica de Datos paquetizada para otras ciudades y administraciones.</dd></div>
-      <div><dt>Productos reutilizables</dt><dd>Cuadros de mando, scripts, plantillas y desarrollos convertidos en producto.</dd></div>
-    </dl>
+    <table class="branches">
+      <thead><tr><th>Rama</th><th>Qué es</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr class="on"><td>UDOO</td><td>Oficina Técnica de Datos y Control de Calidad.</td><td>En marcha</td></tr>
+        <tr><td>Otros servicios</td><td>El modelo UDOO en limpieza viaria, residuos y otros contratos.</td><td>En crecimiento</td></tr>
+        <tr><td>Oficina como servicio</td><td>La Oficina Técnica de Datos para otras ciudades.</td><td>En crecimiento</td></tr>
+        <tr><td>Productos</td><td>Cuadros de mando, scripts y plantillas reutilizables.</td><td>En crecimiento</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<section class="band" id="contacto">
-  <div class="wrap contact">
+<section class="contact" id="contacto">
+  <div class="container">
     <div>
       <h2>Hablemos</h2>
-      <p class="lead">Cuéntenos qué servicio gestiona y qué necesita. Le responderemos a la mayor brevedad para concertar una reunión.</p>
+      <p class="lead">Cuéntenos qué servicio gestiona y le proponemos una reunión.</p>
     </div>
     <form class="form" id="cf" novalidate>
       <label>Nombre y apellidos<input id="f-nombre" name="nombre" autocomplete="name" required></label>
@@ -468,13 +155,15 @@ table.stack td::before{content:attr(data-l);color:var(--mut);font-weight:400;fon
 </main>
 
 <footer class="foot">
-  <div class="wrap">
-    <img src="assets/logo/gdc-logo-horizontal-negativo.svg" alt="GreenDataCore" width="219" height="56">
-    <p>GreenDataCore es una empresa especializada en datos, GIS y control de calidad para servicios urbanos, impulsada en Madrid por profesionales de la consultoría tecnológica, la ciberseguridad y la dirección de operaciones.</p>
-    <p>© <span id="y">2026</span> GreenDataCore · Madrid</p>
+  <div class="container">
+    <p class="statement">Que los servicios de la ciudad se gestionen con datos, no solo con intuición.</p>
+    <div class="row">
+      <img src="assets/logo/gdc-logo-horizontal-negativo.svg" alt="GreenDataCore" width="157" height="40">
+      <ul><li><a href="#metodo">Método</a></li><li><a href="#udoo">UDOO</a></li><li><a href="#contacto">Contacto</a></li></ul>
+      <p>© <span id="y">2026</span> GreenDataCore, Madrid</p>
+    </div>
   </div>
 </footer>
-
 <script>
 {
   const svg = document.getElementById('bus');
@@ -536,7 +225,7 @@ const NS = 'http://www.w3.org/2000/svg';
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const host = document.getElementById('tree');
 const hero = document.getElementById('inicio');
-const lema = hero.querySelector('.brand h1');
+const lema = hero.querySelector('h1');
 const inner = host.querySelector('svg svg');
 let visible = true;
 const timers = [];
@@ -614,9 +303,6 @@ function ambient(){
         ctx.fillStyle = 'rgba(61,163,93,' + a + ')'; ctx.fillRect(x-1.5*dpr, y-1.5*dpr, 3*dpr, 3*dpr);
         if (p > .72) { ctx.strokeStyle = 'rgba(61,163,93,' + (a*.8) + ')'; ctx.lineWidth = dpr; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 28*dpr, y - 28*dpr); ctx.stroke(); }
       }
-      if (Math.random() < .3) parts.push({x: cx + (Math.random()-.5)*2*spread, y: H + 10, v: (0.4 + Math.random()*0.9)*dpr, r: (1 + Math.random()*1.8)*dpr, a: 0});
-      parts = parts.filter(p => p.y > -10);
-      for (const p of parts) { p.y -= p.v; p.a = Math.min(1, p.a + .02); const fade = Math.min(1, p.y / (H*.5)); ctx.fillStyle = 'rgba(128,204,40,' + (0.5*p.a*fade) + ')'; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill(); }
     }
     requestAnimationFrame(loop);
   };
@@ -629,9 +315,9 @@ function ambient(){
 }
 
 /* entrada: el árbol crece desde la raíz */
-function grow(lemaEl){
+function grow(lemaEl, withText = true){
   const txt = [...host.querySelectorAll(':scope > svg > path')];
-  txt.forEach(p => p.style.opacity = 0); lemaEl.style.opacity = 0;
+  txt.forEach(p => p.style.opacity = 0); if (lemaEl) lemaEl.style.opacity = 0;
   items.forEach(it => it.g.style.opacity = 0);
   nodes.forEach(n => n.style.opacity = 0);
   const draw = (el, delay, dur) => { const L = el.getTotalLength(); el.style.strokeDasharray = L; el.animate([{strokeDashoffset: L}, {strokeDashoffset: 0}], {duration: dur, delay, fill: 'both', easing: 'cubic-bezier(.3,.1,.3,1)'}); };
@@ -642,8 +328,9 @@ function grow(lemaEl){
   const sorted = [...items].sort((a,b) => b.tipY - a.tipY);
   sorted.forEach((it, i) => it.g.animate([{opacity: 0, scale: '0'}, {opacity: 1, scale: '1.25', offset: .6}, {opacity: 1, scale: '1'}], {duration: 650, delay: 1700 + i*55, fill: 'forwards', easing: 'cubic-bezier(.3,1.4,.5,1)'}));
   const end = 1700 + sorted.length*55 + 400;
+  if (!withText) return end + 300;
   txt.forEach((p, i) => p.animate([{opacity: 0}, {opacity: 1}], {duration: 700, delay: end + i*20, fill: 'forwards'}));
-  lemaEl.animate([{opacity: 0, transform: 'translateY(10px)'}, {opacity: 1, transform: 'none'}], {duration: 700, delay: end + 500, fill: 'forwards'});
+  if (lemaEl) lemaEl.animate([{opacity: 0, transform: 'translateY(10px)'}, {opacity: 1, transform: 'none'}], {duration: 700, delay: end + 500, fill: 'forwards'});
   return end + 900;
 }
 
@@ -651,11 +338,10 @@ function grow(lemaEl){
 function intro(){
   const ov = document.getElementById('intro');
   const slot = host.parentNode, anchor = host.nextElementSibling;
-  const lemaIntro = ov.querySelector('.intro-lema');
   const go = ov.querySelector('.intro-go');
-  ov.hidden = false; document.documentElement.classList.add('locked');
+  ov.hidden = false;
   ov.querySelector('.intro-stage').prepend(host);
-  const end = grow(lemaIntro);
+  const end = grow(null, false);
   later(() => { go.classList.add('on'); stream(); }, end);
   let done = false;
   const enter = () => {
@@ -663,14 +349,13 @@ function intro(){
     window.removeEventListener('wheel', enter); window.removeEventListener('touchmove', enter); window.removeEventListener('keydown', onKey);
     const first = host.getBoundingClientRect();
     slot.insertBefore(host, anchor);
-    document.documentElement.classList.remove('locked');
     const last = host.getBoundingClientRect();
     const sc = first.width / last.width;
     const dx = (first.left + first.width/2) - (last.left + last.width/2), dy = (first.top + first.height/2) - (last.top + last.height/2);
     host.getAnimations().forEach(a => a.cancel());
     host.animate([{transform: `translate(${dx}px, ${dy}px) scale(${sc})`}, {transform: 'none'}], {duration: 950, easing: 'cubic-bezier(.65,0,.25,1)'});
-    host.querySelectorAll(':scope > svg > path').forEach(p => { p.getAnimations().forEach(a => a.finish()); p.style.opacity = ''; });
-    lemaIntro.animate([{opacity: 1}, {opacity: 0}], {duration: 200, fill: 'forwards'}); go.style.visibility = 'hidden';
+    host.querySelectorAll(':scope > svg > path').forEach((p, i) => { p.style.opacity = ''; p.animate([{opacity: 0}, {opacity: 1}], {duration: 600, delay: 450 + i*15, fill: 'backwards'}); });
+    go.style.visibility = 'hidden';
     ov.animate([{opacity: 1}, {opacity: 0}], {duration: 750, easing: 'ease-out'}).onfinish = () => { ov.remove(); };
     lema.animate([{opacity: 0}, {opacity: 1}], {duration: 600, delay: 500, fill: 'backwards'});
     ambient();
