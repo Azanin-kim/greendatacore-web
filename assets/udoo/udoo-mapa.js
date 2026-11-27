@@ -1,5 +1,5 @@
 /* UDOO · demo de producto sobre cartografía real (OpenStreetMap).
-   Zonas, sectores, avisos, carritos, vehículos y supervisores son ficticios y se generan en el navegador. */
+   Zonas, sectores, avisos, carritos, vehículos y capataces son ficticios y se generan en el navegador. */
 {
   const root = document.getElementById('ud');
   if (root && window.L) {
@@ -92,7 +92,7 @@
       const fam = p.kind === 'veh' ? 'veh' : p.kind === 'sup' ? 'sup' : 'carrito';
       const n = ++count[fam];
       const r = { kind: p.kind, loop: l, s: p.kind === 'carrito' ? l.s : -1, d: 2 * l.total * ((p.off || 0) + rnd() * 0.3), speed: SPEED[p.kind][0] + rnd() * (SPEED[p.kind][1] - SPEED[p.kind][0]), out: false };
-      r.id = (fam === 'veh' ? 'V-' : fam === 'sup' ? 'S-' : 'C-') + String(n).padStart(2, '0');
+      r.id = (fam === 'veh' ? 'V-' : fam === 'sup' ? 'K-' : 'C-') + String(n).padStart(2, '0');
       const at = posOn(l, r.d);
       if (p.kind === 'veh') r.mk = L.marker(at, { icon: pin(C.veh, GLYPH.veh), keyboard: false, zIndexOffset: 300 }).addTo(gVeh);
       else if (p.kind === 'sup') r.mk = L.marker(at, { icon: pin(C.sup, GLYPH.sup), keyboard: false, zIndexOffset: 400 }).addTo(gSup);
@@ -102,7 +102,7 @@
       }
       r.mk.bindTooltip(() => {
         if (r.kind === 'veh') return `Vehículo ${r.id} · apoyo a recogida y poda`;
-        if (r.kind === 'sup') return `Supervisor ${r.id} · revisión en campo`;
+        if (r.kind === 'sup') return `Capataz ${r.id} · atención de avisos en su cantón`;
         if (r.kind === 'sinasig') return `Carrito ${r.id} · sin sector asignado (revisar)`;
         if (r.kind === 'libre') return `Carrito ${r.id} · libre, bajo demanda`;
         return `Carrito ${r.id} · Sector ${r.s + 1} · posición GPS ${r.out ? 'fuera de' : 'dentro de'} su sector`;
@@ -222,7 +222,7 @@
     OVER[dot(C.sinasig) + 'Carritos sin asignar (revisar)'] = gUn;
     OVER[dot(C.libre) + 'Libres / bajo demanda'] = gFree;
     OVER[mini(C.veh, GLYPH.veh) + 'Vehículos'] = gVeh;
-    OVER[mini(C.sup, GLYPH.sup) + 'Supervisores'] = gSup;
+    OVER[mini(C.sup, GLYPH.sup) + 'Capataces'] = gSup;
     OVER[mini(C.aviso, GLYPH.aviso) + 'Avisos'] = gPins;
     OVER['Zonas de trabajo'] = gZones;
     L.control.layers(null, OVER, { collapsed: root.clientWidth < 900, position: 'topright' }).addTo(map);

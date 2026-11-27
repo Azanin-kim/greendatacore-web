@@ -22,7 +22,7 @@
 <link rel="preload" href="assets/fonts/InstrumentSans-600.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js")</script>
 <link rel="alternate" type="text/plain" href="/llms.txt" title="Resumen para modelos de lenguaje (llms.txt)">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
 <link rel="stylesheet" href="assets/udoo/udoo-mapa.css?v=7">
 </head>
@@ -115,7 +115,7 @@
     <div class="mark"><img src="assets/logo/udoo-rama-gdc-negativo.svg" alt="UDOO, una rama de GreenDataCore" width="476" height="220"></div>
     <div>
       <h2>UDOO: control operativo de servicios urbanos</h2>
-      <p class="lead">Urban Data Operations Office: una plataforma y una Oficina Técnica de Datos que reúnen en un solo mapa los avisos, la flota, las zonas y los indicadores de un servicio urbano, y los convierten en control de calidad diario.</p>
+      <p class="lead">Urban Data Operations Office: la plataforma de gestión de limpieza urbana de GreenDataCore. Conecta contratos, equipos, flota, mapas en tiempo real, avisos y mantenimiento en un mismo entorno de trabajo, con el acompañamiento de una Oficina Técnica de Datos.</p>
       <p class="acts"><a class="btn btn-p" href="#contacto" data-demo>Solicitar una demo de UDOO</a></p>
     </div>
 
@@ -131,7 +131,7 @@
           <span class="ud-demo"><b>Datos de demostración</b> · <span data-k="clock">Jornada simulada</span></span>
         </div>
         <div class="ud-body">
-          <div class="ud-map"><div id="ud-map" role="region" aria-label="Mapa de demostración sobre el parque del Retiro, con zonas, avisos, carritos, vehículos y supervisores ficticios"></div></div>
+          <div class="ud-map"><div id="ud-map" role="region" aria-label="Mapa de demostración sobre el parque del Retiro, con zonas, avisos, carritos, vehículos y capataces ficticios"></div></div>
           <div class="ud-panel" hidden>
             <div><p class="ud-ph">Avisos recibidos por zona</p><p class="ud-pd">Jornada simulada. Suma de avisos abiertos y resueltos.</p><div class="ud-bars" data-b="rec"></div></div>
             <div><p class="ud-ph">Praderas con paso registrado por zona</p><p class="ud-pd">Praderas con al menos una posición GPS a menos de 30 m en la jornada simulada.</p><div class="ud-bars" data-b="pass"></div></div>
@@ -149,28 +149,45 @@
           </aside>
         </div>
       </div>
-      <figcaption><b>Datos ficticios.</b> Demostración interactiva sobre la cartografía real del parque del Retiro: las zonas, los carritos, los vehículos, los supervisores, los avisos y las cifras se generan en el navegador y no corresponden a ningún contrato. Un segundo equivale a un minuto de la jornada simulada.</figcaption>
+      <figcaption><b>Datos ficticios.</b> Demostración interactiva sobre la cartografía real del parque del Retiro: las zonas, los carritos, los vehículos, los capataces, los avisos y las cifras se generan en el navegador y no corresponden a ningún contrato. Un segundo equivale a un minuto de la jornada simulada.</figcaption>
     </figure>
+
+    <div class="ud-procs">
+      <h3>Qué permite gestionar</h3>
+      <ol class="ud-proc-grid">
+        <li><h4><span>01</span>Preparar cada contrato para operar</h4><p>Servicios, zonas, sectores, cantones (bases operativas), turnos, personal y medios. Los datos se incorporan con plantillas Excel validadas antes de cargarse; se configuran tipos de aviso, reglas de reparto y plazos. La activación comprueba que el contrato tiene sectores, cantones y plantilla, y se gestionan vigencias, prórrogas y contratos finalizados en consulta.</p></li>
+        <li><h4><span>02</span>Cubrir el servicio con los recursos disponibles</h4><p>Compara la dotación necesaria con el personal y los medios disponibles por cantón y turno, según categorías y habilitaciones. Ante un déficit, propone apoyos explicados desde otros cantones; el responsable revisa su efecto y valida o ajusta los traslados.</p></li>
+        <li><h4><span>03</span>Dirigir la operación sobre el mapa</h4><p>Límites del contrato, zonas, sectores, cantones, avisos y posiciones de los medios en vivo. Alertas de medios fuera de su sector o zona con tolerancias configurables, recorridos por turno o día, distancias y superficie estimada a partir del trazado y del ancho del medio. La posición GPS indica presencia y recorrido; por sí sola no acredita trabajo realizado.</p></li>
+        <li><h4><span>04</span>Llevar cada aviso hasta su resolución</h4><p>Incidencias propias o avisos externos, ubicados, con prioridad, plazo y reparto por equipo y turno. El capataz los acepta, inicia, pausa, reanuda y resuelve con notas y fotografías; lo que requiere atención se escala al encargado, y el historial conserva transiciones y tiempos.</p></li>
+        <li><h4><span>05</span>Conectar el taller con la disponibilidad de la flota</h4><p>Vehículos, carritos, maquinaria y herramientas con sus estados, ITV y contadores de uso. Una avería o un preventivo da lugar a una orden de trabajo, el taller organiza su carga semanal y el estado del medio queda vinculado a la intervención.</p></li>
+        <li><h4><span>06</span>Controlar materiales y necesidades de atención</h4><p>Existencias, entradas, consumos, ajustes y traspasos de consumibles por cantón. Los mínimos de stock, las necesidades de cobertura, las habilitaciones, las ITV y las revisiones pendientes alimentan las vistas de atención de cada responsable.</p></li>
+        <li><h4><span>07</span>Dar visibilidad al ayuntamiento</h4><p>Mapa del servicio, medios agregados, cobertura de jornadas cerradas y avisos municipales, con plazos, evolución y fotografías de apertura y cierre, además de las incidencias que la empresa marque como visibles. La vista municipal protege los datos personales de la plantilla y las notas internas.</p></li>
+        <li><h4><span>08</span>Incorporar datos de otros sistemas</h4><p>Posiciones de medios y avisos recibidos mediante API, con conexiones y credenciales administradas por contrato. Cada fuente se configura según su formato y alcance, y sus datos alimentan el mapa y el circuito de atención de avisos.</p></li>
+      </ol>
+      <p class="ud-trust"><b>Confianza y trazabilidad.</b> Separación de datos entre organizaciones, permisos según funciones y asignaciones, auditoría de actuaciones y protección de las evidencias. Cada usuario ve la información que corresponde a su responsabilidad, desde la dirección de la empresa hasta el equipo de campo y la supervisión municipal.</p>
+    </div>
 
     <div class="mm" id="mm">
       <svg class="mm-lines" aria-hidden="true"></svg>
       <div class="mm-q mm-a" data-side="l">
         <h3 class="mm-hub">Qué gestiona</h3>
         <ul>
-          <li><button type="button" aria-pressed="false">Avisos e incidencias</button><p class="mm-txt">Recepción, localización por zona, asignación y seguimiento hasta el cierre, con los tiempos de respuesta medidos.</p></li>
-          <li><button type="button" aria-pressed="false">Flota y equipos</button><p class="mm-txt">Posición de los vehículos, sectores delimitados por geocerca, presencia programada frente a presencia real y recorridos realizados.</p></li>
-          <li><button type="button" aria-pressed="false">Zonas y elementos</button><p class="mm-txt">Zonas, sectores y elementos del servicio sobre cartografía, con su estado y el historial de actuaciones.</p></li>
-          <li><button type="button" aria-pressed="false">Indicadores e informes</button><p class="mm-txt">Cobertura, cumplimiento y rendimiento por zona, con informes diarios y mensuales generados de forma automática.</p></li>
+          <li><button type="button" aria-pressed="false">Contratos y configuración</button><p class="mm-txt">Servicios, zonas, sectores, cantones, turnos, personal y medios de cada contrato, con tipos de aviso, reglas de reparto y plazos.</p></li>
+          <li><button type="button" aria-pressed="false">Personal y cobertura</button><p class="mm-txt">Dotación necesaria frente a personal y medios disponibles por cantón y turno, con categorías y habilitaciones.</p></li>
+          <li><button type="button" aria-pressed="false">Mapa en tiempo real</button><p class="mm-txt">Límites, zonas, sectores, cantones, avisos y posiciones de los medios con actualización en vivo.</p></li>
+          <li><button type="button" aria-pressed="false">Avisos e incidencias</button><p class="mm-txt">Avisos propios y externos, ubicados, priorizados y repartidos por equipo y turno hasta su resolución.</p></li>
+          <li><button type="button" aria-pressed="false">Flota y taller</button><p class="mm-txt">Vehículos, carritos, maquinaria y herramientas, con estados, ITV, contadores de uso y órdenes de trabajo.</p></li>
+          <li><button type="button" aria-pressed="false">Materiales y stock</button><p class="mm-txt">Existencias, entradas, consumos y traspasos de consumibles por cantón, con mínimos de stock.</p></li>
         </ul>
       </div>
       <div class="mm-q mm-b" data-side="r">
         <h3 class="mm-hub">Qué procesos mejora</h3>
         <ul>
-          <li><button type="button" aria-pressed="false">Del aviso a la resolución</button><p class="mm-txt">Cada aviso llega ubicado y asignado a su zona y a su equipo, y ninguno queda sin responsable.</p></li>
-          <li><button type="button" aria-pressed="false">Planificación y cobertura</button><p class="mm-txt">Lo planificado se compara cada día con lo ejecutado, zona por zona.</p></li>
-          <li><button type="button" aria-pressed="false">Presencia en zona</button><p class="mm-txt">La geolocalización acredita que los equipos están donde el servicio los necesita.</p></li>
-          <li><button type="button" aria-pressed="false">Informes y justificación</button><p class="mm-txt">Los informes al cliente se generan a partir de los datos, sin hojas de cálculo manuales.</p></li>
-          <li><button type="button" aria-pressed="false">Anticipación</button><p class="mm-txt">Las desviaciones se detectan antes de que lleguen en forma de reclamación.</p></li>
+          <li><button type="button" aria-pressed="false">Del aviso a la resolución</button><p class="mm-txt">Cada aviso tiene prioridad, plazo y responsable; el historial conserva las transiciones y los tiempos de atención.</p></li>
+          <li><button type="button" aria-pressed="false">Cobertura del servicio</button><p class="mm-txt">Ante un déficit, propuestas explicadas de apoyo desde otros cantones que el responsable valida o ajusta.</p></li>
+          <li><button type="button" aria-pressed="false">Presencia en zona</button><p class="mm-txt">Alertas de medios fuera de su sector o zona con tolerancias configurables. La posición GPS indica presencia y recorrido; por sí sola no acredita trabajo realizado.</p></li>
+          <li><button type="button" aria-pressed="false">Mantenimiento y disponibilidad</button><p class="mm-txt">Las averías y los preventivos generan órdenes de trabajo, y la planificación cuenta con los medios realmente operativos.</p></li>
+          <li><button type="button" aria-pressed="false">Evidencias para la Administración</button><p class="mm-txt">Plazos, evolución y fotografías de apertura y cierre de los avisos, desde la misma información operativa.</p></li>
         </ul>
       </div>
       <div class="mm-core">
@@ -178,19 +195,21 @@
         <div class="mm-card" aria-live="polite"><p class="mm-ct"></p><p class="mm-cd"></p></div>
       </div>
       <div class="mm-q mm-c" data-side="l">
-        <h3 class="mm-hub">A quién aporta valor</h3>
+        <h3 class="mm-hub">Cómo se implanta</h3>
         <ul>
-          <li><button type="button" aria-pressed="false">Otros contratos de servicios urbanos</button><p class="mm-txt">El modelo se adapta a limpieza viaria, residuos, zonas verdes y mantenimiento: las mismas capas, con las zonas, los elementos y los indicadores de cada pliego.</p></li>
-          <li><button type="button" aria-pressed="false">Empresas prestatarias</button><p class="mm-txt">Control de la propia ejecución, menor carga administrativa y una base documental sólida para acreditar el cumplimiento ante la Administración.</p></li>
-          <li><button type="button" aria-pressed="false">Ayuntamientos y Administración pública</button><p class="mm-txt">Supervisión objetiva del cumplimiento, indicadores homogéneos entre contratos y distritos, trazabilidad de los avisos ciudadanos y datos fiables para preparar los próximos pliegos.</p></li>
+          <li><button type="button" aria-pressed="false">1 · Diagnóstico</button><p class="mm-txt">Análisis de la operativa, de los procesos y de las fuentes de información, y definición de los indicadores.</p></li>
+          <li><button type="button" aria-pressed="false">2 · Implantación</button><p class="mm-txt">Configuración del contrato, carga de datos con plantillas validadas, conexión de las fuentes acordadas, formación y puesta en marcha.</p></li>
+          <li><button type="button" aria-pressed="false">3 · Oficina Técnica de Datos</button><p class="mm-txt">Acompañamiento recurrente: calidad de los datos, seguimiento de pendientes y desviaciones y propuestas de mejora.</p></li>
         </ul>
       </div>
       <div class="mm-q mm-d" data-side="r">
-        <h3 class="mm-hub">Cómo se implanta</h3>
+        <h3 class="mm-hub">Quién lo usa</h3>
         <ul>
-          <li><button type="button" aria-pressed="false">1 · Diagnóstico</button><p class="mm-txt">Análisis del pliego, de los procesos y de los sistemas existentes, y definición de los indicadores.</p></li>
-          <li><button type="button" aria-pressed="false">2 · Implantación</button><p class="mm-txt">Integración segura con los sistemas acordados con cada cliente, cartografía de zonas, cuadros de mando y formación.</p></li>
-          <li><button type="button" aria-pressed="false">3 · Oficina Técnica de Datos</button><p class="mm-txt">Servicio continuo: supervisión diaria, informes periódicos y mejora de los procesos.</p></li>
+          <li><button type="button" aria-pressed="false">Dirección</button><p class="mm-txt">Visión de varios contratos a la vez.</p></li>
+          <li><button type="button" aria-pressed="false">Encargado</button><p class="mm-txt">Coordina la operación de su contrato y recibe los avisos y propuestas que requieren su atención.</p></li>
+          <li><button type="button" aria-pressed="false">Capataz</button><p class="mm-txt">Atiende los avisos y recursos de su cantón desde una interfaz adaptada al móvil, con notas y fotografías.</p></li>
+          <li><button type="button" aria-pressed="false">Responsable de taller</button><p class="mm-txt">Organiza el mantenimiento y la carga semanal del taller.</p></li>
+          <li><button type="button" aria-pressed="false">Ayuntamiento</button><p class="mm-txt">Consulta el estado de sus servicios mediante un acceso de supervisión con vista propia y permisos diferenciados.</p></li>
         </ul>
       </div>
     </div>
@@ -221,7 +240,7 @@
           </ul>
         </article>
       </div>
-      <p class="ud-note">Las integraciones específicas y los desarrollos adicionales se concretan en cada propuesta.</p>
+      <p class="ud-note">La contratación se organiza por contrato de servicio; el ayuntamiento dispone de un acceso de supervisión sin suscripción municipal de pago. Las integraciones específicas, los desarrollos adicionales y el alcance de la implantación y del acompañamiento se concretan en cada propuesta.</p>
       <p class="acts"><a class="btn btn-p" href="#contacto" data-demo>Solicitar una demo de UDOO</a></p>
     </div>
   </div>
@@ -484,7 +503,7 @@ if (!reduce) {
     new IntersectionObserver((es, o) => {
       if (!es[0].isIntersecting) return;
       o.disconnect();
-      add('assets/vendor/leaflet/leaflet.js').then(() => add('assets/udoo/udoo-mapa-datos.js')).then(() => add('assets/udoo/udoo-mapa.js?v=7')).catch(() => {});
+      add('assets/vendor/leaflet/leaflet.js').then(() => add('assets/udoo/udoo-mapa-datos.js')).then(() => add('assets/udoo/udoo-mapa.js?v=8')).catch(() => {});
     }, { rootMargin: '600px 0px' }).observe(ud);
   }
   document.querySelectorAll('[data-demo]').forEach(a => a.addEventListener('click', () => {
