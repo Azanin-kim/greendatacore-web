@@ -11,7 +11,7 @@
 .ud-tabs button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
 .ud-tabs button[aria-selected="true"] { color: var(--color-accent-ink); background: var(--color-accent); }
 .ud-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 280px); min-height: 440px; }
-.ud-map { position: relative; min-height: 440px; background: var(--color-paper); }
+.ud-map { position: relative; min-height: 580px; background: var(--color-paper); }
 .ud-side { border-left: 1px solid var(--color-rule); padding: var(--space-md); display: flex; flex-direction: column; gap: var(--space-md); }
 .ud-kpis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xs); }
 .ud-kpi { background: var(--color-paper); border: 1px solid var(--color-rule); border-radius: var(--radius-card); padding: var(--space-sm); }

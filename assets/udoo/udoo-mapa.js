@@ -19,7 +19,7 @@
     const map = L.map(root.querySelector('#ud-map'), { scrollWheelZoom: false, zoomSnap: 0.25, attributionControl: true });
     L.tileLayer(TILES.url, { maxZoom: TILES.maxZoom, attribution: TILES.attribution }).addTo(map);
     const BOUNDS = L.latLngBounds([40.4092, -3.6889], [40.4211, -3.6765]);
-    map.fitBounds(BOUNDS, { padding: [8, 8] });
+    map.fitBounds(BOUNDS, { padding: [4, 4] });
     map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
     map.on('click', () => map.scrollWheelZoom.enable());
     map.on('mouseout', () => map.scrollWheelZoom.disable());
@@ -169,7 +169,7 @@
     vehicles.forEach(place);
     update(); show(root.dataset.start || 'mapa');
     let fitted = false;
-    new ResizeObserver(es => { map.invalidateSize(); const r = es[0].contentRect; if (!fitted && r.width > 0 && r.height > 0) { fitted = true; map.fitBounds(BOUNDS, { padding: [8, 8] }); } }).observe(root.querySelector('#ud-map'));
+    new ResizeObserver(es => { map.invalidateSize(); const r = es[0].contentRect; if (!fitted && r.width > 0 && r.height > 0) { fitted = true; map.fitBounds(BOUNDS, { padding: [4, 4] }); } }).observe(root.querySelector('#ud-map'));
     if (!reduce) {
       new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(root);
       requestAnimationFrame(step);
