@@ -21,9 +21,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/InstrumentSans-600.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js")</script>
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
-<link rel="stylesheet" href="assets/udoo/udoo-mapa.css?v=4">
+<link rel="stylesheet" href="assets/udoo/udoo-mapa.css?v=5">
 </head>
 <body>
 <div class="intro" id="intro" hidden>
@@ -113,7 +113,7 @@
   <div class="container">
     <div class="mark"><img src="assets/logo/udoo-rama-gdc-negativo.svg" alt="UDOO, una rama de GreenDataCore" width="476" height="220"></div>
     <div>
-      <h2>UDOO, la primera rama</h2>
+      <h2>UDOO: control operativo de servicios urbanos</h2>
       <p class="lead">Urban Data Operations Office: una plataforma y una Oficina Técnica de Datos que reúnen en un solo mapa los avisos, la flota, las zonas y los indicadores de un servicio urbano, y los convierten en control de calidad diario.</p>
       <p class="acts"><a class="btn btn-p" href="#contacto" data-demo>Solicitar una demo de UDOO</a></p>
     </div>
@@ -127,17 +127,22 @@
             <button type="button" role="tab" data-v="flota" aria-selected="false">Flota</button>
             <button type="button" role="tab" data-v="ind" aria-selected="false">Indicadores</button>
           </div>
-          <span class="ud-demo">Datos de demostración</span>
+          <span class="ud-demo"><b>Datos de demostración</b> · <span data-k="clock">Jornada simulada</span></span>
         </div>
         <div class="ud-body">
           <div class="ud-map"><div id="ud-map" role="region" aria-label="Mapa de demostración sobre el parque del Retiro, con zonas, avisos y vehículos ficticios"></div></div>
+          <div class="ud-panel" hidden>
+            <div><p class="ud-ph">Avisos recibidos por zona</p><p class="ud-pd">Jornada simulada. Suma de avisos abiertos y resueltos.</p><div class="ud-bars" data-b="rec"></div></div>
+            <div><p class="ud-ph">Praderas con paso registrado por zona</p><p class="ud-pd">Praderas con al menos una posición GPS a menos de 30 m en la jornada simulada.</p><div class="ud-bars" data-b="pass"></div></div>
+            <div><p class="ud-ph">Presencia GPS por sector</p><p class="ud-pd">Vehículos cuya última posición está dentro de su sector asignado.</p><div class="ud-bars" data-b="gps"></div></div>
+          </div>
           <aside class="ud-side">
-            <div class="ud-kpis">
-              <div class="ud-kpi new"><b data-k="open">0</b><span>Avisos abiertos</span></div>
-              <div class="ud-kpi ok"><b data-k="solved">0</b><span>Resueltos hoy</span></div>
-              <div class="ud-kpi"><b data-k="fleet">0</b><span>Vehículos en su sector</span></div>
-              <div class="ud-kpi"><b data-k="cov">0</b><span>Cobertura del servicio</span></div>
-            </div>
+            <dl class="ud-kpis">
+              <div class="ud-kpi new"><dt>Avisos abiertos</dt><dd><b data-k="open">0</b><span>Pendientes de resolver en este momento.</span></dd></div>
+              <div class="ud-kpi ok"><dt>Avisos resueltos</dt><dd><b data-k="solved">0</b><span>Cerrados desde el inicio de la jornada simulada.</span></dd></div>
+              <div class="ud-kpi"><dt>Presencia GPS</dt><dd><b data-k="fleet">0</b><span>Vehículos cuya última posición está dentro de su sector. No acredita la ejecución del servicio.</span></dd></div>
+              <div class="ud-kpi"><dt>Praderas con paso registrado</dt><dd><b data-k="pass">0</b><span>Praderas con al menos una posición GPS a menos de 30 m en la jornada simulada. Indica paso, no trabajo realizado.</span></dd></div>
+            </dl>
             <p class="ud-feed-h">Actividad reciente</p>
             <ul class="ud-feed" aria-live="off"></ul>
             <div class="ud-layers">
@@ -147,12 +152,8 @@
             </div>
           </aside>
         </div>
-        <div class="ud-panel" hidden>
-          <div><p class="ud-ph">Avisos por zona</p><div class="ud-bars"></div></div>
-          <div><p class="ud-ph">Cobertura del servicio por sector</p><div class="ud-bars ud-cov"></div></div>
-        </div>
       </div>
-      <figcaption>Demostración interactiva con datos ficticios sobre la cartografía real del parque del Retiro. Las zonas, los vehículos y los avisos no corresponden a ningún contrato.</figcaption>
+      <figcaption><b>Datos ficticios.</b> Demostración interactiva sobre la cartografía real del parque del Retiro: las zonas, los vehículos, los avisos y las cifras se generan en el navegador y no corresponden a ningún contrato. Un segundo equivale a un minuto de la jornada simulada.</figcaption>
     </figure>
 
     <div class="mm" id="mm">
@@ -198,8 +199,33 @@
       </div>
     </div>
 
-    <div class="ud-end">
-      <p class="ud-next"><b>Próximas ramas:</b> el modelo UDOO en otros servicios urbanos, la Oficina Técnica de Datos para otras ciudades y productos reutilizables, como cuadros de mando, plantillas y automatizaciones.</p>
+    <p class="ud-next"><b>Próximas ramas:</b> el modelo UDOO en otros servicios urbanos, la Oficina Técnica de Datos para otras ciudades y productos reutilizables, como cuadros de mando, plantillas y automatizaciones.</p>
+
+    <div class="ud-offer">
+      <h3>Qué incluye contratar UDOO</h3>
+      <div class="ud-offer-grid">
+        <article class="ud-card">
+          <h4>Implantación por contrato</h4>
+          <ul>
+            <li>Diagnóstico de la operativa y de las fuentes de información.</li>
+            <li>Configuración de sectores, recursos, usuarios y permisos.</li>
+            <li>Conexión de las fuentes de datos acordadas.</li>
+            <li>Adaptación de mapas, cuadros de mando e indicadores.</li>
+            <li>Formación, validación inicial y puesta en marcha.</li>
+          </ul>
+        </article>
+        <article class="ud-card">
+          <h4>Seguimiento recurrente</h4>
+          <ul>
+            <li>Acceso, mantenimiento y soporte de la plataforma.</li>
+            <li>Supervisión de la actualización y calidad de los datos.</li>
+            <li>Seguimiento de indicadores, pendientes y desviaciones.</li>
+            <li>Reuniones periódicas de revisión y propuestas de mejora.</li>
+            <li>Ajustes funcionales dentro del alcance contratado.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="ud-note">Las integraciones específicas y los desarrollos adicionales se concretan en cada propuesta.</p>
       <p class="acts"><a class="btn btn-p" href="#contacto" data-demo>Solicitar una demo de UDOO</a></p>
     </div>
   </div>
@@ -462,7 +488,7 @@ if (!reduce) {
     new IntersectionObserver((es, o) => {
       if (!es[0].isIntersecting) return;
       o.disconnect();
-      add('assets/vendor/leaflet/leaflet.js').then(() => add('assets/udoo/udoo-mapa-datos.js')).then(() => add('assets/udoo/udoo-mapa.js?v=4')).catch(() => {});
+      add('assets/vendor/leaflet/leaflet.js').then(() => add('assets/udoo/udoo-mapa-datos.js')).then(() => add('assets/udoo/udoo-mapa.js?v=5')).catch(() => {});
     }, { rootMargin: '600px 0px' }).observe(ud);
   }
   document.querySelectorAll('[data-demo]').forEach(a => a.addEventListener('click', () => {

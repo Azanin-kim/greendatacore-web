@@ -3,7 +3,7 @@
  * axes: dark/grotesk-sans/chromatic-green · posture: Poster · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4 · weakest: P, the brand platform reads as a catalogue; told it as one argument (operation becomes data) and cut the tables, values and the second list of benefits */
 /* Hallmark · waive 3 · .stations on phones · the vertical line is the data route itself, not a decorative stripe */
-@import url("./tokens.css");
+@import url("./tokens.css?v=2");
 @import url("./base.css");
 
 @font-face { font-family: "Instrument Sans"; src: url(assets/fonts/InstrumentSans-400.woff2) format("woff2"); font-weight: 400; font-display: swap; }
@@ -84,9 +84,19 @@ body { font-size: 1.0625rem; }
 .udoo .acts { margin-top: var(--space-lg); }
 .ud-fig { grid-column: 1 / -1; margin: 0; }
 .ud-fig figcaption { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
-.ud-end { grid-column: 1 / -1; display: grid; justify-items: center; text-align: center; }
-.ud-next { max-width: 70ch; color: var(--color-muted); font-size: var(--text-sm); }
+.ud-fig figcaption b { color: var(--color-signal); font-weight: 600; }
+.ud-next { grid-column: 1 / -1; justify-self: center; max-width: 70ch; text-align: center; color: var(--color-muted); font-size: var(--text-sm); }
 .ud-next b { color: var(--color-ink); font-weight: 600; }
+.ud-offer { grid-column: 1 / -1; display: grid; gap: var(--space-lg); padding-top: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
+.ud-offer h3 { margin: 0; font-size: var(--text-xl); }
+.ud-offer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg); }
+.ud-card { padding: var(--space-lg); border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-paper-2); color: var(--color-ink); }
+.ud-card h4 { margin: 0 0 var(--space-md); font-size: var(--text-lg); font-weight: 600; color: var(--color-accent); }
+.ud-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-sm); }
+.ud-card li { position: relative; padding-left: var(--space-lg); color: var(--color-ink-2); line-height: 1.5; }
+.ud-card li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 8px; height: 8px; border-radius: 50%; border: 2px solid var(--color-accent); }
+.ud-note { margin: 0; font-size: var(--text-sm); color: var(--color-muted); }
+.ud-offer .acts { margin: 0; }
 
 /* UDOO mind map: the four branches around the core */
 .mm { grid-column: 1 / -1; position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px) minmax(0, 1fr); grid-template-areas: "a core b" "c core d"; column-gap: var(--space-2xl); row-gap: var(--space-2xl); padding-block: var(--space-xl); }
@@ -166,6 +176,7 @@ html.js .intro-go:not(.on) { opacity: 0; }
 
 @media (max-width: 60rem) {
   .hero .container, .story .container, .services .container, .udoo .container, .contact .container { grid-template-columns: minmax(0, 1fr); }
+  .ud-offer-grid { grid-template-columns: minmax(0, 1fr); }
   .mm { grid-template-columns: minmax(0, 1fr); grid-template-areas: "core" "a" "b" "c" "d"; row-gap: var(--space-xl); }
   .mm-lines, .mm-card { display: none; }
   .mm-q, .mm-q[data-side="l"], .mm-q[data-side="r"] { justify-items: stretch; text-align: left; border-left: 2px solid var(--color-track); padding-left: var(--space-md); }
