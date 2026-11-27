@@ -10,6 +10,8 @@
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
   --color-paper: oklch(23.9% 0 0); --color-paper-2: oklch(26.9% 0 0); --color-paper-3: oklch(30.1% 0 0);
   --color-map: oklch(93% 0.006 95);
+  --op-aviso: oklch(60% 0.22 330); --op-vehiculo: oklch(60% 0.17 135); --op-supervisor: oklch(57% 0.20 30); --op-dentro: oklch(72% 0.19 145); --op-fuera: oklch(56% 0.21 27); --op-sinasignar: oklch(71% 0.17 52); --op-libre: oklch(33% 0.01 260); --op-sector: oklch(55% 0.18 262);
+  --op-z1: oklch(45% 0.17 300); --op-z2: oklch(50% 0.13 245); --op-z3: oklch(46% 0.16 20); --op-z4: oklch(63% 0.15 55); --op-z5: oklch(50% 0.12 165);
   --color-ink: oklch(97.1% 0.004 134.8); --color-ink-2: oklch(92.1% 0.019 152.8); --color-muted: oklch(82.2% 0.012 153.6);
   --color-rule: oklch(36.4% 0 0); --color-edge: oklch(40.9% 0 0);
   --color-accent: oklch(76.7% 0.200 132.3); --color-accent-ink: oklch(24.5% 0.024 157.1); --color-focus: oklch(94.1% 0.184 109.5); --color-accent-hi: oklch(81.0% 0.190 131.4); --color-forest: oklch(44.7% 0.105 150.6); --color-track: oklch(63.9% 0.140 150.7); --color-signal: oklch(94.1% 0.184 109.5); --color-tint: oklch(30.3% 0.039 135.0); --color-err: oklch(83.8% 0.090 29.2);

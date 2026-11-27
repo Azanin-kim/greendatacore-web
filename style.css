@@ -3,7 +3,7 @@
  * axes: dark/grotesk-sans/chromatic-green · posture: Poster · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4 · weakest: P, the brand platform reads as a catalogue; told it as one argument (operation becomes data) and cut the tables, values and the second list of benefits */
 /* Hallmark · waive 3 · .stations on phones · the vertical line is the data route itself, not a decorative stripe */
-@import url("./tokens.css?v=2");
+@import url("./tokens.css?v=3");
 @import url("./base.css");
 
 @font-face { font-family: "Instrument Sans"; src: url(assets/fonts/InstrumentSans-400.woff2) format("woff2"); font-weight: 400; font-display: swap; }

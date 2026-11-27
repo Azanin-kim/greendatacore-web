@@ -21,9 +21,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/InstrumentSans-600.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js")</script>
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=4">
 <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
-<link rel="stylesheet" href="assets/udoo/udoo-mapa.css?v=5">
+<link rel="stylesheet" href="assets/udoo/udoo-mapa.css?v=4">
 </head>
 <body>
 <div class="intro" id="intro" hidden>
@@ -130,30 +130,25 @@
           <span class="ud-demo"><b>Datos de demostración</b> · <span data-k="clock">Jornada simulada</span></span>
         </div>
         <div class="ud-body">
-          <div class="ud-map"><div id="ud-map" role="region" aria-label="Mapa de demostración sobre el parque del Retiro, con zonas, avisos y vehículos ficticios"></div></div>
+          <div class="ud-map"><div id="ud-map" role="region" aria-label="Mapa de demostración sobre el parque del Retiro, con zonas, avisos, carritos, vehículos y supervisores ficticios"></div></div>
           <div class="ud-panel" hidden>
             <div><p class="ud-ph">Avisos recibidos por zona</p><p class="ud-pd">Jornada simulada. Suma de avisos abiertos y resueltos.</p><div class="ud-bars" data-b="rec"></div></div>
             <div><p class="ud-ph">Praderas con paso registrado por zona</p><p class="ud-pd">Praderas con al menos una posición GPS a menos de 30 m en la jornada simulada.</p><div class="ud-bars" data-b="pass"></div></div>
-            <div><p class="ud-ph">Presencia GPS por sector</p><p class="ud-pd">Vehículos cuya última posición está dentro de su sector asignado.</p><div class="ud-bars" data-b="gps"></div></div>
+            <div><p class="ud-ph">Presencia GPS por sector</p><p class="ud-pd">Carritos asignados cuya última posición está dentro de su sector.</p><div class="ud-bars" data-b="gps"></div></div>
           </div>
           <aside class="ud-side">
             <dl class="ud-kpis">
               <div class="ud-kpi new"><dt>Avisos abiertos</dt><dd><b data-k="open">0</b><span>Pendientes de resolver en este momento.</span></dd></div>
               <div class="ud-kpi ok"><dt>Avisos resueltos</dt><dd><b data-k="solved">0</b><span>Cerrados desde el inicio de la jornada simulada.</span></dd></div>
-              <div class="ud-kpi"><dt>Presencia GPS</dt><dd><b data-k="fleet">0</b><span>Vehículos cuya última posición está dentro de su sector. No acredita la ejecución del servicio.</span></dd></div>
+              <div class="ud-kpi"><dt>Presencia GPS</dt><dd><b data-k="fleet">0</b><span>Carritos asignados cuya última posición está dentro de su sector. No acredita la ejecución del servicio.</span></dd></div>
               <div class="ud-kpi"><dt>Praderas con paso registrado</dt><dd><b data-k="pass">0</b><span>Praderas con al menos una posición GPS a menos de 30 m en la jornada simulada. Indica paso, no trabajo realizado.</span></dd></div>
             </dl>
             <p class="ud-feed-h">Actividad reciente</p>
             <ul class="ud-feed" aria-live="off"></ul>
-            <div class="ud-layers">
-              <label><input type="checkbox" value="zones" checked>Zonas</label>
-              <label><input type="checkbox" value="pins" checked>Avisos</label>
-              <label><input type="checkbox" value="veh" checked>Vehículos</label>
-            </div>
           </aside>
         </div>
       </div>
-      <figcaption><b>Datos ficticios.</b> Demostración interactiva sobre la cartografía real del parque del Retiro: las zonas, los vehículos, los avisos y las cifras se generan en el navegador y no corresponden a ningún contrato. Un segundo equivale a un minuto de la jornada simulada.</figcaption>
+      <figcaption><b>Datos ficticios.</b> Demostración interactiva sobre la cartografía real del parque del Retiro: las zonas, los carritos, los vehículos, los supervisores, los avisos y las cifras se generan en el navegador y no corresponden a ningún contrato. Un segundo equivale a un minuto de la jornada simulada.</figcaption>
     </figure>
 
     <div class="mm" id="mm">
@@ -488,7 +483,7 @@ if (!reduce) {
     new IntersectionObserver((es, o) => {
       if (!es[0].isIntersecting) return;
       o.disconnect();
-      add('assets/vendor/leaflet/leaflet.js').then(() => add('assets/udoo/udoo-mapa-datos.js')).then(() => add('assets/udoo/udoo-mapa.js?v=5')).catch(() => {});
+      add('assets/vendor/leaflet/leaflet.js').then(() => add('assets/udoo/udoo-mapa-datos.js')).then(() => add('assets/udoo/udoo-mapa.js?v=4')).catch(() => {});
     }, { rootMargin: '600px 0px' }).observe(ud);
   }
   document.querySelectorAll('[data-demo]').forEach(a => a.addEventListener('click', () => {

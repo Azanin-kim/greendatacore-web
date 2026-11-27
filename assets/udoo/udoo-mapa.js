@@ -1,5 +1,5 @@
 /* UDOO · demo de producto sobre cartografía real (OpenStreetMap).
-   Zonas, sectores, avisos y vehículos son ficticios y se generan en el navegador. */
+   Zonas, sectores, avisos, carritos, vehículos y supervisores son ficticios y se generan en el navegador. */
 {
   const root = document.getElementById('ud');
   if (root && window.L) {
@@ -11,7 +11,11 @@
     };
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-    const C = { accent: css('--color-accent'), accentDeep: css('--color-forest'), track: css('--color-track'), signal: css('--color-signal'), err: css('--color-error'), ink: css('--color-paper'), forest: css('--color-forest') };
+    const C = {
+      aviso: css('--op-aviso'), veh: css('--op-vehiculo'), sup: css('--op-supervisor'), dentro: css('--op-dentro'), fuera: css('--op-fuera'),
+      sinasig: css('--op-sinasignar'), libre: css('--op-libre'), sector: css('--op-sector'), ok: css('--color-accent'),
+      zones: [1, 2, 3, 4, 5].map(i => css('--op-z' + i))
+    };
     let seed = 20261127;
     const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647;
     const pick = a => a[Math.floor(rnd() * a.length)];
@@ -24,22 +28,33 @@
     map.on('click', () => map.scrollWheelZoom.enable());
     map.on('mouseout', () => map.scrollWheelZoom.disable());
 
-    /* zonas de mantenimiento: praderas reales del Retiro agrupadas de forma ficticia */
+    /* iconos operativos: chinchetas con símbolo y círculos de estado */
+    const GLYPH = {
+      aviso: '<rect x="13.8" y="7" width="2.4" height="8.6" rx="1.2" fill="#fff"/><circle cx="15" cy="19" r="1.6" fill="#fff"/>',
+      hecho: '<path d="M9.5 14.2l3.6 3.6 7.4-7.6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>',
+      veh: '<path d="M7.5 10.5h9.5v7.5H7.5z M17 12.8h3.4l2.6 3v2.2H17z" fill="#fff"/><circle cx="10.6" cy="18.6" r="1.9" fill="#fff" stroke="currentColor" stroke-width="1"/><circle cx="19.6" cy="18.6" r="1.9" fill="#fff" stroke="currentColor" stroke-width="1"/>',
+      sup: '<circle cx="15" cy="10.6" r="3.3" fill="#fff"/><path d="M9.2 20.2c0-3.4 2.6-5.7 5.8-5.7s5.8 2.3 5.8 5.7z" fill="#fff"/>'
+    };
+    const pinSvg = (color, glyph, size = 30) => `<svg class="ud-pinsvg" viewBox="0 0 30 40" width="${size}" height="${Math.round(size * 4 / 3)}" style="color:${color}" aria-hidden="true"><path d="M15 38.5S2.5 24.5 2.5 14.2a12.5 12.5 0 0 1 25 0C27.5 24.5 15 38.5 15 38.5z" fill="currentColor" stroke="#fff" stroke-width="2"/>${glyph}</svg>`;
+    const pin = (color, glyph, cls = '') => L.divIcon({ className: 'ud-pin ' + cls, html: pinSvg(color, glyph), iconSize: [30, 40], iconAnchor: [15, 39], tooltipAnchor: [0, -30] });
+    const dot = color => `<span class="ud-ldot" style="background:${color}"></span>`;
+    const mini = (color, glyph) => `<span class="ud-lpin">${pinSvg(color, glyph, 15)}</span>`;
+
+    /* zonas de trabajo: praderas reales del Retiro agrupadas de forma ficticia */
     const GEO = window.UDOO_GEO;
     const ZONES = GEO.zonas;
     const gZones = L.layerGroup().addTo(map);
-    const zoneLayers = [];
-    ZONES.forEach((polys, i) => polys.forEach(r => zoneLayers.push(L.polygon(r, { color: C.forest, weight: 1.5, fillColor: C.track, fillOpacity: 0.45 })
-      .bindTooltip('Zona ' + (i + 1), { className: 'ud-ltip', sticky: true }).addTo(gZones))));
+    ZONES.forEach((polys, i) => polys.forEach(r => L.polygon(r, { color: C.zones[i], weight: 2, fillColor: C.zones[i], fillOpacity: 0.28 })
+      .bindTooltip('Zona ' + (i + 1), { className: 'ud-ltip', sticky: true }).addTo(gZones)));
 
-    /* sectores de la flota (ficticios) */
+    /* sectores (ficticios) */
     const SECT = [[-3.6889, -3.6845], [-3.6845, -3.6805], [-3.6805, -3.6764]];
-    const gSect = L.layerGroup();
-    SECT.forEach(([a, b], i) => L.rectangle([[40.4090, a], [40.4212, b]], { color: C.ink, weight: 2, dashArray: '6 6', fill: false, interactive: false }).addTo(gSect));
-    SECT.forEach(([a, b], i) => L.marker([40.4208, (a + b) / 2], { icon: L.divIcon({ className: 'ud-sect', html: 'Sector ' + (i + 1), iconSize: null }), interactive: false }).addTo(gSect));
+    const gSect = L.layerGroup().addTo(map), gSectLbl = L.layerGroup();
+    SECT.forEach(([a, b]) => L.rectangle([[40.4090, a], [40.4212, b]], { color: C.sector, weight: 2.5, fill: false, interactive: false }).addTo(gSect));
+    SECT.forEach(([a, b], i) => L.marker([40.4208, (a + b) / 2], { icon: L.divIcon({ className: 'ud-sect', html: 'Sector ' + (i + 1), iconSize: null }), interactive: false }).addTo(gSectLbl));
     const sectorOf = lng => SECT.findIndex(([a, b]) => lng >= a && lng < b);
 
-    /* vehículos: recorren paseos reales del parque, ida y vuelta */
+    /* recorridos: paseos reales del parque, ida y vuelta */
     const M_LAT = 111320, M_LNG = 111320 * Math.cos(40.415 * Math.PI / 180);
     const segLen = (a, b) => Math.hypot((b[0] - a[0]) * M_LAT, (b[1] - a[1]) * M_LNG);
     const LOOPS = GEO.rutas.map(pts => {
@@ -59,16 +74,42 @@
       }
       return l.pts[l.pts.length - 1];
     };
-    const gVeh = L.layerGroup().addTo(map), gTrail = L.layerGroup().addTo(map);
-    const vehicles = [];
-    LOOPS.forEach((l, li) => [0, 0.55].forEach((off, k) => {
-      if (k && li !== 2) return;
-      const v = { id: 'V-' + String(vehicles.length + 1).padStart(2, '0'), loop: l, s: l.s, d: 2 * l.total * (off + rnd() * 0.3), speed: 9 + rnd() * 6, trail: [] };
-      v.trailEl = L.polyline([], { color: C.accentDeep, weight: 4, opacity: 0.55, interactive: false }).addTo(gTrail);
-      v.dot = L.circleMarker(posOn(l, v.d), { radius: 7, color: C.ink, weight: 2.5, fillColor: C.accent, fillOpacity: 1 }).addTo(gVeh);
-      v.dot.bindTooltip(() => `Vehículo ${v.id} · Sector ${v.s + 1} · posición GPS ${v.out ? 'fuera de' : 'dentro de'} su sector`, { className: 'ud-ltip' });
-      vehicles.push(v);
-    }));
+
+    /* recursos: carritos (con sector, sin asignar o libres), vehículos y supervisores */
+    const gIn = L.layerGroup().addTo(map), gOut = L.layerGroup().addTo(map), gUn = L.layerGroup().addTo(map), gFree = L.layerGroup().addTo(map);
+    const gVeh = L.layerGroup().addTo(map), gSup = L.layerGroup().addTo(map);
+    const PLAN = [
+      { kind: 'carrito', route: 2 }, { kind: 'carrito', route: 3 }, { kind: 'carrito', route: 4 }, { kind: 'carrito', route: 5 },
+      { kind: 'carrito', route: 7 }, { kind: 'carrito', route: 8 }, { kind: 'carrito', route: 2, off: 0.55 },
+      { kind: 'sinasig', route: 6 }, { kind: 'libre', route: 0 },
+      { kind: 'veh', route: 1 }, { kind: 'veh', route: 0, off: 0.5 },
+      { kind: 'sup', route: 5, off: 0.3 }, { kind: 'sup', route: 3, off: 0.7 }
+    ];
+    const SPEED = { carrito: [6, 9], sinasig: [6, 9], libre: [6, 9], veh: [15, 20], sup: [8, 11] };
+    const count = { carrito: 0, veh: 0, sup: 0 };
+    const res = PLAN.map(p => {
+      const l = LOOPS[p.route];
+      const fam = p.kind === 'veh' ? 'veh' : p.kind === 'sup' ? 'sup' : 'carrito';
+      const n = ++count[fam];
+      const r = { kind: p.kind, loop: l, s: p.kind === 'carrito' ? l.s : -1, d: 2 * l.total * ((p.off || 0) + rnd() * 0.3), speed: SPEED[p.kind][0] + rnd() * (SPEED[p.kind][1] - SPEED[p.kind][0]), out: false };
+      r.id = (fam === 'veh' ? 'V-' : fam === 'sup' ? 'S-' : 'C-') + String(n).padStart(2, '0');
+      const at = posOn(l, r.d);
+      if (p.kind === 'veh') r.mk = L.marker(at, { icon: pin(C.veh, GLYPH.veh), keyboard: false, zIndexOffset: 300 }).addTo(gVeh);
+      else if (p.kind === 'sup') r.mk = L.marker(at, { icon: pin(C.sup, GLYPH.sup), keyboard: false, zIndexOffset: 400 }).addTo(gSup);
+      else {
+        const col = p.kind === 'sinasig' ? C.sinasig : p.kind === 'libre' ? C.libre : C.dentro;
+        r.mk = L.circleMarker(at, { radius: 8, color: '#fff', weight: 2.5, fillColor: col, fillOpacity: 1 }).addTo(p.kind === 'sinasig' ? gUn : p.kind === 'libre' ? gFree : gIn);
+      }
+      r.mk.bindTooltip(() => {
+        if (r.kind === 'veh') return `Vehículo ${r.id} · apoyo a recogida y poda`;
+        if (r.kind === 'sup') return `Supervisor ${r.id} · revisión en campo`;
+        if (r.kind === 'sinasig') return `Carrito ${r.id} · sin sector asignado (revisar)`;
+        if (r.kind === 'libre') return `Carrito ${r.id} · libre, bajo demanda`;
+        return `Carrito ${r.id} · Sector ${r.s + 1} · posición GPS ${r.out ? 'fuera de' : 'dentro de'} su sector`;
+      }, { className: 'ud-ltip' });
+      return r;
+    });
+    const carts = res.filter(r => r.kind === 'carrito');
 
     /* jornada simulada: 1 segundo real equivale a 1 minuto de la jornada */
     const J_START = 9 * 60, J_END = 15 * 60;
@@ -102,16 +143,15 @@
     };
     const spawn = () => {
       const zi = Math.floor(rnd() * ZONES.length), poly = pick(ZONES[zi]);
-      const [lat, lng] = pointIn(poly);
       const p = { id: nextId++, type: pick(TYPES), zone: zi + 1, born: simMin, life: 12 + rnd() * 16 };
-      p.mk = L.circleMarker([lat, lng], { radius: 8, color: C.ink, weight: 2, fillColor: C.signal, fillOpacity: 1, className: reduce ? '' : 'ud-pulse' }).addTo(gPins);
+      p.mk = L.marker(pointIn(poly), { icon: pin(C.aviso, GLYPH.aviso, reduce ? '' : 'ud-new'), keyboard: false, zIndexOffset: 500 }).addTo(gPins);
       p.mk.bindTooltip(() => `Aviso ${p.id} · ${p.type} · Zona ${p.zone} · ${p.solved ? 'resuelto' : 'abierto'}`, { className: 'ud-ltip' });
       pins.push(p); open++; received[p.zone - 1]++;
       addFeed('new', `${hhmm(simMin)} · Aviso ${p.id} recibido`, `${p.type} · Zona ${p.zone}`);
       update();
     };
     const solve = p => {
-      p.solved = true; p.mk.setStyle({ fillColor: C.accent }); const el = p.mk.getElement(); if (el) el.classList.remove('ud-pulse');
+      p.solved = true; p.mk.setIcon(pin(C.ok, GLYPH.hecho));
       open--; solved++;
       addFeed('done', `${hhmm(simMin)} · Aviso ${p.id} resuelto`, `${p.type} · Zona ${p.zone}`);
       setTimeout(() => { gPins.removeLayer(p.mk); const i = pins.indexOf(p); if (i >= 0) pins.splice(i, 1); }, 3500);
@@ -125,25 +165,29 @@
     const pct = (a, b) => b ? Math.round(a / b * 100) : 0;
     function update(){
       if (!received) return;
-      const inSect = vehicles.filter(v => !v.out).length;
       const seen = LAWNS.filter(l => l.seen).length;
       k('open').textContent = open; k('solved').textContent = solved;
-      k('fleet').textContent = inSect + '/' + vehicles.length;
+      k('fleet').textContent = carts.filter(r => !r.out).length + '/' + carts.length;
       k('pass').textContent = pct(seen, LAWNS.length) + ' %';
       clock.textContent = 'Jornada simulada · ' + hhmm(J_START) + '–' + hhmm(simMin);
       const maxRec = Math.max(1, ...received);
       bRec.replaceChildren(...received.map((n, i) => barRow('Zona ' + (i + 1), n / maxRec, String(n))));
       bPass.replaceChildren(...ZONES.map((_, i) => { const t = LAWNS.filter(l => l.zone === i), s = t.filter(l => l.seen).length; return barRow('Zona ' + (i + 1), s / t.length, `${s}/${t.length}`); }));
-      bGps.replaceChildren(...SECT.map((_, i) => { const t = vehicles.filter(v => v.s === i), s = t.filter(v => !v.out).length; return barRow('Sector ' + (i + 1), t.length ? s / t.length : 0, `${s}/${t.length}`); }));
+      bGps.replaceChildren(...SECT.map((_, i) => { const t = carts.filter(r => r.s === i), s = t.filter(r => !r.out).length; return barRow('Sector ' + (i + 1), t.length ? s / t.length : 0, `${s}/${t.length}`); }));
     }
 
     /* bucle */
     let last = performance.now(), visible = true, acc = 0, ui = 0;
-    const place = v => {
-      const p = posOn(v.loop, v.d); v.dot.setLatLng(p);
-      v.trail.push(p); if (v.trail.length > 30) v.trail.shift(); v.trailEl.setLatLngs(v.trail);
-      const [a, b] = SECT[v.s], tol = 40 / M_LNG, out = p[1] < a - tol || p[1] > b + tol;
-      if (out !== v.out) { v.out = out; v.dot.setStyle({ fillColor: out ? C.err : C.accent }); v.trailEl.setStyle({ color: out ? C.err : C.accentDeep }); update(); }
+    const place = r => {
+      const p = posOn(r.loop, r.d); r.mk.setLatLng(p);
+      if (r.kind === 'carrito') {
+        const [a, b] = SECT[r.s], tol = 40 / M_LNG, out = p[1] < a - tol || p[1] > b + tol;
+        if (out !== r.out) {
+          r.out = out; r.mk.setStyle({ fillColor: out ? C.fuera : C.dentro });
+          (out ? gIn : gOut).removeLayer(r.mk); (out ? gOut : gIn).addLayer(r.mk);
+          update();
+        }
+      }
       return p;
     };
     const newDay = () => {
@@ -152,7 +196,7 @@
       simMin = J_START; nextId = 2481; open = 0; solved = 0; received = ZONES.map(() => 0);
       LAWNS.forEach(l => { l.seen = false; });
       /* primeras horas de la jornada (07:00–09:00): recorridos ya hechos y avisos ya resueltos */
-      vehicles.forEach(v => { for (let t = 0; t < 120; t++) { markPass(posOn(v.loop, v.d - t * v.speed * 30)); } });
+      res.forEach(r => { for (let t = 0; t < 120; t++) markPass(posOn(r.loop, r.d - t * r.speed * 30)); });
       [4, 6, 3, 5, 3].forEach((n, i) => { received[i] += n; solved += n; });
       for (let i = 0; i < 4; i++) spawn();
     };
@@ -160,7 +204,7 @@
       const dt = Math.min(0.05, (now - last) / 1000); last = now;
       if (visible && !document.hidden) {
         simMin += dt;
-        vehicles.forEach(v => { v.d += v.speed * dt; markPass(place(v)); });
+        res.forEach(r => { r.d += r.speed * dt; markPass(place(r)); });
         acc += dt; ui += dt;
         if (acc > 3.5) { acc = 0; if (pins.filter(p => !p.solved).length < 8) spawn(); }
         pins.forEach(p => { if (!p.solved && simMin - p.born > p.life) solve(p); });
@@ -170,10 +214,20 @@
       requestAnimationFrame(step);
     };
 
-    /* capas y pestañas */
-    const LAYERS = { zones: [gZones], pins: [gPins], veh: [gVeh, gTrail] };
-    const setLayer = (name, on) => LAYERS[name].forEach(g => on ? g.addTo(map) : map.removeLayer(g));
-    root.querySelectorAll('.ud-layers input').forEach(inp => inp.addEventListener('change', () => { setLayer(inp.value, inp.checked); }));
+    /* control de capas con leyenda */
+    const OVER = {};
+    OVER['Sectores'] = gSect;
+    OVER[dot(C.dentro) + 'Carritos dentro del sector'] = gIn;
+    OVER[dot(C.fuera) + 'Carritos fuera de sector'] = gOut;
+    OVER[dot(C.sinasig) + 'Carritos sin asignar (revisar)'] = gUn;
+    OVER[dot(C.libre) + 'Libres / bajo demanda'] = gFree;
+    OVER[mini(C.veh, GLYPH.veh) + 'Vehículos'] = gVeh;
+    OVER[mini(C.sup, GLYPH.sup) + 'Supervisores'] = gSup;
+    OVER[mini(C.aviso, GLYPH.aviso) + 'Avisos'] = gPins;
+    OVER['Zonas de trabajo'] = gZones;
+    L.control.layers(null, OVER, { collapsed: root.clientWidth < 900, position: 'topright' }).addTo(map);
+
+    /* pestañas */
     const mapView = root.querySelector('.ud-map'), panel = root.querySelector('.ud-panel');
     const tabs = [...root.querySelectorAll('.ud-tabs button')];
     let saved = null, fitted = false;
@@ -181,8 +235,9 @@
       tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.v === m)));
       if (m === 'ind' && !mapView.hidden && fitted) saved = { c: map.getCenter(), z: map.getZoom() };
       mapView.hidden = m === 'ind'; panel.hidden = m !== 'ind';
-      if (m === 'flota') { gSect.addTo(map); map.removeLayer(gPins); gZones.eachLayer(z => z.setStyle({ fillOpacity: 0.15, opacity: 0.4 })); }
-      else { map.removeLayer(gSect); if (root.querySelector('.ud-layers input[value=pins]').checked) gPins.addTo(map); gZones.eachLayer(z => z.setStyle({ fillOpacity: 0.45, opacity: 1 })); }
+      const fleet = m === 'flota';
+      if (fleet) { gSectLbl.addTo(map); gZones.eachLayer(z => z.setStyle({ fillOpacity: 0.1, opacity: 0.45 })); }
+      else { map.removeLayer(gSectLbl); gZones.eachLayer(z => z.setStyle({ fillOpacity: 0.28, opacity: 1 })); }
       if (m !== 'ind') { map.invalidateSize({ pan: false }); if (saved) { map.setView(saved.c, saved.z, { animate: false }); saved = null; } }
     };
     tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.v)));
@@ -194,7 +249,7 @@
     });
 
     /* arranque */
-    vehicles.forEach(place);
+    res.forEach(place);
     newDay();
     update(); show(root.dataset.start || 'mapa');
     new ResizeObserver(es => { const r = es[0].contentRect; if (!r.width || !r.height) return; map.invalidateSize({ pan: false }); if (!fitted) { fitted = true; map.fitBounds(BOUNDS, { padding: [4, 4] }); } }).observe(root.querySelector('#ud-map'));
