@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UDOO · Gestión de limpieza viaria, residuos y zonas verdes</title>
+<meta name="description" content="Gestione contratos de limpieza urbana con UDOO: avisos hasta su resolución, flota con GPS, cobertura de personal, taller, stock y acceso de supervisión para el ayuntamiento.">
+<link rel="canonical" href="https://greendatacore.com/udoo/">
+<link rel="icon" type="image/svg+xml" href="/assets/logo/gdc-simbolo-reducido.svg">
+<meta name="theme-color" content="#1F1F1F">
+<meta property="og:type" content="product">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="GreenDataCore">
+<meta property="og:title" content="UDOO · Gestión de limpieza viaria, residuos y zonas verdes">
+<meta property="og:description" content="Avisos, flota con GPS, cobertura de personal, taller, stock y supervisión municipal en una sola plataforma, con una Oficina Técnica de Datos.">
+<meta property="og:url" content="https://greendatacore.com/udoo/">
+<meta property="og:image" content="https://greendatacore.com/assets/og/greendatacore-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo de GreenDataCore sobre fondo grafito con el lema Inteligencia de datos para servicios urbanos">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/assets/fonts/InstrumentSans-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://greendatacore.com/#org",
+   "name": "GreenDataCore",
+   "url": "https://greendatacore.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://greendatacore.com/assets/og/greendatacore-1200x630.png",
+    "width": 1200,
+    "height": 630
+   },
+   "image": "https://greendatacore.com/assets/og/greendatacore-1200x630.png",
+   "description": "Inteligencia de datos y control operativo para servicios urbanos: limpieza viaria, recogida de residuos y mantenimiento de zonas verdes. Desarrolla UDOO.",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Madrid",
+    "addressCountry": "ES"
+   },
+   "areaServed": {
+    "@type": "Country",
+    "name": "España"
+   },
+   "knowsAbout": [
+    "Limpieza viaria",
+    "Recogida de residuos",
+    "Zonas verdes",
+    "Gestión de flotas con GPS",
+    "Sistemas de información geográfica",
+    "Contratos municipales de servicios urbanos"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://greendatacore.com/#website",
+   "url": "https://greendatacore.com/",
+   "name": "GreenDataCore",
+   "inLanguage": "es-ES",
+   "publisher": {
+    "@id": "https://greendatacore.com/#org"
+   }
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://greendatacore.com/udoo/#app",
+   "name": "UDOO",
+   "alternateName": "Urban Data Operations Office",
+   "applicationCategory": "BusinessApplication",
+   "applicationSubCategory": "Gestión de servicios urbanos",
+   "operatingSystem": "Web",
+   "url": "https://greendatacore.com/udoo/",
+   "inLanguage": "es-ES",
+   "description": "Plataforma de gestión de limpieza urbana que conecta contratos, equipos, flota, mapas en tiempo real, avisos y mantenimiento, con el acompañamiento de una Oficina Técnica de Datos. Para empresas prestatarias de limpieza viaria, recogida de residuos y zonas verdes, y para la supervisión municipal.",
+   "featureList": [
+    "Configuración de contratos, servicios, zonas, sectores, cantones, turnos, personal y medios",
+    "Cobertura del servicio con propuestas de apoyo entre cantones",
+    "Mapa en tiempo real con posiciones GPS de vehículos y carritos y alertas fuera de sector",
+    "Gestión de avisos e incidencias hasta su resolución, con notas y fotografías",
+    "Taller: órdenes de trabajo, ITV y disponibilidad de la flota",
+    "Materiales y stock de consumibles por cantón",
+    "Acceso de supervisión para el ayuntamiento",
+    "Integración de posiciones y avisos mediante API"
+   ],
+   "publisher": {
+    "@id": "https://greendatacore.com/#org"
+   },
+   "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "Empresas de servicios urbanos, empresas municipales y ayuntamientos"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://greendatacore.com/udoo/#page",
+   "url": "https://greendatacore.com/udoo/",
+   "name": "UDOO · Gestión de limpieza viaria, residuos y zonas verdes",
+   "inLanguage": "es-ES",
+   "isPartOf": {
+    "@id": "https://greendatacore.com/#website"
+   },
+   "about": {
+    "@id": "https://greendatacore.com/udoo/#app"
+   },
+   "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+     {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://greendatacore.com/"
+     },
+     {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "UDOO",
+      "item": "https://greendatacore.com/udoo/"
+     }
+    ]
+   }
+  }
+ ]
+}
+</script>
+<link rel="alternate" type="text/plain" href="/llms.txt" title="Resumen para modelos de lenguaje (llms.txt)">
+<link rel="stylesheet" href="/style.css?v=9">
+<link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="/assets/udoo/udoo-mapa.css?v=7">
+</head>
+<body class="sub">
+<header class="nav">
+  <div class="container">
+    <a href="/" aria-label="GreenDataCore, inicio"><img src="/assets/logo/gdc-logo-horizontal-negativo.svg" alt="GreenDataCore" width="188" height="48"></a>
+    <ul>
+      <li><a href="/#metodo">Método</a></li>
+      <li><a href="/udoo/" aria-current="page">UDOO</a></li>
+      <li><a class="btn btn-p" href="#contacto">Hablemos</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section class="udoo udoo-page" id="udoo">
+  <div class="container">
+    <div class="mark"><img src="/assets/logo/udoo-rama-gdc-negativo.svg" alt="UDOO, una rama de GreenDataCore" width="476" height="220"></div>
+    <div>
+      <p class="crumbs"><a href="/">Inicio</a> / UDOO</p>
+      <h1>UDOO: control operativo de servicios urbanos</h1>
+      <p class="lead">Urban Data Operations Office: la plataforma de gestión de limpieza urbana de GreenDataCore. Conecta contratos, equipos, flota, mapas en tiempo real, avisos y mantenimiento en un mismo entorno de trabajo, con el acompañamiento de una Oficina Técnica de Datos.</p>
+      <p class="acts"><a class="btn btn-p" href="#contacto" data-demo>Solicitar una demo de UDOO</a></p>
+    </div>
+
+    <figure class="ud-fig">
+      <div class="ud" id="ud" data-start="mapa">
+        <div class="ud-top">
+          <div class="ud-title">UDOO · Panel de operaciones</div>
+          <div class="ud-tabs" role="tablist" aria-label="Vistas de UDOO">
+            <button type="button" role="tab" data-v="mapa" aria-selected="true">Mapa</button>
+            <button type="button" role="tab" data-v="flota" aria-selected="false">Flota</button>
+            <button type="button" role="tab" data-v="ind" aria-selected="false">Indicadores</button>
+          </div>
+          <span class="ud-demo"><b>Datos de demostración</b> · <span data-k="clock">Jornada simulada</span></span>
+        </div>
+        <div class="ud-body">
+          <div class="ud-map"><div id="ud-map" role="region" aria-label="Mapa de demostración sobre el parque del Retiro, con zonas, avisos, carritos, vehículos y capataces ficticios"></div></div>
+          <div class="ud-panel" hidden>
+            <div><p class="ud-ph">Avisos recibidos por zona</p><p class="ud-pd">Jornada simulada. Suma de avisos abiertos y resueltos.</p><div class="ud-bars" data-b="rec"></div></div>
+            <div><p class="ud-ph">Praderas con paso registrado por zona</p><p class="ud-pd">Praderas con al menos una posición GPS a menos de 30 m en la jornada simulada.</p><div class="ud-bars" data-b="pass"></div></div>
+            <div><p class="ud-ph">Presencia GPS por sector</p><p class="ud-pd">Carritos asignados cuya última posición está dentro de su sector.</p><div class="ud-bars" data-b="gps"></div></div>
+          </div>
+          <aside class="ud-side">
+            <dl class="ud-kpis">
+              <div class="ud-kpi new"><dt>Avisos abiertos</dt><dd><b data-k="open">0</b><span>Pendientes de resolver en este momento.</span></dd></div>
+              <div class="ud-kpi ok"><dt>Avisos resueltos</dt><dd><b data-k="solved">0</b><span>Cerrados desde el inicio de la jornada simulada.</span></dd></div>
+              <div class="ud-kpi"><dt>Presencia GPS</dt><dd><b data-k="fleet">0</b><span>Carritos asignados cuya última posición está dentro de su sector. No acredita la ejecución del servicio.</span></dd></div>
+              <div class="ud-kpi"><dt>Praderas con paso registrado</dt><dd><b data-k="pass">0</b><span>Praderas con al menos una posición GPS a menos de 30 m en la jornada simulada. Indica paso, no trabajo realizado.</span></dd></div>
+            </dl>
+            <p class="ud-feed-h">Actividad reciente</p>
+            <ul class="ud-feed" aria-live="off"></ul>
+          </aside>
+        </div>
+      </div>
+      <figcaption><b>Datos ficticios.</b> Demostración interactiva sobre la cartografía real del parque del Retiro: las zonas, los carritos, los vehículos, los capataces, los avisos y las cifras se generan en el navegador y no corresponden a ningún contrato. Un segundo equivale a un minuto de la jornada simulada.</figcaption>
+    </figure>
+
+    <div class="ud-procs">
+      <h3>Qué permite gestionar</h3>
+      <ol class="ud-proc-grid">
+        <li id="p01"><h4><span>01</span>Preparar cada contrato para operar</h4><p>Servicios, zonas, sectores, cantones (bases operativas), turnos, personal y medios. Los datos se incorporan con plantillas Excel validadas antes de cargarse; se configuran tipos de aviso, reglas de reparto y plazos. La activación comprueba que el contrato tiene sectores, cantones y plantilla, y se gestionan vigencias, prórrogas y contratos finalizados en consulta.</p></li>
+        <li id="p02"><h4><span>02</span>Cubrir el servicio con los recursos disponibles</h4><p>Compara la dotación necesaria con el personal y los medios disponibles por cantón y turno, según categorías y habilitaciones. Ante un déficit, propone apoyos explicados desde otros cantones; el responsable revisa su efecto y valida o ajusta los traslados.</p></li>
+        <li id="p03"><h4><span>03</span>Dirigir la operación sobre el mapa</h4><p>Límites del contrato, zonas, sectores, cantones, avisos y posiciones de los medios en vivo. Alertas de medios fuera de su sector o zona con tolerancias configurables, recorridos por turno o día, distancias y superficie estimada a partir del trazado y del ancho del medio. La posición GPS indica presencia y recorrido; por sí sola no acredita trabajo realizado.</p></li>
+        <li id="p04"><h4><span>04</span>Llevar cada aviso hasta su resolución</h4><p>Incidencias propias o avisos externos, ubicados, con prioridad, plazo y reparto por equipo y turno. El capataz los acepta, inicia, pausa, reanuda y resuelve con notas y fotografías; lo que requiere atención se escala al encargado, y el historial conserva transiciones y tiempos.</p></li>
+        <li id="p05"><h4><span>05</span>Conectar el taller con la disponibilidad de la flota</h4><p>Vehículos, carritos, maquinaria y herramientas con sus estados, ITV y contadores de uso. Una avería o un preventivo da lugar a una orden de trabajo, el taller organiza su carga semanal y el estado del medio queda vinculado a la intervención.</p></li>
+        <li id="p06"><h4><span>06</span>Controlar materiales y necesidades de atención</h4><p>Existencias, entradas, consumos, ajustes y traspasos de consumibles por cantón. Los mínimos de stock, las necesidades de cobertura, las habilitaciones, las ITV y las revisiones pendientes alimentan las vistas de atención de cada responsable.</p></li>
+        <li id="p07"><h4><span>07</span>Dar visibilidad al ayuntamiento</h4><p>Mapa del servicio, medios agregados, cobertura de jornadas cerradas y avisos municipales, con plazos, evolución y fotografías de apertura y cierre, además de las incidencias que la empresa marque como visibles. La vista municipal protege los datos personales de la plantilla y las notas internas.</p></li>
+        <li id="p08"><h4><span>08</span>Incorporar datos de otros sistemas</h4><p>Posiciones de medios y avisos recibidos mediante API, con conexiones y credenciales administradas por contrato. Cada fuente se configura según su formato y alcance, y sus datos alimentan el mapa y el circuito de atención de avisos.</p></li>
+      </ol>
+      <p class="ud-trust"><b>Confianza y trazabilidad.</b> Separación de datos entre organizaciones, permisos según funciones y asignaciones, auditoría de actuaciones y protección de las evidencias. Cada usuario ve la información que corresponde a su responsabilidad, desde la dirección de la empresa hasta el equipo de campo y la supervisión municipal.</p>
+    </div>
+
+    <div class="mm" id="mm">
+      <svg class="mm-lines" aria-hidden="true"></svg>
+      <div class="mm-q mm-a" data-side="l">
+        <h3 class="mm-hub">Qué gestiona</h3>
+        <ul>
+          <li><button type="button" aria-pressed="false">Contratos y configuración</button><p class="mm-txt">Servicios, zonas, sectores, cantones, turnos, personal y medios de cada contrato, con tipos de aviso, reglas de reparto y plazos.</p></li>
+          <li><button type="button" aria-pressed="false">Personal y cobertura</button><p class="mm-txt">Dotación necesaria frente a personal y medios disponibles por cantón y turno, con categorías y habilitaciones.</p></li>
+          <li><button type="button" aria-pressed="false">Mapa en tiempo real</button><p class="mm-txt">Límites, zonas, sectores, cantones, avisos y posiciones de los medios con actualización en vivo.</p></li>
+          <li><button type="button" aria-pressed="false">Avisos e incidencias</button><p class="mm-txt">Avisos propios y externos, ubicados, priorizados y repartidos por equipo y turno hasta su resolución.</p></li>
+          <li><button type="button" aria-pressed="false">Flota y taller</button><p class="mm-txt">Vehículos, carritos, maquinaria y herramientas, con estados, ITV, contadores de uso y órdenes de trabajo.</p></li>
+          <li><button type="button" aria-pressed="false">Materiales y stock</button><p class="mm-txt">Existencias, entradas, consumos y traspasos de consumibles por cantón, con mínimos de stock.</p></li>
+        </ul>
+      </div>
+      <div class="mm-q mm-b" data-side="r">
+        <h3 class="mm-hub">Qué procesos mejora</h3>
+        <ul>
+          <li><button type="button" aria-pressed="false">Del aviso a la resolución</button><p class="mm-txt">Cada aviso tiene prioridad, plazo y responsable; el historial conserva las transiciones y los tiempos de atención.</p></li>
+          <li><button type="button" aria-pressed="false">Cobertura del servicio</button><p class="mm-txt">Ante un déficit, propuestas explicadas de apoyo desde otros cantones que el responsable valida o ajusta.</p></li>
+          <li><button type="button" aria-pressed="false">Presencia en zona</button><p class="mm-txt">Alertas de medios fuera de su sector o zona con tolerancias configurables. La posición GPS indica presencia y recorrido; por sí sola no acredita trabajo realizado.</p></li>
+          <li><button type="button" aria-pressed="false">Mantenimiento y disponibilidad</button><p class="mm-txt">Las averías y los preventivos generan órdenes de trabajo, y la planificación cuenta con los medios realmente operativos.</p></li>
+          <li><button type="button" aria-pressed="false">Evidencias para la Administración</button><p class="mm-txt">Plazos, evolución y fotografías de apertura y cierre de los avisos, desde la misma información operativa.</p></li>
+        </ul>
+      </div>
+      <div class="mm-core">
+        <div class="mm-node"><span class="mm-name">UDOO</span><span class="mm-sub">Urban Data Operations Office</span></div>
+        <div class="mm-card" aria-live="polite"><p class="mm-ct"></p><p class="mm-cd"></p></div>
+      </div>
+      <div class="mm-q mm-c" data-side="l">
+        <h3 class="mm-hub">Cómo se implanta</h3>
+        <ul>
+          <li><button type="button" aria-pressed="false">1 · Diagnóstico</button><p class="mm-txt">Análisis de la operativa, de los procesos y de las fuentes de información, y definición de los indicadores.</p></li>
+          <li><button type="button" aria-pressed="false">2 · Implantación</button><p class="mm-txt">Configuración del contrato, carga de datos con plantillas validadas, conexión de las fuentes acordadas, formación y puesta en marcha.</p></li>
+          <li><button type="button" aria-pressed="false">3 · Oficina Técnica de Datos</button><p class="mm-txt">Acompañamiento recurrente: calidad de los datos, seguimiento de pendientes y desviaciones y propuestas de mejora.</p></li>
+        </ul>
+      </div>
+      <div class="mm-q mm-d" data-side="r">
+        <h3 class="mm-hub">Quién lo usa</h3>
+        <ul>
+          <li><button type="button" aria-pressed="false">Dirección</button><p class="mm-txt">Visión de varios contratos a la vez.</p></li>
+          <li><button type="button" aria-pressed="false">Encargado</button><p class="mm-txt">Coordina la operación de su contrato y recibe los avisos y propuestas que requieren su atención.</p></li>
+          <li><button type="button" aria-pressed="false">Capataz</button><p class="mm-txt">Atiende los avisos y recursos de su cantón desde una interfaz adaptada al móvil, con notas y fotografías.</p></li>
+          <li><button type="button" aria-pressed="false">Responsable de taller</button><p class="mm-txt">Organiza el mantenimiento y la carga semanal del taller.</p></li>
+          <li><button type="button" aria-pressed="false">Ayuntamiento</button><p class="mm-txt">Consulta el estado de sus servicios mediante un acceso de supervisión con vista propia y permisos diferenciados.</p></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="ud-next"><b>Próximas ramas:</b> el modelo UDOO en otros servicios urbanos, la Oficina Técnica de Datos para otras ciudades y productos reutilizables, como cuadros de mando, plantillas y automatizaciones.</p>
+
+    <div class="ud-procs">
+      <h3>Quién lo usa</h3>
+      <ul class="ud-roles">
+        <li><b>Dirección</b><span>Visión de varios contratos a la vez.</span></li>
+        <li><b>Encargado</b><span>Coordina la operación de su contrato y recibe los avisos y propuestas que requieren su atención.</span></li>
+        <li><b>Capataz</b><span>Atiende los avisos y recursos de su cantón desde una interfaz adaptada al móvil, con notas y fotografías.</span></li>
+        <li><b>Responsable de taller</b><span>Organiza el mantenimiento, las órdenes de trabajo y la carga semanal del taller.</span></li>
+        <li><b>Ayuntamiento</b><span>Consulta el estado de sus servicios, los avisos visibles y la cobertura agregada mediante un acceso de supervisión con vista propia y permisos diferenciados.</span></li>
+      </ul>
+      <p class="ud-trust"><b>Qué aporta.</b> A la empresa, priorizar incidencias, coordinar apoyos entre equipos y relacionar el mantenimiento con la capacidad disponible. A los mandos de campo, los avisos y recursos de su ámbito en el móvil. A la Administración, seguimiento del servicio y evidencias de atención desde la misma información operativa.</p>
+    </div>
+
+    <div class="ud-offer">
+      <h3>Qué incluye contratar UDOO</h3>
+      <div class="ud-offer-grid">
+        <article class="ud-card">
+          <h4>Implantación por contrato</h4>
+          <ul>
+            <li>Diagnóstico de la operativa y de las fuentes de información.</li>
+            <li>Configuración de sectores, recursos, usuarios y permisos.</li>
+            <li>Conexión de las fuentes de datos acordadas.</li>
+            <li>Adaptación de mapas, cuadros de mando e indicadores.</li>
+            <li>Formación, validación inicial y puesta en marcha.</li>
+          </ul>
+        </article>
+        <article class="ud-card">
+          <h4>Seguimiento recurrente</h4>
+          <ul>
+            <li>Acceso, mantenimiento y soporte de la plataforma.</li>
+            <li>Supervisión de la actualización y calidad de los datos.</li>
+            <li>Seguimiento de indicadores, pendientes y desviaciones.</li>
+            <li>Reuniones periódicas de revisión y propuestas de mejora.</li>
+            <li>Ajustes funcionales dentro del alcance contratado.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="ud-note">La contratación se organiza por contrato de servicio; el ayuntamiento dispone de un acceso de supervisión sin suscripción municipal de pago. Las integraciones específicas, los desarrollos adicionales y el alcance de la implantación y del acompañamiento se concretan en cada propuesta.</p>
+      <p class="acts"><a class="btn btn-p" href="#contacto" data-demo>Solicitar una demo de UDOO</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="container">
+    <div>
+      <h2>Hablemos</h2>
+      <p class="lead">Cuéntenos qué servicio gestiona y le proponemos una reunión.</p>
+    </div>
+    <form class="form" id="cf" novalidate>
+      <label>Nombre y apellidos<input id="f-nombre" name="nombre" autocomplete="name" required></label>
+      <label>Organización<input id="f-org" name="organizacion" autocomplete="organization" required></label>
+      <label>Correo electrónico<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+      <label>Teléfono (opcional)<input id="f-tel" name="telefono" type="tel" autocomplete="tel"></label>
+      <label class="full">Tipo de entidad<select id="f-tipo" name="tipo" required>
+        <option value="">Seleccione una opción</option>
+        <option>Ayuntamiento o Administración pública</option>
+        <option>Empresa prestataria de servicios urbanos</option>
+        <option>Socio tecnológico</option>
+        <option>Otro</option>
+      </select></label>
+      <label class="full">Mensaje<textarea id="f-msg" name="mensaje" required></textarea></label>
+      <label class="hp" aria-hidden="true">No rellenar<input id="f-hp" name="_honey" tabindex="-1" autocomplete="off"></label>
+      <label class="check full"><input id="f-ok" type="checkbox" required>Acepto que GreenDataCore utilice estos datos únicamente para responder a mi consulta.</label>
+      <div class="send full"><button class="btn btn-p" id="f-send" type="submit">Enviar mensaje</button><p class="status" id="f-status" role="status" aria-live="polite"></p></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <p class="statement">Que los servicios de la ciudad se gestionen con datos, no solo con intuición.</p>
+    <div class="row">
+      <img src="/assets/logo/gdc-logo-horizontal-negativo.svg" alt="GreenDataCore" width="157" height="40">
+      <ul><li><a href="/#metodo">Método</a></li><li><a href="/udoo/">UDOO</a></li><li><a href="#contacto">Contacto</a></li></ul>
+      <p>© <span id="y">2026</span> GreenDataCore, Madrid</p>
+    </div>
+  </div>
+</footer>
+<script>
+{
+  const form = document.getElementById('cf');
+  const status = document.getElementById('f-status');
+  const sendBtn = document.getElementById('f-send');
+  const ENDPOINT = 'https://formsubmit.co/ajax/a.kim@tagasa.com';
+  const say = (t, cls) => { status.textContent = t; status.className = 'status ' + (cls || ''); };
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!form.checkValidity()) { say('Revise los campos obligatorios y acepte el uso de sus datos.', 'err'); form.reportValidity(); return; }
+    if (document.getElementById('f-hp').value) return;
+    const v = id => document.getElementById(id).value.trim();
+    const data = { nombre: v('f-nombre'), organizacion: v('f-org'), email: v('f-email'), telefono: v('f-tel'), tipo: v('f-tipo'), mensaje: v('f-msg'), _subject: 'Contacto web GreenDataCore: ' + v('f-org'), _replyto: v('f-email'), _template: 'table', _captcha: 'false' };
+    sendBtn.disabled = true; say('Enviando…');
+    try {
+      const r = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || String(j.success) === 'false') throw new Error('envío');
+      form.reset(); say('Mensaje enviado. Le responderemos a la mayor brevedad.', 'ok');
+    } catch (err) {
+      say('No se ha podido enviar el mensaje. Inténtelo de nuevo en unos minutos.', 'err');
+    } finally { sendBtn.disabled = false; }
+  });
+  document.getElementById('y').textContent = new Date().getFullYear();
+}
+</script>
+<script>
+{
+  const ud = document.getElementById('ud');
+  if (ud) {
+    const add = src => new Promise((ok, ko) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = ko; document.body.append(s); });
+    new IntersectionObserver((es, o) => {
+      if (!es[0].isIntersecting) return;
+      o.disconnect();
+      add('/assets/vendor/leaflet/leaflet.js').then(() => add('/assets/udoo/udoo-mapa-datos.js')).then(() => add('/assets/udoo/udoo-mapa.js?v=9')).catch(() => {});
+    }, { rootMargin: '600px 0px' }).observe(ud);
+  }
+  if (/[?&]demo\b/.test(location.search)) { const m = document.getElementById('f-msg'); if (m && !m.value.trim()) m.value = 'Nos gustaría solicitar una demostración de UDOO.'; }
+  document.querySelectorAll('[data-demo]').forEach(a => a.addEventListener('click', () => {
+    const m = document.getElementById('f-msg');
+    if (m && !m.value.trim()) m.value = 'Nos gustaría solicitar una demostración de UDOO.';
+  }));
+}
+</script>
+<script>
+{
+  const mm = document.getElementById('mm');
+  if (mm) {
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = mm.querySelector('.mm-lines'), node = mm.querySelector('.mm-node');
+    const ct = mm.querySelector('.mm-ct'), cd = mm.querySelector('.mm-cd');
+    const wide = matchMedia('(min-width: 60.01rem)');
+    const btns = [...mm.querySelectorAll('.mm-q button')];
+    let ticks = new Map();
+    const el = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); svg.append(e); return e; };
+    const draw = () => {
+      svg.replaceChildren(); ticks = new Map();
+      if (!wide.matches) return;
+      const R = mm.getBoundingClientRect(), r = e => { const b = e.getBoundingClientRect(); return { l: b.left - R.left, r: b.right - R.left, t: b.top - R.top, b: b.bottom - R.top, y: (b.top + b.bottom) / 2 - R.top }; };
+      svg.setAttribute('viewBox', `0 0 ${R.width} ${R.height}`);
+      const n = r(node);
+      mm.querySelectorAll('.mm-q').forEach(qd => {
+        const left = qd.dataset.side === 'l', Q = r(qd), hub = r(qd.querySelector('.mm-hub'));
+        const tx = left ? Q.r + 24 : Q.l - 24;
+        const items = [...qd.querySelectorAll('button')].map(b => [b, r(b)]);
+        const last = items[items.length - 1][1].y;
+        const nx = left ? n.l : n.r, mx = (tx + nx) / 2;
+        const trunk = `M${tx} ${hub.y} H${mx} V${n.y} H${nx}`;
+        el('path', { d: trunk, class: 'mm-t' });
+        el('path', { d: trunk, class: 'mm-p' });
+        el('path', { d: `M${left ? hub.r + 12 : hub.l - 12} ${hub.y} H${tx} V${last}`, class: 'mm-t' });
+        el('circle', { cx: tx, cy: hub.y, r: 4, class: 'mm-j' });
+        items.forEach(([b, bb]) => { ticks.set(b, el('path', { d: `M${tx} ${bb.y} H${left ? bb.r + 6 : bb.l - 6}`, class: 'mm-t' })); el('circle', { cx: tx, cy: bb.y, r: 3, class: 'mm-j' }); });
+      });
+      el('circle', { cx: n.l, cy: n.y, r: 5, class: 'mm-j on' }); el('circle', { cx: n.r, cy: n.y, r: 5, class: 'mm-j on' });
+      const cur = btns.find(b => b.getAttribute('aria-pressed') === 'true'); if (cur && ticks.get(cur)) ticks.get(cur).classList.add('on');
+    };
+    const select = b => {
+      btns.forEach(x => { x.setAttribute('aria-pressed', String(x === b)); ticks.get(x)?.classList.toggle('on', x === b); });
+      ct.textContent = b.textContent; cd.textContent = b.nextElementSibling.textContent;
+    };
+    btns.forEach(b => b.addEventListener('click', () => {
+      if (!wide.matches) { const li = b.parentElement, open = !li.classList.contains('open'); li.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open)); return; }
+      select(b);
+    }));
+    btns.forEach(b => b.addEventListener('mouseenter', () => { if (wide.matches) select(b); }));
+    select(btns[0]);
+    new ResizeObserver(draw).observe(mm);
+    wide.addEventListener('change', draw);
+    if (document.fonts) document.fonts.ready.then(draw);
+  }
+}
+</script>
+</body>
+</html>

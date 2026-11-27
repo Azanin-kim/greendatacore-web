@@ -33,7 +33,7 @@ GreenDataCore diseña, implanta y acompaña sistemas de control operativo para l
 
 ## UDOO
 
-- [UDOO — Urban Data Operations Office](https://greendatacore.com/#udoo): Presentación del producto, destinatarios, implantación y acompañamiento. La demostración pública utiliza datos ficticios sobre la cartografía del parque del Retiro; no representa un cliente ni un contrato real.
+- [UDOO — Urban Data Operations Office](https://greendatacore.com/udoo/): Presentación del producto, destinatarios, implantación y acompañamiento. La demostración pública utiliza datos ficticios sobre la cartografía del parque del Retiro; no representa un cliente ni un contrato real.
 
 ## Contacto
 

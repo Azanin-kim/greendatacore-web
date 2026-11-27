@@ -96,6 +96,23 @@ body { font-size: 1.0625rem; }
 .ud-proc-grid p { margin: var(--space-xs) 0 0; font-size: var(--text-sm); line-height: 1.55; color: var(--color-muted); }
 .ud-trust { margin: 0; max-width: 80ch; font-size: var(--text-sm); line-height: 1.55; color: var(--color-muted); }
 .ud-trust b { color: var(--color-ink); font-weight: 600; }
+.ud-proc-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xs) var(--space-lg); }
+.ud-proc-list a { display: flex; gap: var(--space-sm); align-items: baseline; padding: var(--space-sm) var(--space-md); border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-paper-2); color: var(--color-ink); text-decoration: none; font-weight: 500; transition: border-color var(--dur-short) var(--ease-out); }
+.ud-proc-list a:hover { border-color: var(--color-track); }
+.ud-proc-list a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.ud-proc-list span { font-size: var(--text-sm); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--color-accent); }
+.ud-more { margin: 0; font-size: var(--text-sm); }
+.ud-more a, .ud-link { color: var(--color-accent); font-weight: 600; text-underline-offset: 3px; }
+.udoo .acts .ud-link { margin-left: var(--space-md); font-size: var(--text-sm); }
+.ud-roles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--space-md); }
+.ud-roles li { display: grid; gap: var(--space-2xs); align-content: start; padding: var(--space-md); border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-paper-2); }
+.ud-roles b { color: var(--color-accent); font-weight: 600; }
+.ud-roles span { font-size: var(--text-sm); line-height: 1.5; color: var(--color-muted); }
+.udoo-page { border-top: 0; padding-top: var(--space-xl); }
+.udoo-page h1 { font-size: var(--text-3xl); line-height: 1.1; }
+.crumbs { margin: 0 0 var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
+.crumbs a { color: var(--color-muted); }
+.ud-proc-grid li { scroll-margin-top: 96px; }
 .ud-offer { grid-column: 1 / -1; display: grid; gap: var(--space-lg); padding-top: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
 .ud-offer h3 { margin: 0; font-size: var(--text-xl); }
 .ud-offer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg); }
@@ -185,7 +202,8 @@ html.js .intro-go:not(.on) { opacity: 0; }
 
 @media (max-width: 60rem) {
   .hero .container, .story .container, .services .container, .udoo .container, .contact .container { grid-template-columns: minmax(0, 1fr); }
-  .ud-offer-grid, .ud-proc-grid { grid-template-columns: minmax(0, 1fr); }
+  .ud-offer-grid, .ud-proc-grid, .ud-proc-list { grid-template-columns: minmax(0, 1fr); }
+  .udoo .acts .ud-link { display: inline-block; margin: var(--space-sm) 0 0; }
   .mm { grid-template-columns: minmax(0, 1fr); grid-template-areas: "core" "a" "b" "c" "d"; row-gap: var(--space-xl); }
   .mm-lines, .mm-card { display: none; }
   .mm-q, .mm-q[data-side="l"], .mm-q[data-side="r"] { justify-items: stretch; text-align: left; border-left: 2px solid var(--color-track); padding-left: var(--space-md); }
