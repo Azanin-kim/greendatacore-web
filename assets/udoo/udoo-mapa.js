@@ -16,7 +16,7 @@
     const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647;
     const pick = a => a[Math.floor(rnd() * a.length)];
 
-    const map = L.map(root.querySelector('#ud-map'), { scrollWheelZoom: false, zoomSnap: 0.25, attributionControl: true });
+    const map = L.map(root.querySelector('#ud-map'), { scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: false, zoomSnap: 0.25, attributionControl: true });
     L.tileLayer(TILES.url, { maxZoom: TILES.maxZoom, attribution: TILES.attribution }).addTo(map);
     const BOUNDS = L.latLngBounds([40.4092, -3.6889], [40.4211, -3.6765]);
     map.fitBounds(BOUNDS, { padding: [4, 4] });

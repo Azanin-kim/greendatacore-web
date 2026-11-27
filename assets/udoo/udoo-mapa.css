@@ -9,7 +9,7 @@
 .ud-tabs button:hover { color: var(--color-ink); border-color: var(--color-edge); }
 .ud-tabs button:active { transform: translateY(1px); }
 .ud-tabs button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-.ud-tabs button[aria-selected="true"] { color: var(--color-accent-ink); background: var(--color-accent); }
+.ud-tabs button[aria-selected="true"] { color: var(--color-accent); background: var(--color-tint); border-color: var(--color-track); }
 .ud-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 280px); min-height: 440px; }
 .ud-map { position: relative; min-height: 580px; background: var(--color-paper); }
 .ud-side { border-left: 1px solid var(--color-rule); padding: var(--space-md); display: flex; flex-direction: column; gap: var(--space-md); }
@@ -33,9 +33,9 @@
 .ud-panel { padding: var(--space-md); display: grid; gap: var(--space-lg); }
 .ud-bars { display: grid; gap: var(--space-xs); }
 .ud-bar { display: grid; grid-template-columns: 5.5em minmax(0, 1fr) 3em; align-items: center; gap: var(--space-sm); font-size: var(--text-xs); color: var(--color-muted); }
-.ud-bar i { display: block; height: 12px; border-radius: 2px; background: var(--color-accent); transition: width var(--dur-long) var(--ease-out); }
+.ud-bar i { display: block; height: 12px; border-radius: 2px; background: var(--color-accent); }
 .ud-bar em { font-style: normal; text-align: right; color: var(--color-ink); font-variant-numeric: tabular-nums; }
-.ud-panel h4 { margin: 0 0 var(--space-xs); font-size: var(--text-sm); font-weight: 600; }
+.ud-panel .ud-ph { margin: 0 0 var(--space-xs); font-size: var(--text-sm); font-weight: 600; }
 .ud [hidden] { display: none !important; }
 @media (max-width: 60rem) {
   .ud-body { grid-template-columns: minmax(0, 1fr); }
@@ -43,7 +43,6 @@
   .ud-map { min-height: 300px; }
   .ud-feed { max-height: 140px; }
 }
-@media (prefers-reduced-motion: reduce) { .ud-bar i { transition: none; } }
 
 /* versión con cartografía real (Leaflet + OpenStreetMap) */
 .ud-map #ud-map { position: absolute; inset: 0; }
